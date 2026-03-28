@@ -37,7 +37,8 @@ body {
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.5;
-  height: 100vh;
+  zoom: 1.15;
+  height: calc(100vh / 1.15);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -194,7 +195,7 @@ body {
   display: flex; flex-direction: column; gap: 5px;
 }
 
-/* ── Clerk Panel (fixed full-height, pushes content) ── */
+/* ── Clerk Panel (full-height, header = toggle button) ── */
 .clerk-panel {
   position: fixed;
   top: 0; right: 0; bottom: 0;
@@ -214,6 +215,7 @@ body {
 .main-area.clerk-open, .playback-bar.clerk-open {
   margin-right: 260px;
 }
+/* Button in topbar — becomes panel header when open */
 .clerk-toggle-topbar {
   font-family: var(--font-mono); font-size: 10px;
   padding: 4px 10px; border: 1px solid var(--border);
@@ -221,11 +223,30 @@ body {
   color: var(--clerk); cursor: pointer; transition: all 0.15s;
 }
 .clerk-toggle-topbar:hover { background: var(--bg-hover); color: var(--text); }
-.clerk-toggle-topbar.active { background: var(--clerk); color: var(--bg); border-color: var(--clerk); }
+.clerk-toggle-topbar.active { display: none; }
+/* Panel header (visible only when open) */
+.clerk-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; height: 44px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0; background: var(--bg);
+}
+.clerk-panel-label {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--clerk); cursor: pointer;
+}
+.clerk-panel-label .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--clerk);
+}
+.clerk-panel-label .model {
+  color: var(--text-muted); font-size: 9px;
+  padding: 1px 4px; background: var(--bg-raised); border-radius: 2px;
+}
 .clerk-close {
-  font-size: 14px; color: var(--text-muted); cursor: pointer;
+  font-size: 16px; color: var(--text-muted); cursor: pointer;
   border: none; background: none; padding: 2px 6px;
-  transition: color 0.15s;
+  line-height: 1; transition: color 0.15s;
 }
 .clerk-close:hover { color: var(--text); }
 .clerk-panel .agent-col-body {
@@ -271,6 +292,13 @@ body {
 }
 .evt-msg-out.broadcast { border-left-color: var(--text-muted); }
 .evt-msg-out.dm { border-left-color: var(--against); }
+.evt-msg-in {
+  background: var(--bg-panel); border-left: 2px solid var(--border);
+  padding: 5px 8px; opacity: 0.7;
+}
+.evt-msg-in .evt-msg-sender {
+  font-size: 10px; font-weight: 600; margin-bottom: 1px;
+}
 .evt-msg-meta {
   font-family: var(--font-mono); font-size: 9px;
   color: var(--text-muted); margin-bottom: 2px;
@@ -451,11 +479,11 @@ body {
 </div>
 
 <div class="clerk-panel" id="clerkPanel">
-  <div class="agent-col-header">
-    <div class="agent-identity">
-      <div class="agent-dot" style="background: var(--clerk)"></div>
-      <span class="agent-name-label" style="color: var(--clerk)">Clerk</span>
-      <span class="agent-model" id="clerkModel"></span>
+  <div class="clerk-panel-header">
+    <div class="clerk-panel-label" onclick="toggleClerk()">
+      <span class="dot"></span>
+      Clerk
+      <span class="model" id="clerkModel"></span>
     </div>
     <button class="clerk-close" onclick="toggleClerk()" title="Close">&times;</button>
   </div>
@@ -740,6 +768,40 @@ function renderEventToPublicChat(evt) {
   publicChatFeed.scrollTop = publicChatFeed.scrollHeight;
 }
 
+function renderIncomingMessage(evt) {
+  if (evt.type !== 'message') return;
+
+  // Determine recipients
+  let recipients = [];
+  if (evt.is_broadcast) {
+    // All agents except sender
+    recipients = gameData.players.map(p => p.name).filter(n => n !== evt.source);
+    if (evt.source !== 'clerk') recipients.push('clerk');
+  } else if (evt.to && evt.to !== 'team-lead') {
+    // DM to specific agent
+    recipients = [evt.to];
+  }
+
+  for (const name of recipients) {
+    const feed = panelFeeds[name];
+    if (!feed) continue;
+
+    const el = document.createElement('div');
+    el.className = 'evt evt-msg-in';
+    el.style.borderLeftColor = agentColor(evt.source);
+
+    const dmTag = !evt.is_broadcast ? ' <span class="dm-label">DM</span>' : '';
+    const preview = evt.content.length > 150 ? evt.content.slice(0, 150) + '...' : evt.content;
+
+    el.innerHTML = `
+      <div class="evt-msg-sender" style="color: ${agentColor(evt.source)}">${evt.source}${dmTag} <span class="ts">${shortTime(evt.timestamp)}</span></div>
+      <div class="evt-msg-text">${renderMarkdownLight(preview)}</div>
+    `;
+    feed.appendChild(el);
+    feed.scrollTop = feed.scrollHeight;
+  }
+}
+
 function updateAgentStatus(agentName, status) {
   const statusEl = document.getElementById(`status-${agentName}`);
   if (statusEl) {
@@ -797,6 +859,7 @@ function advanceTo(targetIdx) {
     const evt = visibleEvents[currentIdx];
     renderEventToPanel(evt);
     renderEventToPublicChat(evt);
+    renderIncomingMessage(evt);
   }
 
   // Update agent statuses based on current event
@@ -852,19 +915,20 @@ function scheduleNext() {
     return;
   }
 
-  // Calculate delay based on timestamp gap and speed
-  const curr = visibleEvents[currentIdx] || visibleEvents[0];
+  // Calculate delay based on content length (reading time)
   const next = visibleEvents[currentIdx + 1];
+  const content = next.content || '';
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
 
-  let delay = 200; // default ms between events
-  if (curr.timestamp && next.timestamp) {
-    const gap = new Date(next.timestamp) - new Date(curr.timestamp);
-    // Compress: real gap mapped to display time
-    // < 1s → 100ms, 1-10s → 200ms, 10-60s → 400ms, > 60s → 600ms
-    if (gap < 1000) delay = 100;
-    else if (gap < 10000) delay = 200;
-    else if (gap < 60000) delay = 400;
-    else delay = 600;
+  let delay;
+  if (next.type === 'message') {
+    delay = Math.max(1000, Math.min(5000, wordCount * 60));
+  } else if (next.type === 'thinking') {
+    delay = Math.max(500, Math.min(4000, wordCount * 40));
+  } else if (next.type === 'text') {
+    delay = Math.max(500, Math.min(3000, wordCount * 50));
+  } else {
+    delay = 400;
   }
 
   delay /= speeds[speedIdx];
