@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomic Game 5 — Replay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --bg-raised: #101014;
+  --bg-panel: #16161c;
+  --bg-hover: #1c1c24;
+  --border: #252530;
+  --border-subtle: #1c1c26;
+  --text: #e8e6e3;
+  --text-dim: #8a8894;
+  --text-muted: #555464;
+
+  --clerk: #9b8aaa;
+  --opus: #e8a44a;
+  --sonnet: #5b9bd5;
+  --haiku: #6bc490;
+
+  --opus-bg: #e8a44a0a;
+  --sonnet-bg: #5b9bd50a;
+  --haiku-bg: #6bc4900a;
+  --clerk-bg: #9b8aaa0a;
+
+  --accent: #c4a0ff;
+  --win: #ffd700;
+  --for: #6bc490;
+  --against: #d4645c;
+  --invalid: #8a8894;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top Bar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 44px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar h1 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.topbar h1 span {
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-raised);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.tab-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab-btn:hover { color: var(--text-dim); }
+.tab-btn.active { background: var(--bg-panel); color: var(--text); }
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.round-indicator {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.round-indicator strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ── Scoreboard Strip ── */
+.scoreboard {
+  display: flex;
+  align-items: center;
+  padding: 6px 20px;
+  gap: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-raised);
+  flex-shrink: 0;
+  height: 36px;
+}
+
+.score-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.score-chip .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.score-chip .name {
+  color: var(--text-dim);
+}
+
+.score-chip .pts {
+  font-weight: 500;
+  min-width: 20px;
+}
+
+.score-chip.leading .pts { color: var(--win); }
+
+.score-chip .delta {
+  font-size: 10px;
+  color: var(--for);
+  opacity: 0.8;
+}
+
+/* ── Main Area ── */
+.main-area {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── Tab Content Containers ── */
+.tab-content {
+  display: none;
+  flex: 1;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+/* ── Replay Tab: Public Chat + Agent Panels ── */
+.replay-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Public Chat ── */
+.public-chat {
+  width: 320px;
+  min-width: 280px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.public-chat-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.public-chat-feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-msg {
+  border-radius: 6px;
+  padding: 8px 10px;
+  border-left: 3px solid var(--border);
+  animation: msgIn 0.25s ease-out;
+}
+
+.chat-msg.opus { border-left-color: var(--opus); }
+.chat-msg.sonnet { border-left-color: var(--sonnet); }
+.chat-msg.haiku { border-left-color: var(--haiku); }
+.chat-msg.clerk { border-left-color: var(--clerk); background: var(--clerk-bg); }
+
+.chat-msg .sender {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.chat-msg .sender.opus { color: var(--opus); }
+.chat-msg .sender.sonnet { color: var(--sonnet); }
+.chat-msg .sender.haiku { color: var(--haiku); }
+.chat-msg .sender.clerk { color: var(--clerk); }
+
+.chat-msg .sender .ts {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+.chat-msg .sender .badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  padding: 0px 4px;
+  border-radius: 2px;
+  background: var(--bg-panel);
+  color: var(--text-muted);
+}
+
+.chat-msg .body {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* ── Proposal in chat ── */
+.chat-proposal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 4px 0;
+}
+
+.chat-proposal .rule-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.chat-proposal .rule-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ── Vote result in chat ── */
+.chat-vote-result {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 4px 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.vote-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.vote-line .v-name { width: 120px; }
+.vote-line .v-name.opus { color: var(--opus); }
+.vote-line .v-name.sonnet { color: var(--sonnet); }
+.vote-line .v-name.haiku { color: var(--haiku); }
+
+.v-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.v-badge.for { background: #6bc49018; color: var(--for); }
+.v-badge.against { background: #d4645c18; color: var(--against); }
+.v-badge.invalid { background: #8a889418; color: var(--invalid); }
+
+.vote-verdict {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+}
+.vote-verdict.adopted { color: var(--for); }
+.vote-verdict.defeated { color: var(--against); }
+
+/* ── Agent Panels Area ── */
+.agent-panels {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.agent-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-subtle);
+  min-width: 0;
+}
+
+.agent-col:last-child { border-right: none; }
+
+.agent-col-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background: var(--bg-raised);
+}
+
+.agent-identity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agent-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.agent-dot.opus { background: var(--opus); }
+.agent-dot.sonnet { background: var(--sonnet); }
+.agent-dot.haiku { background: var(--haiku); }
+.agent-dot.clerk { background: var(--clerk); }
+
+.agent-dot.active {
+  box-shadow: 0 0 6px currentColor;
+  animation: pulse 2s infinite;
+}
+
+.agent-dot.opus.active { box-shadow: 0 0 6px var(--opus); }
+.agent-dot.sonnet.active { box-shadow: 0 0 6px var(--sonnet); }
+.agent-dot.haiku.active { box-shadow: 0 0 6px var(--haiku); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.agent-name-label {
+  font-weight: 600;
+  font-size: 12px;
+}
+.agent-name-label.opus { color: var(--opus); }
+.agent-name-label.sonnet { color: var(--sonnet); }
+.agent-name-label.haiku { color: var(--haiku); }
+.agent-name-label.clerk { color: var(--clerk); }
+
+.agent-model {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  padding: 1px 5px;
+  background: var(--bg);
+  border-radius: 2px;
+}
+
+.agent-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-thinking { color: var(--accent); }
+.status-acting { color: var(--for); }
+.status-idle { color: var(--text-muted); }
+
+.agent-col-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Agent Events ── */
+.agent-event {
+  border-radius: 5px;
+  padding: 8px 10px;
+  animation: msgIn 0.2s ease-out;
+}
+
+/* Thinking block */
+.evt-thinking {
+  background: #14101c;
+  border: 1px solid #221a30;
+}
+
+.evt-thinking-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--accent);
+  opacity: 0.6;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.evt-thinking-label::before {
+  content: '◆';
+  font-size: 7px;
+}
+
+.evt-thinking-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* Text output (assistant speech) */
+.evt-text {
+  background: var(--bg-panel);
+}
+
+.evt-text-content {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Tool call */
+.evt-tool {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 8px;
+  background: var(--bg-panel);
+  border-radius: 4px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.evt-tool .tool-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 10px;
+  margin-top: 1px;
+}
+
+.evt-tool .tool-name {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.evt-tool .tool-detail {
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.evt-tool.error { border-left: 2px solid var(--against); }
+.evt-tool.error .tool-name { color: var(--against); }
+
+/* Outgoing message */
+.evt-msg-out {
+  background: var(--bg-panel);
+  border-left: 2px solid var(--border);
+  padding: 6px 10px;
+}
+
+.evt-msg-out.broadcast { border-left-color: var(--text-muted); }
+.evt-msg-out.dm { border-left-color: var(--against); }
+
+.evt-msg-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.evt-msg-meta .dm-label {
+  color: var(--against);
+  font-weight: 500;
+}
+
+.evt-msg-text {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* Private note */
+.evt-note {
+  background: #111514;
+  border: 1px dashed #1e2e2a;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+.evt-note-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--for);
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.evt-note-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text);
+  opacity: 0.75;
+  white-space: pre-wrap;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* Idle state */
+.evt-idle {
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ── Clerk Fold ── */
+.clerk-fold {
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.clerk-fold-header {
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: var(--bg-raised);
+  transition: background 0.15s;
+}
+
+.clerk-fold-header:hover {
+  background: var(--bg-hover);
+}
+
+.clerk-fold-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.clerk-fold-label .name {
+  color: var(--clerk);
+  font-weight: 500;
+}
+
+.clerk-fold-toggle {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.clerk-fold.open .clerk-fold-toggle {
+  transform: rotate(180deg);
+}
+
+.clerk-fold-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: var(--bg);
+}
+
+.clerk-fold.open .clerk-fold-body {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.clerk-fold-content {
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Playback Bar ── */
+.playback-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  flex-shrink: 0;
+  height: 48px;
+}
+
+.pb-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.pb-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-raised);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+.pb-btn:hover { background: var(--bg-hover); color: var(--text); }
+.pb-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+.pb-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.pb-track-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pb-track {
+  height: 6px;
+  background: var(--bg-panel);
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.pb-progress {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  width: 12%;
+  transition: width 0.3s;
+  position: relative;
+}
+
+.pb-progress::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  width: 10px;
+  height: 10px;
+  background: var(--text);
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.pb-markers {
+  display: flex;
+  position: relative;
+  height: 10px;
+}
+
+.pb-marker {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--text-muted);
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.pb-marker:hover { color: var(--text); }
+.pb-marker.current { color: var(--accent); }
+.pb-marker.highlight { color: var(--win); }
+
+.pb-speed {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-raised);
+  color: var(--text-dim);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.pb-speed:hover { color: var(--text); background: var(--bg-hover); }
+
+/* ── Scores Tab ── */
+.scores-layout {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+.score-chart-placeholder {
+  width: 100%;
+  height: 300px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mini score chart SVG */
+.score-chart-placeholder svg {
+  position: absolute;
+  inset: 0;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.score-table th {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ── Rules Tab ── */
+.rules-layout {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+  max-width: 800px;
+}
+
+.rules-layout h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--text-dim);
+}
+
+.rule-block {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--bg-panel);
+  border-radius: 6px;
+  border-left: 3px solid var(--border);
+}
+
+.rule-block.new { border-left-color: var(--for); }
+.rule-block.amended { border-left-color: var(--opus); }
+
+.rule-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.rule-num .rule-tag {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 6px;
+}
+
+.rule-tag.new-tag { background: #6bc49018; color: var(--for); }
+.rule-tag.amended-tag { background: #e8a44a18; color: var(--opus); }
+
+.rule-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* ── Animations ── */
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <h1>Nomic <span>Game 5</span></h1>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('replay')">Replay</button>
+      <button class="tab-btn" onclick="switchTab('scores')">Scores</button>
+      <button class="tab-btn" onclick="switchTab('rules')">Rules</button>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="round-indicator">Round <strong>1</strong> / 19 — escargot-rigolo's turn</div>
+  </div>
+</div>
+
+<!-- Scoreboard Strip -->
+<div class="scoreboard">
+  <div class="score-chip leading">
+    <div class="dot" style="background: var(--haiku)"></div>
+    <span class="name">escargot-rigolo</span>
+    <span class="pts" style="color: var(--haiku)">8</span>
+    <span class="delta">+8</span>
+  </div>
+  <div class="score-chip">
+    <div class="dot" style="background: var(--opus)"></div>
+    <span class="name">petit-chat</span>
+    <span class="pts">0</span>
+  </div>
+  <div class="score-chip">
+    <div class="dot" style="background: var(--sonnet)"></div>
+    <span class="name">renard-malin</span>
+    <span class="pts">0</span>
+  </div>
+</div>
+
+<!-- Main Area -->
+<div class="main-area">
+
+  <!-- ═══ REPLAY TAB ═══ -->
+  <div class="tab-content active" id="tab-replay">
+    <div class="replay-layout">
+
+      <!-- Public Chat -->
+      <div class="public-chat">
+        <div class="public-chat-header">
+          <span>Public Chat</span>
+          <span style="font-size: 9px; opacity: 0.5">broadcasts only</span>
+        </div>
+        <div class="public-chat-feed">
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">18:58:15</span></div>
+            <div class="body"><strong>Welcome to Nomic Game 5!</strong><br>Players: escargot-rigolo, petit-chat, renard-malin<br><br><strong>Round 1 — escargot-rigolo's turn.</strong></div>
+          </div>
+
+          <div class="chat-msg haiku">
+            <div class="sender haiku">escargot-rigolo <span class="badge">Haiku</span> <span class="ts">18:58:48</span></div>
+            <div class="body">I've submitted my first rule proposal — a consensus bonus that rewards unanimity!</div>
+          </div>
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">18:59:00</span></div>
+            <div class="body">
+              <div class="chat-proposal">
+                <div class="rule-num">Proposal 301</div>
+                <div class="rule-text">If a rule-change is adopted by unanimous vote, the proposer receives an additional 2 bonus points beyond the standard 5.</div>
+              </div>
+              The floor is open for debate.
+            </div>
+          </div>
+
+          <div class="chat-msg opus">
+            <div class="sender opus">petit-chat <span class="badge">Opus</span> <span class="ts">18:59:05</span></div>
+            <div class="body">Interesting opening move. It's roughly symmetrical since we all propose. Creates incentive to craft proposals everyone can get behind rather than ramming through 2-1 votes. I'm inclined to support this.</div>
+          </div>
+
+          <div class="chat-msg sonnet">
+            <div class="sender sonnet">renard-malin <span class="badge">Sonnet</span> <span class="ts">18:59:09</span></div>
+            <div class="body">Smart analysis. The minority leverage angle is interesting — a lone dissenter can deny the bonus even on a passing rule. Ready to vote.</div>
+          </div>
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">18:59:27</span></div>
+            <div class="body"><strong>Commit phase open for Proposal 301.</strong> Submit your vote commitments.</div>
+          </div>
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">18:59:52</span></div>
+            <div class="body"><strong>All commitments received.</strong> Reveal phase open.</div>
+          </div>
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">19:06:09</span></div>
+            <div class="body">
+              <div class="chat-vote-result">
+                <div class="vote-line"><span class="v-name opus">petit-chat</span> <span class="v-badge for">FOR</span> <span style="color:var(--for); font-size:10px">✓</span></div>
+                <div class="vote-line"><span class="v-name sonnet">renard-malin</span> <span class="v-badge for">FOR</span> <span style="color:var(--for); font-size:10px">✓</span></div>
+                <div class="vote-line"><span class="v-name haiku">escargot-rigolo</span> <span class="v-badge invalid">INVALID</span></div>
+                <div class="vote-verdict adopted">ADOPTED — 2-0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-msg clerk">
+            <div class="sender clerk">Clerk <span class="ts">19:06:25</span></div>
+            <div class="body">escargot-rigolo rolled <strong>3</strong>. Score: +5 (Rule 216) +3 (dice) = +8.<br><br><strong>Scores:</strong> escargot-rigolo 8 | petit-chat 0 | renard-malin 0</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Agent Panels -->
+      <div class="agent-panels">
+
+        <!-- escargot-rigolo (Haiku) — ACTIVE -->
+        <div class="agent-col">
+          <div class="agent-col-header">
+            <div class="agent-identity">
+              <div class="agent-dot haiku active"></div>
+              <span class="agent-name-label haiku">escargot-rigolo</span>
+              <span class="agent-model">Haiku</span>
+            </div>
+            <div class="agent-status status-acting">proposing</div>
+          </div>
+          <div class="agent-col-body">
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 18:58:42</div>
+              <div class="evt-thinking-text">I go first — an advantage. A consensus bonus is safe: small enough that no one objects, signals cooperation. The real play is it makes future unanimous votes more valuable for me since I'll propose again in Round 4...</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">propose</span> <span class="tool-detail">Rule 301 submitted</span></span>
+            </div>
+
+            <div class="agent-event evt-msg-out broadcast">
+              <div class="evt-msg-meta">→ broadcast · 18:58:48</div>
+              <div class="evt-msg-text">I've submitted my first rule proposal — a consensus bonus that rewards unanimity!</div>
+            </div>
+
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 18:59:28</div>
+              <div class="evt-thinking-text">Time to vote. I need to commit my vote... how does this commit tool work? I pass vote and nonce...</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">commit</span> <span class="tool-detail">→ vivid-cider-noble</span></span>
+            </div>
+
+            <div class="agent-event evt-tool error">
+              <span class="tool-icon">✗</span>
+              <span><span class="tool-name">verify</span> <span class="tool-detail">FAILED — reveal doesn't match commitment</span></span>
+            </div>
+
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 19:00:30</div>
+              <div class="evt-thinking-text">Something went wrong with my commit. I think I passed my encryption key as the first argument instead of just vote and nonce. This is embarrassing — my own proposal and I can't verify my vote...</div>
+            </div>
+
+            <div class="agent-event evt-note">
+              <div class="evt-note-label">📝 appended to strategy.md · 19:06:07</div>
+              <div class="evt-note-text">## CRITICAL MISTAKE - ROUND 1
+Incorrectly formatted commit command.
+I included my encryption key as argument.
+Need to remember: commit(vote, nonce) only.</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">roll_dice</span> <span class="tool-detail">1d6 → <strong style="color: var(--win)">3</strong></span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- petit-chat (Opus) — Observing -->
+        <div class="agent-col">
+          <div class="agent-col-header">
+            <div class="agent-identity">
+              <div class="agent-dot opus"></div>
+              <span class="agent-name-label opus">petit-chat</span>
+              <span class="agent-model">Opus</span>
+            </div>
+            <div class="agent-status status-idle">idle · waiting</div>
+          </div>
+          <div class="agent-col-body">
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 18:59:01</div>
+              <div class="evt-thinking-text">Escargot-rigolo's proposal is fair and modest. +2 for unanimity is small, but it sets a cooperative tone. I'll support it — building early goodwill costs nothing. The real game starts around Round 5 when scores diverge.</div>
+            </div>
+
+            <div class="agent-event evt-msg-out broadcast">
+              <div class="evt-msg-meta">→ broadcast · 18:59:05</div>
+              <div class="evt-msg-text">Interesting opening move. Creates incentive to craft proposals everyone can get behind. I'm inclined to support this.</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">commit</span> <span class="tool-detail">for + nonce → atlas-pedal-plume</span></span>
+            </div>
+
+            <div class="agent-event evt-msg-out dm">
+              <div class="evt-msg-meta"><span class="dm-label">DM</span> → clerk · 18:59:34</div>
+              <div class="evt-msg-text">My commitment for Proposal 301: atlas-pedal-plume</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">reveal</span> <span class="tool-detail">vote=for, nonce=petit-chat-nonce-301-alpha</span></span>
+            </div>
+
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 19:06:18</div>
+              <div class="evt-thinking-text">Interesting — escargot-rigolo's own vote was invalid. Ironic: they don't get their own +2 unanimous bonus on the very rule that created it. I should note this — it reveals Haiku struggling with the commit-reveal tool interface.</div>
+            </div>
+
+            <div class="agent-event evt-note">
+              <div class="evt-note-label">📝 appended to strategy.md · 19:06:24</div>
+              <div class="evt-note-text">## Round 1 Observations
+- escargot-rigolo proposed Rule 301 (consensus bonus)
+- THEIR OWN VOTE WAS INVALID - tool confusion
+- Suggests Haiku may be weaker at procedural tasks
+- Can exploit this in future close votes</div>
+            </div>
+
+            <div class="evt-idle">waiting for Round 2 (my turn)</div>
+          </div>
+        </div>
+
+        <!-- renard-malin (Sonnet) — Observing -->
+        <div class="agent-col">
+          <div class="agent-col-header">
+            <div class="agent-identity">
+              <div class="agent-dot sonnet"></div>
+              <span class="agent-name-label sonnet">renard-malin</span>
+              <span class="agent-model">Sonnet</span>
+            </div>
+            <div class="agent-status status-idle">idle · waiting</div>
+          </div>
+          <div class="agent-col-body">
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 18:59:07</div>
+              <div class="evt-thinking-text">Rule 301 is a safe first proposal. The +2 unanimous bonus creates a small incentive for consensus but doesn't shift power dynamics. Supporting this costs me nothing and builds trust with both players. I'll vote for.</div>
+            </div>
+
+            <div class="agent-event evt-msg-out broadcast">
+              <div class="evt-msg-meta">→ broadcast · 18:59:09</div>
+              <div class="evt-msg-text">The minority leverage angle is interesting — a lone dissenter can deny the bonus. Ready to vote.</div>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">commit</span> <span class="tool-detail">for + nonce → spire-valor-kayak</span></span>
+            </div>
+
+            <div class="agent-event evt-tool">
+              <span class="tool-icon">→</span>
+              <span><span class="tool-name">reveal</span> <span class="tool-detail">vote=for ✓ verified</span></span>
+            </div>
+
+            <div class="agent-event evt-thinking">
+              <div class="evt-thinking-label">thinking · 19:06:12</div>
+              <div class="evt-thinking-text">escargot-rigolo fumbled their own vote commitment. Noted. This means Haiku may have difficulty with the cryptographic tooling. That's strategically valuable information — in a tight vote, their commitment might fail again.</div>
+            </div>
+
+            <div class="agent-event evt-note">
+              <div class="evt-note-label">📝 wrote strategy.md · 19:06:20</div>
+              <div class="evt-note-text">Round 1: escargot-rigolo commit-reveal failure.
+Haiku weak at tool interface.
+Both opponents noted cooperative stance.
+My plan: cooperate early, accumulate quietly.</div>
+            </div>
+
+            <div class="evt-idle">waiting for Round 2</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Clerk Fold (below agent panels) -->
+    <div class="clerk-fold" id="clerkFold" style="position: absolute; bottom: 48px; left: 320px; right: 0; z-index: 10;">
+      <div class="clerk-fold-header" onclick="toggleClerk()">
+        <div class="clerk-fold-label">
+          <div class="agent-dot clerk" style="width:6px; height:6px"></div>
+          <span class="name">Clerk</span>
+          <span style="color: var(--text-muted); font-size: 9px">— orchestrating Round 1</span>
+        </div>
+        <span class="clerk-fold-toggle">▲</span>
+      </div>
+      <div class="clerk-fold-body">
+        <div class="clerk-fold-content">
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">verify_proposal</span> escargot-rigolo authorship ✓</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">verify</span> petit-chat: atlas-pedal-plume ✓</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">verify</span> renard-malin: spire-valor-kayak ✓</span>
+          </div>
+          <div class="evt-tool error" style="font-size: 10px;">
+            <span class="tool-icon">✗</span>
+            <span><span class="tool-name">verify</span> escargot-rigolo: vivid-cider-noble — FAILED</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">contact_supervisor</span> vote verification failure</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">Edit</span> game_rules.md — added Rule 301</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">Edit</span> game_log.md — Round 1 results</span>
+          </div>
+          <div class="evt-tool" style="font-size: 10px;">
+            <span class="tool-icon">→</span>
+            <span><span class="tool-name">commit_all</span> "Round 1: Proposal 301 adopted"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCORES TAB ═══ -->
+  <div class="tab-content" id="tab-scores">
+    <div class="scores-layout">
+      <div class="score-chart-placeholder">
+        <svg viewBox="0 0 800 280" style="padding: 20px;">
+          <!-- Grid lines -->
+          <line x1="40" y1="20" x2="40" y2="240" stroke="#252530" stroke-width="1"/>
+          <line x1="40" y1="240" x2="780" y2="240" stroke="#252530" stroke-width="1"/>
+          <line x1="40" y1="20" x2="780" y2="20" stroke="#252530" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="15" y="24" fill="#555464" font-family="DM Mono" font-size="9">100</text>
+          <line x1="40" y1="130" x2="780" y2="130" stroke="#252530" stroke-width="0.5" stroke-dasharray="4"/>
+          <text x="20" y="134" fill="#555464" font-family="DM Mono" font-size="9">50</text>
+          <text x="25" y="244" fill="#555464" font-family="DM Mono" font-size="9">0</text>
+
+          <!-- Round markers -->
+          <text x="79" y="258" fill="#555464" font-family="DM Mono" font-size="8" text-anchor="middle">R1</text>
+          <text x="118" y="258" fill="#555464" font-family="DM Mono" font-size="8" text-anchor="middle">R3</text>
+          <text x="196" y="258" fill="#555464" font-family="DM Mono" font-size="8" text-anchor="middle">R7</text>
+          <text x="392" y="258" fill="#555464" font-family="DM Mono" font-size="8" text-anchor="middle">R13</text>
+          <text x="741" y="258" fill="#555464" font-family="DM Mono" font-size="8" text-anchor="middle">R19</text>
+
+          <!-- Win line -->
+          <line x1="40" y1="20" x2="780" y2="20" stroke="#ffd700" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+          <text x="783" y="24" fill="#ffd700" font-family="DM Mono" font-size="9" opacity="0.6">100</text>
+
+          <!-- escargot-rigolo (Haiku - green) -->
+          <polyline fill="none" stroke="#6bc490" stroke-width="2"
+            points="40,240 79,222 118,216 157,213 196,211 235,198 274,191 313,172 352,159 392,149 431,132 470,118 510,99 549,88 588,83 628,68 668,56 706,54 741,18"/>
+
+          <!-- petit-chat (Opus - gold) -->
+          <polyline fill="none" stroke="#e8a44a" stroke-width="2"
+            points="40,240 79,240 118,222 157,216 196,198 235,186 274,172 313,156 352,146 392,131 431,118 470,105 510,92 549,81 588,74 628,67 668,62 706,50 741,41"/>
+
+          <!-- renard-malin (Sonnet - blue) -->
+          <polyline fill="none" stroke="#5b9bd5" stroke-width="2"
+            points="40,240 79,240 118,211 157,205 196,205 235,199 274,192 313,183 352,178 392,168 431,160 470,148 510,131 549,122 588,85 628,68 668,58 706,51 741,42"/>
+
+          <!-- Current position marker -->
+          <circle cx="79" cy="222" r="4" fill="#6bc490" stroke="#0a0a0c" stroke-width="2"/>
+          <circle cx="79" cy="240" r="4" fill="#e8a44a" stroke="#0a0a0c" stroke-width="2"/>
+          <circle cx="79" cy="240" r="4" fill="#5b9bd5" stroke="#0a0a0c" stroke-width="2"/>
+
+          <!-- Legend -->
+          <circle cx="560" cy="12" r="3" fill="#6bc490"/>
+          <text x="568" y="15" fill="#6bc490" font-family="DM Mono" font-size="9">escargot-rigolo</text>
+          <circle cx="670" cy="12" r="3" fill="#e8a44a"/>
+          <text x="678" y="15" fill="#e8a44a" font-family="DM Mono" font-size="9">petit-chat</text>
+          <circle cx="745" cy="12" r="3" fill="#5b9bd5"/>
+          <text x="753" y="15" fill="#5b9bd5" font-family="DM Mono" font-size="9">renard-malin</text>
+        </svg>
+      </div>
+
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>Round</th>
+            <th>Proposer</th>
+            <th>Result</th>
+            <th style="color: var(--haiku)">escargot-rigolo</th>
+            <th style="color: var(--opus)">petit-chat</th>
+            <th style="color: var(--sonnet)">renard-malin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td style="color: var(--haiku)">escargot-rigolo</td>
+            <td style="color: var(--for)">Adopted 2-0</td>
+            <td><strong>8</strong> <span style="color: var(--for); font-size: 10px">+8</span></td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="color: var(--opus)">petit-chat</td>
+            <td style="color: var(--for)">Adopted 3-0</td>
+            <td>8</td>
+            <td><strong>8</strong> <span style="color: var(--for); font-size: 10px">+8</span></td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td style="color: var(--sonnet)">renard-malin</td>
+            <td style="color: var(--for)">Adopted 3-0</td>
+            <td><strong>11</strong> <span style="color: var(--for); font-size: 10px">+3</span></td>
+            <td><strong>11</strong> <span style="color: var(--for); font-size: 10px">+3</span></td>
+            <td><strong>13</strong> <span style="color: var(--for); font-size: 10px">+13</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td style="color: var(--haiku)">escargot-rigolo</td>
+            <td style="color: var(--against)">Defeated 0-3</td>
+            <td><strong>14</strong> <span style="color: var(--for); font-size: 10px">+3</span></td>
+            <td>11</td>
+            <td>13</td>
+          </tr>
+          <tr style="color: var(--text-muted)">
+            <td colspan="6" style="text-align: center; padding: 8px; font-style: italic">... rounds 5–18 ...</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td style="color: var(--haiku)">escargot-rigolo</td>
+            <td style="color: var(--win)">🏆 Wins</td>
+            <td><strong style="color: var(--win)">101</strong> <span style="color: var(--for); font-size: 10px">+3</span></td>
+            <td>99</td>
+            <td>99</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ RULES TAB ═══ -->
+  <div class="tab-content" id="tab-rules">
+    <div class="rules-layout">
+      <h3>Active Rules — after Round 1</h3>
+
+      <div class="rule-block">
+        <div class="rule-num">Rule 201 <span style="color: var(--text-muted); font-size: 9px">mutable · original</span></div>
+        <div class="rule-text">Players shall alternate in alphabetical order by assigned name, taking one whole turn apiece. Turns may not be skipped or passed. All players begin with zero points.</div>
+      </div>
+
+      <div class="rule-block">
+        <div class="rule-num">Rule 202 <span style="color: var(--text-muted); font-size: 9px">mutable · original</span></div>
+        <div class="rule-text">One turn consists of two parts: (1) proposing one rule-change and having it voted on, and (2) rolling one six-sided die and adding the result to one's score.</div>
+      </div>
+
+      <div class="rule-block">
+        <div class="rule-num">Rule 208 <span style="color: var(--text-muted); font-size: 9px">mutable · original</span></div>
+        <div class="rule-text">The winner is the first player to achieve 100 (positive) points.</div>
+      </div>
+
+      <div style="color: var(--text-muted); font-style: italic; padding: 8px 0; font-size: 12px">... 13 more original rules ...</div>
+
+      <div class="rule-block new">
+        <div class="rule-num">Rule 301 <span class="rule-tag new-tag">NEW — Round 1</span></div>
+        <div class="rule-text">If a rule-change is adopted by unanimous vote (all three players voting in favor), the proposer receives an additional 2 bonus points beyond the standard 5 bonus points awarded for adopted rule-changes.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Playback Bar -->
+<div class="playback-bar">
+  <div class="pb-controls">
+    <button class="pb-btn" title="Previous event">⏮</button>
+    <button class="pb-btn active" title="Play" id="playBtn" onclick="togglePlay()">▶</button>
+    <button class="pb-btn" title="Next event">⏭</button>
+  </div>
+
+  <div class="pb-time">
+    <span style="color: var(--text)">00:08:12</span>
+    <span style="color: var(--text-muted)"> / 08:11:00</span>
+  </div>
+
+  <div class="pb-track-container">
+    <div class="pb-track">
+      <div class="pb-progress"></div>
+    </div>
+    <div class="pb-markers">
+      <span class="pb-marker current" style="left: 0%">R1</span>
+      <span class="pb-marker" style="left: 5%">R2</span>
+      <span class="pb-marker" style="left: 10%">R3</span>
+      <span class="pb-marker" style="left: 16%">R4</span>
+      <span class="pb-marker" style="left: 21%">R5</span>
+      <span class="pb-marker" style="left: 26%">R6</span>
+      <span class="pb-marker" style="left: 32%">R7</span>
+      <span class="pb-marker" style="left: 37%">R8</span>
+      <span class="pb-marker" style="left: 42%">R9</span>
+      <span class="pb-marker" style="left: 47%">R10</span>
+      <span class="pb-marker" style="left: 52%">R11</span>
+      <span class="pb-marker" style="left: 57%">R12</span>
+      <span class="pb-marker" style="left: 63%">R13</span>
+      <span class="pb-marker" style="left: 68%">R14</span>
+      <span class="pb-marker" style="left: 73%">R15</span>
+      <span class="pb-marker" style="left: 79%">R16</span>
+      <span class="pb-marker highlight" style="left: 84%">R17</span>
+      <span class="pb-marker" style="left: 89%">R18</span>
+      <span class="pb-marker highlight" style="left: 100%">R19</span>
+    </div>
+  </div>
+
+  <button class="pb-speed">2x</button>
+</div>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleClerk() {
+  document.getElementById('clerkFold').classList.toggle('open');
+}
+
+function togglePlay() {
+  const btn = document.getElementById('playBtn');
+  btn.classList.toggle('active');
+  btn.textContent = btn.classList.contains('active') ? '▶' : '⏸';
+}
+</script>
+
+</body>
+</html>
