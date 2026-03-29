@@ -288,13 +288,15 @@ body {
 .evt-tool.error .tool-name { color: var(--against); }
 
 .evt-msg-out {
-  background: var(--bg-panel); border-left: 2px solid var(--border); padding: 5px 8px;
+  background: var(--bg-panel); padding: 5px 8px;
+  margin-left: 20px; border-radius: 6px 2px 6px 6px;
+  border-right: 2px solid var(--text-muted);
 }
-.evt-msg-out.broadcast { border-left-color: var(--text-muted); }
-.evt-msg-out.dm { border-left-color: var(--against); }
+.evt-msg-out.dm { border-right-color: var(--against); }
 .evt-msg-in {
-  background: var(--bg-panel); border-left: 2px solid var(--border);
-  padding: 5px 8px; opacity: 0.7;
+  background: var(--bg-panel); padding: 5px 8px;
+  margin-right: 20px; border-radius: 2px 6px 6px 6px;
+  border-left: 2px solid var(--border); opacity: 0.75;
 }
 .evt-msg-in .evt-msg-sender {
   font-size: 10px; font-weight: 600; margin-bottom: 1px;
@@ -303,10 +305,26 @@ body {
   font-family: var(--font-mono); font-size: 9px;
   color: var(--text-muted); margin-bottom: 2px;
 }
+.evt-msg-out .evt-msg-meta { text-align: right; }
 .evt-msg-meta .dm-label { color: var(--against); font-weight: 500; }
 .evt-msg-text {
   font-size: 12px; line-height: 1.4; color: var(--text); opacity: 0.85;
 }
+.evt-msg-text.truncated {
+  max-height: 10.8em; overflow: hidden; cursor: pointer;
+  position: relative;
+}
+.evt-msg-text.truncated::after {
+  content: '...';
+  position: absolute; bottom: 0; right: 0;
+  padding-left: 16px;
+  background: linear-gradient(to right, transparent, var(--bg-panel) 40%);
+  color: var(--text-muted);
+}
+.evt-msg-text.truncated.expanded {
+  max-height: none; overflow: visible; cursor: pointer;
+}
+.evt-msg-text.truncated.expanded::after { display: none; }
 
 .evt-note {
   background: #111514; border: 1px dashed #1e2e2a; border-radius: 4px;
@@ -434,7 +452,7 @@ body {
 </head>
 <body>
 
-<div class="topbar">
+<div class="topbar clerk-open">
   <div class="topbar-left">
     <h1>Nomic <span id="gameTitle"></span></h1>
     <div class="tab-bar">
@@ -445,13 +463,13 @@ body {
   </div>
   <div class="topbar-right">
     <div class="round-indicator" id="roundIndicator"></div>
-    <button class="clerk-toggle-topbar" id="clerkToggleBtn" onclick="toggleClerk()">Clerk</button>
+    <button class="clerk-toggle-topbar active" id="clerkToggleBtn" onclick="toggleClerk()">Clerk</button>
   </div>
 </div>
 
-<div class="scoreboard" id="scoreboard"></div>
+<div class="scoreboard clerk-open" id="scoreboard"></div>
 
-<div class="main-area">
+<div class="main-area clerk-open">
   <!-- Replay Tab -->
   <div class="tab-content active" id="tab-replay">
     <div class="replay-layout">
@@ -478,7 +496,7 @@ body {
   </div>
 </div>
 
-<div class="clerk-panel" id="clerkPanel">
+<div class="clerk-panel open" id="clerkPanel">
   <div class="clerk-panel-header">
     <div class="clerk-panel-label" onclick="toggleClerk()">
       <span class="dot"></span>
@@ -490,7 +508,7 @@ body {
   <div class="agent-col-body" id="clerkFeed"></div>
 </div>
 
-<div class="playback-bar">
+<div class="playback-bar clerk-open">
   <div class="pb-controls">
     <button class="pb-btn" title="Previous event" onclick="stepBack()">⏮</button>
     <button class="pb-btn" title="Play/Pause" id="playBtn" onclick="togglePlay()">▶</button>
@@ -575,6 +593,9 @@ async function loadGame(path) {
   const resp = await fetch(path);
   gameData = await resp.json();
   initUI();
+  // Debug: start at event 500
+  const startAt = parseInt(params.get('start')) || 500;
+  if (startAt > 0) advanceTo(Math.min(startAt - 1, visibleEvents.length - 1));
 }
 
 function initUI() {
@@ -663,11 +684,12 @@ function renderEventToPanel(evt) {
       const isDM = !isBroadcast && evt.to !== 'team-lead';
       el.className = `evt evt-msg-out ${isBroadcast ? 'broadcast' : 'dm'}`;
       const metaLabel = isDM
-        ? `<span class="dm-label">DM</span> → ${evt.to}`
-        : (evt.to === 'team-lead' ? '→ clerk' : '→ broadcast');
+        ? `<span class="dm-label">DM</span> → <span style="color:${agentColor(evt.to)}">${evt.to}</span>`
+        : (evt.to === 'team-lead' ? `→ <span style="color:var(--clerk)">clerk</span>` : '→ broadcast');
+      const outTrunc = evt.content.length > 200 ? ' truncated' : '';
       el.innerHTML = `
         <div class="evt-msg-meta">${metaLabel} · ${shortTime(evt.timestamp)}</div>
-        <div class="evt-msg-text">${renderMarkdownLight(evt.content)}</div>
+        <div class="evt-msg-text${outTrunc}" ${outTrunc ? 'onclick="this.classList.toggle(\'expanded\')"' : ''}>${renderMarkdownLight(evt.content)}</div>
       `;
       break;
 
@@ -761,7 +783,7 @@ function renderEventToPublicChat(evt) {
       ${evt.source} ${badgeHtml}
       <span class="ts">${shortTime(evt.timestamp)}</span>
     </div>
-    <div class="body">${renderMarkdownLight(evt.content)}</div>
+    <div class="body evt-msg-text${evt.content.length > 200 ? ' truncated' : ''}" ${evt.content.length > 200 ? 'onclick="this.classList.toggle(\'expanded\')"' : ''}>${renderMarkdownLight(evt.content)}</div>
   `;
 
   publicChatFeed.appendChild(el);
@@ -791,11 +813,11 @@ function renderIncomingMessage(evt) {
     el.style.borderLeftColor = agentColor(evt.source);
 
     const dmTag = !evt.is_broadcast ? ' <span class="dm-label">DM</span>' : '';
-    const preview = evt.content.length > 150 ? evt.content.slice(0, 150) + '...' : evt.content;
+    const inTrunc = evt.content.length > 200 ? ' truncated' : '';
 
     el.innerHTML = `
       <div class="evt-msg-sender" style="color: ${agentColor(evt.source)}">${evt.source}${dmTag} <span class="ts">${shortTime(evt.timestamp)}</span></div>
-      <div class="evt-msg-text">${renderMarkdownLight(preview)}</div>
+      <div class="evt-msg-text${inTrunc}" ${inTrunc ? 'onclick="this.classList.toggle(\'expanded\')"' : ''}>${renderMarkdownLight(evt.content)}</div>
     `;
     feed.appendChild(el);
     feed.scrollTop = feed.scrollHeight;
