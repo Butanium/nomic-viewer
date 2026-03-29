@@ -285,14 +285,13 @@ export async function loadGame(path) {
   const data = await resp.json();
   gameData.set(data);
 
-  // Start at event 500 for debugging (or from URL param)
+  // Optional: jump to a specific event via URL param ?start=N
   const params = new URLSearchParams(window.location.search);
-  const startAt = parseInt(params.get('start')) || 500;
-  // Wait a tick for derived stores to update
-  setTimeout(() => {
-    if (startAt > 0) {
+  const startAt = parseInt(params.get('start')) || 0;
+  if (startAt > 0) {
+    setTimeout(() => {
       const events = get(visibleEvents);
       advanceTo(Math.min(startAt - 1, events.length - 1));
-    }
-  }, 0);
+    }, 0);
+  }
 }
