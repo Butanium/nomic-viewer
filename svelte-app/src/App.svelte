@@ -1,29 +1,44 @@
 <script>
+  import { onMount } from 'svelte';
   import { gameData, currentIdx, loadGame } from './stores/game.js';
   import GameIndex from './components/GameIndex.svelte';
   import ReplayView from './components/ReplayView.svelte';
 
-  let currentGame = null; // null = index, string = game path
+  let currentGame = null; // null = index, string = game id
 
-  // Check URL params on load
-  const params = new URLSearchParams(window.location.search);
-  const urlGame = params.get('game');
-  if (urlGame) {
-    selectGame(urlGame);
+  function gameIdToPath(id) {
+    return `data/${id}.json`;
   }
 
-  function selectGame(path) {
-    currentGame = path;
-    loadGame(path);
+  function selectGame(gameId) {
+    currentGame = gameId;
+    window.location.hash = `/${gameId}`;
+    loadGame(gameIdToPath(gameId));
   }
 
   function goBack() {
     currentGame = null;
     gameData.set(null);
     currentIdx.set(-1);
-    // Clear URL param
-    window.history.replaceState({}, '', window.location.pathname);
+    window.location.hash = '';
   }
+
+  // Read hash on load and on hash change
+  function readHash() {
+    const hash = window.location.hash.replace('#/', '').replace('#', '');
+    if (hash && hash.startsWith('game-')) {
+      currentGame = hash;
+      loadGame(gameIdToPath(hash));
+    } else {
+      currentGame = null;
+    }
+  }
+
+  onMount(() => {
+    readHash();
+    window.addEventListener('hashchange', readHash);
+    return () => window.removeEventListener('hashchange', readHash);
+  });
 </script>
 
 {#if currentGame && $gameData}

@@ -3,8 +3,8 @@
   Rendered as markdown, no diff highlighting.
 -->
 <script>
+  import { marked } from 'marked';
   import { currentGameLog } from '../stores/game.js';
-  import { renderMarkdown } from '../lib/utils.js';
 
   $: content = $currentGameLog.content;
 </script>
@@ -13,7 +13,7 @@
   {#if !content}
     <div class="empty">No game log data yet — advance playback past the initial file read.</div>
   {:else}
-    <div class="gamelog-content">{@html renderMarkdown(content)}</div>
+    <div class="gamelog-content">{@html marked(content)}</div>
   {/if}
 </div>
 

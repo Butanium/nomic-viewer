@@ -3,8 +3,8 @@
   The last applied edit is shown as a diff.
 -->
 <script>
+  import { marked } from 'marked';
   import { currentRules } from '../stores/game.js';
-  import { renderMarkdown, escapeHtml } from '../lib/utils.js';
 
   $: content = $currentRules.content;
   $: lastEdit = $currentRules.lastEdit;
@@ -56,11 +56,11 @@
   {:else}
     <div class="rules-content">
       {#if diffParts.added}
-        <div class="rules-text">{@html renderMarkdown(diffParts.before)}</div>
-        <div class="rules-diff">{@html renderMarkdown(diffParts.added)}</div>
-        <div class="rules-text">{@html renderMarkdown(diffParts.after)}</div>
+        <div class="rules-text">{@html marked(diffParts.before)}</div>
+        <div class="rules-diff">{@html marked(diffParts.added)}</div>
+        <div class="rules-text">{@html marked(diffParts.after)}</div>
       {:else}
-        <div class="rules-text">{@html renderMarkdown(content)}</div>
+        <div class="rules-text">{@html marked(content)}</div>
       {/if}
     </div>
   {/if}

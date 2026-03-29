@@ -469,9 +469,31 @@ def build_game_data(game_dir: Path) -> dict:
                 break
 
     # Filter events to remove low-signal noise
+    game_files = ("game_rules.md", "game_log.md")
     filtered_events = []
     for evt in all_events:
-        # Skip Read/Grep/Glob/ToolSearch tool calls — too noisy for the viewer
+        # Promote Read events for game files to file_read type
+        if (evt["type"] == "tool_call" and evt.get("tool") == "read"
+                and not evt.get("is_error")
+                and any(gf in evt.get("file_path", "") for gf in game_files)):
+            result = evt.get("result", "")
+            if result:
+                # Strip cat-n line number prefixes ("     1→content")
+                lines = result.split("\n")
+                if any("→" in l for l in lines[:5]):
+                    lines = [l.split("→", 1)[1] if "→" in l else l for l in lines]
+                    result = "\n".join(lines)
+                filename = Path(evt["file_path"]).name
+                filtered_events.append({
+                    "timestamp": evt["timestamp"],
+                    "source": evt["source"],
+                    "type": "file_read",
+                    "filename": filename,
+                    "content": result,
+                })
+            continue
+
+        # Skip other Read/Grep/Glob/ToolSearch tool calls — too noisy
         if evt["type"] == "tool_call" and evt.get("tool") in (
             "read", "grep", "glob", "toolsearch",
         ):

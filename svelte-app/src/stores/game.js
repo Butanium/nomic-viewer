@@ -108,19 +108,24 @@ export const agentStatuses = derived(
 );
 
 // ── Derived: file state reconstruction ──
-function reconstructFile(initialContent, edits) {
+function reconstructFile(initialContent, events) {
   let content = initialContent;
   let lastEdit = null;
-  for (const evt of edits) {
-    if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
-      const idx = content.indexOf(evt.old_string);
-      if (idx !== -1) {
-        content = content.slice(0, idx) + evt.new_string + content.slice(idx + evt.old_string.length);
+  for (const evt of events) {
+    if (evt.type === 'file_read') {
+      content = evt.content;
+    } else if (evt.type === 'file_edit') {
+      if (evt.is_error) continue;
+      if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
+        const idx = content.indexOf(evt.old_string);
+        if (idx !== -1) {
+          content = content.slice(0, idx) + evt.new_string + content.slice(idx + evt.old_string.length);
+          lastEdit = evt;
+        }
+      } else if (evt.tool === 'Write' && evt.content) {
+        content = evt.content;
         lastEdit = evt;
       }
-    } else if (evt.tool === 'Write' && evt.content) {
-      content = evt.content;
-      lastEdit = evt;
     }
   }
   return { content, lastEdit };
@@ -131,8 +136,10 @@ function fileState(filename) {
     [gameData, eventsUpToCurrent],
     ([$data, $events]) => {
       const initial = $data?.initial_files?.[filename] || '';
-      const edits = $events.filter(e => e.type === 'file_edit' && e.filename === filename);
-      return reconstructFile(initial, edits);
+      const fileEvents = $events.filter(e =>
+        (e.type === 'file_read' || e.type === 'file_edit') && e.filename === filename
+      );
+      return reconstructFile(initial, fileEvents);
     }
   );
 }

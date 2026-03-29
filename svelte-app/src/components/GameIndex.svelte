@@ -5,7 +5,7 @@
   import { onMount } from 'svelte';
   import { agentColor } from '../lib/utils.js';
 
-  export let onSelect; // callback: (gamePath) => void
+  export let onSelect; // callback: (gameId) => void
 
   let games = [];
   let loaded = false;
@@ -47,7 +47,7 @@
   {:else}
     <div class="game-grid">
       {#each games as game, i}
-        <button class="game-card" on:click={() => onSelect(game.path)} style="animation-delay: {i * 60}ms">
+        <button class="game-card" on:click={() => onSelect(game.game_id)} style="animation-delay: {i * 60}ms">
           <div class="card-header">
             <span class="game-num">{game.game_id.replace('game-', 'Game ')}</span>
             <span class="game-date">{formatDate(game.start_time)}</span>
