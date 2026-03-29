@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #0a0a0c;
+  --bg-raised: #101014;
+  --bg-panel: #16161c;
+  --bg-hover: #1c1c24;
+  --border: #252530;
+  --border-subtle: #1c1c26;
+  --text: #e8e6e3;
+  --text-dim: #8a8894;
+  --text-muted: #555464;
+  --clerk: #9b8aaa;
+  --opus: #e8a44a;
+  --sonnet: #5b9bd5;
+  --haiku: #6bc490;
+  --accent: #c4a0ff;
+  --win: #ffd700;
+  --for: #6bc490;
+  --against: #d4645c;
+  --invalid: #8a8894;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  zoom: 1.15;
+  height: calc(100vh / 1.15);
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }

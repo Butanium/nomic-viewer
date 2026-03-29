@@ -1,0 +1,78 @@
+<!--
+  A single agent's column in the replay view.
+  Shows their events (thinking, messages, tool calls) and incoming messages.
+-->
+<script>
+  import { afterUpdate } from 'svelte';
+  import { gameData, agentFeeds, agentStatuses } from '../stores/game.js';
+  import { agentColor } from '../lib/utils.js';
+  import ChatMessage from './ChatMessage.svelte';
+  import AgentEvent from './AgentEvent.svelte';
+
+  export let name;
+  export let model = '';
+
+  let feedEl;
+
+  $: color = agentColor($gameData, name);
+  $: events = $agentFeeds[name] || [];
+  $: status = $agentStatuses[name] || 'idle';
+  $: isActive = status !== 'idle';
+
+  afterUpdate(() => {
+    if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
+  });
+</script>
+
+<div class="agent-col">
+  <div class="agent-col-header">
+    <div class="agent-identity">
+      <div class="agent-dot" class:active={isActive} style="background: {color}"></div>
+      <span class="agent-name-label" style="color: {color}">{name}</span>
+      <span class="agent-model">{model}</span>
+    </div>
+    <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{status}</div>
+  </div>
+  <div class="agent-col-body" bind:this={feedEl}>
+    {#each events as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || ''))}
+      {#if evt.type === 'message'}
+        <ChatMessage {evt} variant="agent" />
+      {:else}
+        <AgentEvent {evt} />
+      {/if}
+    {/each}
+  </div>
+</div>
+
+<style>
+  .agent-col {
+    flex: 1; display: flex; flex-direction: column;
+    border-right: 1px solid var(--border-subtle);
+    min-width: 0;
+  }
+  .agent-col:last-child { border-right: none; }
+  .agent-col-header {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex; align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0; background: var(--bg-raised);
+  }
+  .agent-identity { display: flex; align-items: center; gap: 6px; }
+  .agent-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .agent-dot.active { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .agent-name-label { font-weight: 600; font-size: 11px; }
+  .agent-model {
+    font-family: var(--font-mono); font-size: 9px;
+    color: var(--text-muted); padding: 1px 4px;
+    background: var(--bg); border-radius: 2px;
+  }
+  .agent-status { font-family: var(--font-mono); font-size: 10px; }
+  .agent-col-body {
+    flex: 1; overflow-y: auto; padding: 8px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+</style>
