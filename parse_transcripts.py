@@ -603,6 +603,39 @@ def main():
     print(f"  File edits: {meta['stats']['total_file_edits']}")
     print(f"Output: {output_path}")
 
+    # Regenerate games.json manifest if output is in a data/ directory
+    regenerate_manifest(output_path.parent)
+
+
+def regenerate_manifest(data_dir: Path) -> None:
+    """Regenerate games.json from all game-*.json files in a directory."""
+    game_files = sorted(data_dir.glob("game-*.json"))
+    if not game_files:
+        return
+
+    games = []
+    for f in game_files:
+        with open(f) as fh:
+            data = json.load(fh)
+        meta = data["meta"]
+        games.append({
+            "game_id": meta["game_id"],
+            "path": "data/" + f.name,
+            "start_time": meta["start_time"],
+            "end_time": meta["end_time"],
+            "players": data["players"],
+            "clerk": data.get("clerk"),
+            "stats": meta["stats"],
+            "winner": meta.get("winner"),
+            "total_rounds": meta.get("total_rounds", 0),
+        })
+
+    manifest_path = data_dir / "games.json"
+    with open(manifest_path, "w") as f:
+        json.dump(games, f, indent=2, ensure_ascii=False)
+
+    print(f"Manifest: {manifest_path} ({len(games)} games)")
+
 
 if __name__ == "__main__":
     main()
