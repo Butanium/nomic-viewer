@@ -64,12 +64,16 @@
           </div>
 
           <div class="card-stats">
-            <span class="stat">{game.stats.total_events} events</span>
+            <span class="stat">{game.total_rounds} rounds</span>
             <span class="stat-sep">·</span>
             <span class="stat">{game.stats.total_messages} messages</span>
             <span class="stat-sep">·</span>
             <span class="stat">{duration(game.start_time, game.end_time)}</span>
           </div>
+
+          {#if game.winner}
+            <div class="card-winner">🏆 {game.winner}</div>
+          {/if}
 
           <div class="card-arrow">→</div>
         </button>
@@ -192,6 +196,11 @@
   }
 
   .stat-sep { margin: 0 4px; opacity: 0.4; }
+
+  .card-winner {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--win); margin-top: 8px;
+  }
 
   .card-arrow {
     position: absolute; right: 16px; top: 50%;

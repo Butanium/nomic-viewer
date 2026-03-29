@@ -3,7 +3,7 @@
   Includes topbar, scoreboard, panels, clerk drawer, playback bar.
 -->
 <script>
-  import { gameData, clerkOpen, activeTab, agentFeeds, agentStatuses, loadGame, currentIdx, visibleEvents } from '../stores/game.js';
+  import { gameData, clerkOpen, activeTab, agentFeeds, agentStatuses, loadGame, currentIdx, visibleEvents, currentScores } from '../stores/game.js';
   import { agentColor, shortTime } from '../lib/utils.js';
   import PublicChat from './PublicChat.svelte';
   import AgentPanel from './AgentPanel.svelte';
@@ -46,6 +46,11 @@
   </div>
   <div class="topbar-right">
     <div class="round-indicator">
+      {#if $currentScores.round > 0}
+        Round <strong>{$currentScores.round}</strong>
+        {#if $currentScores.result} · {$currentScores.result}{/if}
+        ·
+      {/if}
       {#if currentTs}
         <span style="color: var(--text-muted)">{currentTs} UTC</span>
       {/if}
@@ -58,13 +63,19 @@
 
 <!-- Scoreboard -->
 <div class="scoreboard" class:clerk-open={$clerkOpen}>
+  {#if $currentScores.round > 0}
+    <span class="round-badge">R{$currentScores.round}</span>
+  {/if}
   {#each players as p}
     <div class="score-chip">
       <div class="dot" style="background: {agentColor($gameData, p.name)}"></div>
       <span class="name">{p.name}</span>
-      <span class="pts" style="color: {agentColor($gameData, p.name)}">0</span>
+      <span class="pts" style="color: {agentColor($gameData, p.name)}">{$currentScores.scores[p.name] ?? 0}</span>
     </div>
   {/each}
+  {#if $currentScores.winner}
+    <span class="winner-badge">🏆 {$currentScores.winner}</span>
+  {/if}
 </div>
 
 <!-- Main Area -->
@@ -170,6 +181,15 @@
   .score-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
   .score-chip .name { color: var(--text-dim); }
   .score-chip .pts { font-weight: 500; min-width: 20px; }
+  .round-badge {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--accent); background: var(--bg);
+    padding: 2px 6px; border-radius: 3px;
+  }
+  .winner-badge {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--win);
+  }
 
   .main-area {
     flex: 1; display: flex; overflow: hidden;

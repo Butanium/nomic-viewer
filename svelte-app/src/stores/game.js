@@ -187,6 +187,34 @@ function fileState(filename) {
 export const currentRules = fileState('game_rules.md');
 export const currentGameLog = fileState('game_log.md');
 
+// ── Derived: current scores from game_state.yaml rounds ──
+export const currentScores = derived(
+  [gameData, visibleEvents, currentIdx],
+  ([$data, $events, $idx]) => {
+    if (!$data?.rounds?.length) return { scores: {}, round: 0, result: null, winner: null };
+    if ($idx < 0) return { scores: {}, round: 0, result: null, winner: null };
+
+    const currentTs = $events[$idx]?.timestamp || '';
+
+    // Find the latest round whose timestamp <= current playback timestamp
+    let latestRound = null;
+    for (const r of $data.rounds) {
+      if (r.timestamp && r.timestamp <= currentTs) {
+        latestRound = r;
+      }
+    }
+
+    if (!latestRound) return { scores: {}, round: 0, result: null, winner: null };
+
+    return {
+      scores: latestRound.scores || {},
+      round: latestRound.round,
+      result: latestRound.result,
+      winner: latestRound.winner || null,
+    };
+  }
+);
+
 // ── Playback actions ──
 let playTimer = null;
 

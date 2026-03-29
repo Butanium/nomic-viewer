@@ -34,7 +34,8 @@
       "total_tool_calls": 242,
       "total_file_edits": 27
     },
-    "has_initial_files": true
+    "winner": "Ember",
+    "total_rounds": 13
   },
   {
     "game_id": "game-1",
@@ -71,7 +72,8 @@
       "total_tool_calls": 431,
       "total_file_edits": 45
     },
-    "has_initial_files": true
+    "winner": "Vale",
+    "total_rounds": 18
   },
   {
     "game_id": "game-2",
@@ -108,7 +110,8 @@
       "total_tool_calls": 221,
       "total_file_edits": 37
     },
-    "has_initial_files": true
+    "winner": "Rune",
+    "total_rounds": 11
   },
   {
     "game_id": "game-3",
@@ -145,7 +148,8 @@
       "total_tool_calls": 249,
       "total_file_edits": 35
     },
-    "has_initial_files": true
+    "winner": "Dumblegold",
+    "total_rounds": 14
   },
   {
     "game_id": "game-4",
@@ -182,7 +186,8 @@
       "total_tool_calls": 267,
       "total_file_edits": 55
     },
-    "has_initial_files": true
+    "winner": "Wren",
+    "total_rounds": 18
   },
   {
     "game_id": "game-5",
@@ -219,7 +224,8 @@
       "total_tool_calls": 338,
       "total_file_edits": 43
     },
-    "has_initial_files": true
+    "winner": "escargot-rigolo",
+    "total_rounds": 19
   },
   {
     "game_id": "game-6",
@@ -256,7 +262,8 @@
       "total_tool_calls": 266,
       "total_file_edits": 33
     },
-    "has_initial_files": true
+    "winner": "Tocsin",
+    "total_rounds": 15
   },
   {
     "game_id": "game-7",
@@ -293,6 +300,7 @@
       "total_tool_calls": 716,
       "total_file_edits": 91
     },
-    "has_initial_files": true
+    "winner": "Clippyrus",
+    "total_rounds": 37
   }
 ]

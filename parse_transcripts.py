@@ -545,17 +545,34 @@ def build_game_data(game_dir: Path) -> dict:
         "total_file_edits": sum(1 for e in filtered_events if e["type"] == "file_edit"),
     }
 
+    # Load game_state.yaml if it exists (structured round data with scores)
+    rounds = []
+    winner = None
+    game_state_path = game_dir / "game_state.yaml"
+    if game_state_path.exists():
+        import yaml
+        with open(game_state_path) as f:
+            state = yaml.safe_load(f) or {}
+        rounds = state.get("rounds", [])
+        # Find winner from rounds
+        for r in rounds:
+            if r.get("winner"):
+                winner = r["winner"]
+
     return {
         "meta": {
             "game_id": game_dir.name,
             "start_time": start_time,
             "end_time": end_time,
             "stats": stats,
+            "winner": winner,
+            "total_rounds": len(rounds),
         },
         "players": players,
         "clerk": clerk_info,
         "events": filtered_events,
         "initial_files": initial_files,
+        "rounds": rounds,
     }
 
 
