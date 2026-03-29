@@ -29,7 +29,7 @@
     "stats": {
       "total_events": 1438,
       "total_messages": 367,
-      "total_broadcasts": 0,
+      "total_broadcasts": 72,
       "total_thinking": 0,
       "total_tool_calls": 242,
       "total_file_edits": 27
@@ -66,7 +66,7 @@
     "stats": {
       "total_events": 2086,
       "total_messages": 428,
-      "total_broadcasts": 0,
+      "total_broadcasts": 131,
       "total_thinking": 0,
       "total_tool_calls": 431,
       "total_file_edits": 45
@@ -103,7 +103,7 @@
     "stats": {
       "total_events": 1439,
       "total_messages": 358,
-      "total_broadcasts": 0,
+      "total_broadcasts": 118,
       "total_thinking": 0,
       "total_tool_calls": 221,
       "total_file_edits": 37
@@ -140,7 +140,7 @@
     "stats": {
       "total_events": 1564,
       "total_messages": 354,
-      "total_broadcasts": 0,
+      "total_broadcasts": 201,
       "total_thinking": 0,
       "total_tool_calls": 249,
       "total_file_edits": 35
@@ -177,7 +177,7 @@
     "stats": {
       "total_events": 2036,
       "total_messages": 568,
-      "total_broadcasts": 0,
+      "total_broadcasts": 216,
       "total_thinking": 0,
       "total_tool_calls": 267,
       "total_file_edits": 55

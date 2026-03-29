@@ -154,9 +154,18 @@ def classify_bash_command(command: str) -> tuple[str, dict]:
 
 
 def extract_sendmessage(tool_input: dict) -> dict:
-    """Extract fields from a SendMessage tool call input."""
+    """Extract fields from a SendMessage tool call input.
+
+    Handles two formats:
+    - Games 5+: {"to": "*", "message": "...", "summary": "..."}
+    - Games 0-4: {"type": "broadcast", "content": "..."} or
+                 {"type": "message", "recipient": "Name", "content": "..."}
+    """
+    to = tool_input.get("to") or tool_input.get("recipient") or ""
+    if not to and tool_input.get("type") == "broadcast":
+        to = "*"
     return {
-        "to": tool_input.get("to", ""),
+        "to": to,
         "message": tool_input.get("message", tool_input.get("content", "")),
         "summary": tool_input.get("summary", ""),
     }
