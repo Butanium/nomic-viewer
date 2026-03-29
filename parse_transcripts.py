@@ -328,6 +328,8 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                                 "tool_name": tool_name,
                                 "description": tool_input.get("description", ""),
                                 "file_path": tool_input.get("file_path", ""),
+                                "offset": tool_input.get("offset"),
+                                "limit": tool_input.get("limit"),
                                 "tool_use_id": tool_id,
                             }
                             events.append(evt)
@@ -484,12 +486,16 @@ def build_game_data(game_dir: Path) -> dict:
                     lines = [l.split("→", 1)[1] if "→" in l else l for l in lines]
                     result = "\n".join(lines)
                 filename = Path(evt["file_path"]).name
+                offset = evt.get("offset")  # 1-indexed line number
+                limit = evt.get("limit")
                 filtered_events.append({
                     "timestamp": evt["timestamp"],
                     "source": evt["source"],
                     "type": "file_read",
                     "filename": filename,
                     "content": result,
+                    "offset": offset,
+                    "limit": limit,
                 })
             continue
 

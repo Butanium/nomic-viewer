@@ -113,7 +113,19 @@ function reconstructFile(initialContent, events) {
   let lastEdit = null;
   for (const evt of events) {
     if (evt.type === 'file_read') {
-      content = evt.content;
+      if (!evt.offset && !evt.limit) {
+        // Full read — replace entire content
+        content = evt.content;
+      } else {
+        // Partial read — splice into existing content at the given line offset
+        const offset = (evt.offset || 1) - 1; // convert 1-indexed to 0-indexed
+        const existingLines = content.split('\n');
+        const newLines = evt.content.split('\n');
+        // Replace lines from offset, extending if needed
+        const before = existingLines.slice(0, offset);
+        const after = evt.limit ? existingLines.slice(offset + newLines.length) : [];
+        content = [...before, ...newLines, ...after].join('\n');
+      }
     } else if (evt.type === 'file_edit') {
       if (evt.is_error) continue;
       if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
