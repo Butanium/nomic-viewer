@@ -349,6 +349,25 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                 # We only extract tool results to attach to pending tool calls.
                 msg_content = entry.get("message", {}).get("content", "")
 
+                # Plain text user message = supervisor talking to this agent
+                if isinstance(msg_content, str) and msg_content.strip():
+                    text = msg_content.strip()
+                    # Skip system noise (teammate messages, task notifications, system reminders)
+                    if not any(tag in text for tag in (
+                        "<teammate-message", "<task-notification",
+                        "<system-reminder", "<command-message",
+                        "This session is being continued",
+                    )):
+                        events.append({
+                            "timestamp": timestamp,
+                            "source": "supervisor",
+                            "type": "message",
+                            "to": agent_name,
+                            "content": text,
+                            "summary": "",
+                            "is_broadcast": False,
+                        })
+
                 if isinstance(msg_content, list):
                     for block in msg_content:
                         if not isinstance(block, dict):

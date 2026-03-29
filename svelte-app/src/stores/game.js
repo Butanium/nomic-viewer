@@ -255,6 +255,10 @@ export function togglePlay() {
     isPlaying.set(false);
     clearTimeout(playTimer);
   } else {
+    // If at start (-1), step to first event before playing
+    if (get(currentIdx) < 0) {
+      currentIdx.set(0);
+    }
     isPlaying.set(true);
     scheduleNext();
   }

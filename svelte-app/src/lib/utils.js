@@ -9,6 +9,7 @@ const MODEL_COLORS = {
 export function agentColor(gameData, name) {
   if (!gameData) return 'var(--text-dim)';
   if (name === 'clerk') return 'var(--clerk)';
+  if (name === 'supervisor') return 'var(--win)';
   const player = gameData.players.find(p => p.name === name);
   return player ? (MODEL_COLORS[player.model] || 'var(--text-dim)') : 'var(--text-dim)';
 }
