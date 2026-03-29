@@ -14,7 +14,8 @@
   $: incoming = evt._incoming;
   $: isBroadcast = evt.is_broadcast;
   $: isDM = !isBroadcast && evt.to !== 'team-lead';
-  $: truncated = variant !== 'public' && evt.content.length > 200;
+  $: isPlayerDM = isDM && evt.to !== 'clerk' && evt.source !== 'clerk';
+  $: truncated = variant !== 'public' && !isPlayerDM && evt.content.length > 200;
   $: color = agentColor($gameData, evt.source);
   $: toColor = agentColor($gameData, evt.to);
 </script>
@@ -72,6 +73,7 @@
   .chat-msg {
     border-radius: 5px; padding: 7px 10px;
     border-left: 3px solid var(--border);
+    background: var(--bg-panel);
     animation: fadeIn 0.2s ease-out;
   }
   .sender {
@@ -89,7 +91,7 @@
   }
   .body {
     font-size: 12px; line-height: 1.5;
-    color: var(--text); opacity: 0.9;
+    color: var(--text);
   }
 
   .evt { border-radius: 4px; padding: 6px 8px; animation: fadeIn 0.2s ease-out; }
@@ -117,7 +119,7 @@
   .dm-label { color: var(--against); font-weight: 500; }
 
   .evt-msg-text {
-    font-size: 12px; line-height: 1.4; color: var(--text); opacity: 0.85;
+    font-size: 12px; line-height: 1.4; color: var(--text);
   }
   .evt-msg-text.truncated {
     max-height: 10.8em; overflow: hidden; cursor: pointer;

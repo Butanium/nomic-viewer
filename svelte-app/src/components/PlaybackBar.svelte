@@ -3,7 +3,7 @@
 -->
 <script>
   import { currentIdx, isPlaying, speedIdx, visibleEvents, SPEEDS,
-           stepForward, stepBack, togglePlay, seekTo, cycleSpeed } from '../stores/game.js';
+           stepForward, stepBack, jumpForward, jumpBack, togglePlay, seekTo, speedUp, speedDown } from '../stores/game.js';
   import { shortTime } from '../lib/utils.js';
 
   $: total = $visibleEvents.length;
@@ -22,16 +22,31 @@
   if (e.key === ' ' || e.key === 'k') { e.preventDefault(); togglePlay(); }
   else if (e.key === 'ArrowRight' || e.key === 'l') { stepForward(); }
   else if (e.key === 'ArrowLeft' || e.key === 'j') { stepBack(); }
-  else if (e.key === '+' || e.key === '=') { cycleSpeed(); }
+  else if (e.key === '+' || e.key === '=') { speedUp(); }
+  else if (e.key === '-') { speedDown(); }
 }} />
 
 <div class="playback-bar">
   <div class="pb-controls">
-    <button class="pb-btn" title="Previous event" on:click={stepBack}>⏮</button>
-    <button class="pb-btn" class:active={$isPlaying} title="Play/Pause" on:click={togglePlay}>
-      {$isPlaying ? '⏸' : '▶'}
+    <button class="pb-btn" title="Rewind 30" on:click={jumpBack}>
+      <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 0L0 5l7 5V0z" fill="currentColor"/><path d="M14 0L7 5l7 5V0z" fill="currentColor"/></svg>
     </button>
-    <button class="pb-btn" title="Next event" on:click={stepForward}>⏭</button>
+    <button class="pb-btn" title="Previous event" on:click={stepBack}>
+      <svg width="10" height="10" viewBox="0 0 10 10"><rect x="0" y="0" width="2" height="10" fill="currentColor"/><path d="M10 0L3 5l7 5V0z" fill="currentColor"/></svg>
+    </button>
+    <button class="pb-btn play" class:active={$isPlaying} title="Play/Pause" on:click={togglePlay}>
+      {#if $isPlaying}
+        <svg width="8" height="10" viewBox="0 0 8 10"><rect x="0" y="0" width="2.5" height="10" fill="currentColor"/><rect x="5.5" y="0" width="2.5" height="10" fill="currentColor"/></svg>
+      {:else}
+        <svg width="8" height="10" viewBox="0 0 8 10"><path d="M0 0l8 5-8 5V0z" fill="currentColor"/></svg>
+      {/if}
+    </button>
+    <button class="pb-btn" title="Next event" on:click={stepForward}>
+      <svg width="10" height="10" viewBox="0 0 10 10"><path d="M0 0l7 5-7 5V0z" fill="currentColor"/><rect x="8" y="0" width="2" height="10" fill="currentColor"/></svg>
+    </button>
+    <button class="pb-btn" title="Skip 30" on:click={jumpForward}>
+      <svg width="14" height="10" viewBox="0 0 14 10"><path d="M0 0l7 5-7 5V0z" fill="currentColor"/><path d="M7 0l7 5-7 5V0z" fill="currentColor"/></svg>
+    </button>
   </div>
 
   <div class="pb-time">{idx} / {total}</div>
@@ -44,7 +59,11 @@
 
   <div class="pb-event-count">{total} events</div>
 
-  <button class="pb-speed" on:click={cycleSpeed}>{SPEEDS[$speedIdx]}x</button>
+  <div class="pb-speed-group">
+    <button class="pb-speed-btn" on:click={speedDown}>−</button>
+    <span class="pb-speed-label">{SPEEDS[$speedIdx]}x</span>
+    <button class="pb-speed-btn" on:click={speedUp}>+</button>
+  </div>
 </div>
 
 <style>
@@ -86,11 +105,18 @@
     font-family: var(--font-mono); font-size: 10px;
     color: var(--text-muted); flex-shrink: 0;
   }
-  .pb-speed {
-    font-family: var(--font-mono); font-size: 10px;
-    padding: 4px 8px; border: 1px solid var(--border);
-    border-radius: 4px; background: var(--bg-raised);
-    color: var(--text-dim); cursor: pointer; flex-shrink: 0;
+  .pb-speed-group {
+    display: flex; align-items: center; gap: 2px; flex-shrink: 0;
   }
-  .pb-speed:hover { color: var(--text); background: var(--bg-hover); }
+  .pb-speed-label {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--text-dim); min-width: 32px; text-align: center;
+  }
+  .pb-speed-btn {
+    font-size: 10px; padding: 4px 6px;
+    border: 1px solid var(--border); border-radius: 4px;
+    background: var(--bg-raised); color: var(--text-dim);
+    cursor: pointer;
+  }
+  .pb-speed-btn:hover { color: var(--text); background: var(--bg-hover); }
 </style>

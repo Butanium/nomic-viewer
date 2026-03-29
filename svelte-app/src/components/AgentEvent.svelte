@@ -78,7 +78,7 @@
 
   .evt-text {
     background: var(--bg-panel);
-    font-size: 12px; line-height: 1.45; color: var(--text); opacity: 0.9;
+    font-size: 12px; line-height: 1.45; color: var(--text);
   }
 
   .evt-tool {

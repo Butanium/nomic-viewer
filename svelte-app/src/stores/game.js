@@ -17,7 +17,7 @@ export const speedIdx = writable(1);
 export const clerkOpen = writable(true);
 export const activeTab = writable('replay');
 
-export const SPEEDS = [0.5, 1, 2, 5, 10, 50];
+export const SPEEDS = [0.25, 0.5, 1, 2.5, 5, 25];
 
 // ── Derived: filtered events (skip noise) ──
 export const visibleEvents = derived(gameData, $data => {
@@ -131,6 +131,16 @@ export function stepBack() {
   }
 }
 
+export function jumpForward() {
+  const idx = get(currentIdx);
+  const events = get(visibleEvents);
+  advanceTo(Math.min(idx + 30, events.length - 1));
+}
+
+export function jumpBack() {
+  advanceTo(Math.max(get(currentIdx) - 30, 0));
+}
+
 export function togglePlay() {
   const playing = get(isPlaying);
   if (playing) {
@@ -152,16 +162,16 @@ function scheduleNext() {
     return;
   }
 
-  const next = events[idx + 1];
-  const content = next.content || '';
+  const current = events[idx];
+  const content = current.content || '';
   const wordCount = content.split(/\s+/).filter(Boolean).length;
 
   let delay;
-  if (next.type === 'message') {
+  if (current.type === 'message') {
     delay = Math.max(1000, Math.min(5000, wordCount * 60));
-  } else if (next.type === 'thinking') {
+  } else if (current.type === 'thinking') {
     delay = Math.max(500, Math.min(4000, wordCount * 40));
-  } else if (next.type === 'text') {
+  } else if (current.type === 'text') {
     delay = Math.max(500, Math.min(3000, wordCount * 50));
   } else {
     delay = 400;
@@ -181,8 +191,12 @@ export function seekTo(pct) {
   advanceTo(Math.max(0, Math.min(targetIdx, events.length - 1)));
 }
 
-export function cycleSpeed() {
-  speedIdx.update(i => (i + 1) % SPEEDS.length);
+export function speedUp() {
+  speedIdx.update(i => Math.min(i + 1, SPEEDS.length - 1));
+}
+
+export function speedDown() {
+  speedIdx.update(i => Math.max(i - 1, 0));
 }
 
 // ── Load game data ──
