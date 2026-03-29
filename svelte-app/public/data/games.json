@@ -1,0 +1,298 @@
+[
+  {
+    "game_id": "game-0",
+    "path": "data/game-0.json",
+    "start_time": "2026-03-12T12:04:42.904Z",
+    "end_time": "2026-03-12T14:18:58.379Z",
+    "players": [
+      {
+        "name": "ember",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "onyx",
+        "model": "sonnet",
+        "role": "player"
+      },
+      {
+        "name": "zephyr",
+        "model": "opus",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 1400,
+      "total_messages": 367,
+      "total_broadcasts": 0,
+      "total_thinking": 0,
+      "total_tool_calls": 242,
+      "total_file_edits": 27
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-1",
+    "path": "data/game-1.json",
+    "start_time": "2026-03-12T16:05:22.452Z",
+    "end_time": "2026-03-13T02:08:51.630Z",
+    "players": [
+      {
+        "name": "cinder",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "drift",
+        "model": "opus",
+        "role": "player"
+      },
+      {
+        "name": "vale",
+        "model": "sonnet",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 2048,
+      "total_messages": 428,
+      "total_broadcasts": 0,
+      "total_thinking": 0,
+      "total_tool_calls": 431,
+      "total_file_edits": 45
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-2",
+    "path": "data/game-2.json",
+    "start_time": "2026-03-13T01:43:40.675Z",
+    "end_time": "2026-03-13T03:43:15.189Z",
+    "players": [
+      {
+        "name": "flint",
+        "model": "opus",
+        "role": "player"
+      },
+      {
+        "name": "moss",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "rune",
+        "model": "sonnet",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 1412,
+      "total_messages": 358,
+      "total_broadcasts": 0,
+      "total_thinking": 0,
+      "total_tool_calls": 221,
+      "total_file_edits": 37
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-3",
+    "path": "data/game-3.json",
+    "start_time": "2026-03-13T04:09:01.792Z",
+    "end_time": "2026-03-13T11:12:49.141Z",
+    "players": [
+      {
+        "name": "Dracox",
+        "model": "sonnet",
+        "role": "player"
+      },
+      {
+        "name": "Dumblegold",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "Hufflepouf",
+        "model": "opus",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 1533,
+      "total_messages": 354,
+      "total_broadcasts": 0,
+      "total_thinking": 0,
+      "total_tool_calls": 249,
+      "total_file_edits": 35
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-4",
+    "path": "data/game-4.json",
+    "start_time": "2026-03-13T12:13:48.355Z",
+    "end_time": "2026-03-13T14:36:19.138Z",
+    "players": [
+      {
+        "name": "sable",
+        "model": "opus",
+        "role": "player"
+      },
+      {
+        "name": "thorn",
+        "model": "sonnet",
+        "role": "player"
+      },
+      {
+        "name": "wren",
+        "model": "haiku",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 1999,
+      "total_messages": 568,
+      "total_broadcasts": 0,
+      "total_thinking": 0,
+      "total_tool_calls": 267,
+      "total_file_edits": 55
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-5",
+    "path": "data/game-5.json",
+    "start_time": "2026-03-13T18:55:46.261Z",
+    "end_time": "2026-03-14T03:05:28.467Z",
+    "players": [
+      {
+        "name": "escargot-rigolo",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "petit-chat",
+        "model": "opus",
+        "role": "player"
+      },
+      {
+        "name": "renard-malin",
+        "model": "sonnet",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 1943,
+      "total_messages": 541,
+      "total_broadcasts": 244,
+      "total_thinking": 0,
+      "total_tool_calls": 338,
+      "total_file_edits": 43
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-6",
+    "path": "data/game-6.json",
+    "start_time": "2026-03-15T21:40:16.655Z",
+    "end_time": "2026-03-16T00:01:08.588Z",
+    "players": [
+      {
+        "name": "audace",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "raison",
+        "model": "sonnet",
+        "role": "player"
+      },
+      {
+        "name": "tocsin",
+        "model": "opus",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 2031,
+      "total_messages": 575,
+      "total_broadcasts": 163,
+      "total_thinking": 0,
+      "total_tool_calls": 266,
+      "total_file_edits": 33
+    },
+    "has_initial_files": true
+  },
+  {
+    "game_id": "game-7",
+    "path": "data/game-7.json",
+    "start_time": "2026-03-27T15:20:58.577Z",
+    "end_time": "2026-03-27T20:19:32.117Z",
+    "players": [
+      {
+        "name": "aphreusdite",
+        "model": "sonnet",
+        "role": "player"
+      },
+      {
+        "name": "clippyrus",
+        "model": "haiku",
+        "role": "player"
+      },
+      {
+        "name": "poseifion",
+        "model": "opus",
+        "role": "player"
+      }
+    ],
+    "clerk": {
+      "name": "clerk",
+      "model": "opus",
+      "role": "clerk"
+    },
+    "stats": {
+      "total_events": 4317,
+      "total_messages": 1387,
+      "total_broadcasts": 422,
+      "total_thinking": 0,
+      "total_tool_calls": 716,
+      "total_file_edits": 91
+    },
+    "has_initial_files": true
+  }
+]

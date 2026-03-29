@@ -327,6 +327,7 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                                 "tool": tool_name.lower(),
                                 "tool_name": tool_name,
                                 "description": tool_input.get("description", ""),
+                                "file_path": tool_input.get("file_path", ""),
                                 "tool_use_id": tool_id,
                             }
                             events.append(evt)
@@ -445,6 +446,28 @@ def build_game_data(game_dir: Path) -> dict:
             }
             break
 
+    # Extract initial file content for game_rules.md and game_log.md
+    # from the first successful Read tool call
+    game_files = ("game_rules.md", "game_log.md")
+    initial_files = {}
+    for evt in all_events:
+        if evt.get("type") != "tool_call" or evt.get("tool") != "read":
+            continue
+        if evt.get("is_error"):
+            continue
+        result = evt.get("result", "")
+        if not result or not isinstance(result, str):
+            continue
+        file_path = evt.get("file_path", "") + evt.get("description", "")
+        for gf in game_files:
+            if gf in file_path and gf not in initial_files:
+                # Strip cat-n line number prefixes ("     1→# Ruleset")
+                lines = result.split("\n")
+                if any("→" in line for line in lines[:5]):
+                    lines = [l.split("→", 1)[1] if "→" in l else l for l in lines]
+                initial_files[gf] = "\n".join(lines)
+                break
+
     # Filter events to remove low-signal noise
     filtered_events = []
     for evt in all_events:
@@ -480,6 +503,7 @@ def build_game_data(game_dir: Path) -> dict:
         "players": players,
         "clerk": clerk_info,
         "events": filtered_events,
+        "initial_files": initial_files,
     }
 
 

@@ -107,6 +107,39 @@ export const agentStatuses = derived(
   }
 );
 
+// ── Derived: file state reconstruction ──
+function reconstructFile(initialContent, edits) {
+  let content = initialContent;
+  let lastEdit = null;
+  for (const evt of edits) {
+    if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
+      const idx = content.indexOf(evt.old_string);
+      if (idx !== -1) {
+        content = content.slice(0, idx) + evt.new_string + content.slice(idx + evt.old_string.length);
+        lastEdit = evt;
+      }
+    } else if (evt.tool === 'Write' && evt.content) {
+      content = evt.content;
+      lastEdit = evt;
+    }
+  }
+  return { content, lastEdit };
+}
+
+function fileState(filename) {
+  return derived(
+    [gameData, eventsUpToCurrent],
+    ([$data, $events]) => {
+      const initial = $data?.initial_files?.[filename] || '';
+      const edits = $events.filter(e => e.type === 'file_edit' && e.filename === filename);
+      return reconstructFile(initial, edits);
+    }
+  );
+}
+
+export const currentRules = fileState('game_rules.md');
+export const currentGameLog = fileState('game_log.md');
+
 // ── Playback actions ──
 let playTimer = null;
 
