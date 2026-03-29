@@ -116,8 +116,19 @@ function reconstructFile(initialContent, events) {
       if (!evt.offset || evt.offset <= 0) {
         // Full read (or negative offset = tail read that includes start)
         content = evt.content;
+      } else {
+        // Partial read — splice at the given absolute line offset
+        const offset0 = evt.offset - 1; // 1-indexed to 0-indexed
+        const existingLines = content.split('\n');
+        const newLines = evt.content.split('\n');
+        const before = existingLines.slice(0, offset0);
+        // Pad with empty lines if offset is beyond our content
+        while (before.length < offset0) before.push('');
+        const after = evt.limit
+          ? existingLines.slice(offset0 + newLines.length)
+          : []; // no limit = replace to end
+        content = [...before, ...newLines, ...after].join('\n');
       }
-      // Skip partial reads — line offsets drift from our reconstruction
     } else if (evt.type === 'file_edit') {
       if (evt.is_error) continue;
       if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
@@ -133,13 +144,18 @@ function reconstructFile(initialContent, events) {
             const tail = lines.slice(-matchLen).join('\n');
             const head = oldLines.slice(0, matchLen).join('\n');
             if (tail === head) {
-              // Content ends with the first matchLen lines of old_string.
-              // Append the rest of old_string to get the real file state.
               const missing = oldLines.slice(matchLen).join('\n');
               content = content + '\n' + missing;
               idx = content.indexOf(evt.old_string);
               break;
             }
+          }
+          if (idx === -1) {
+            // No prefix overlap — the old_string is entirely new appended content.
+            // The edit succeeded on the real file, so old_string follows our content.
+            // Append old_string, then the edit will replace it with new_string.
+            content = content + '\n' + evt.old_string;
+            idx = content.indexOf(evt.old_string);
           }
         }
         if (idx !== -1) {
