@@ -286,7 +286,7 @@
       "role": "clerk"
     },
     "stats": {
-      "total_events": 4471,
+      "total_events": 4466,
       "total_messages": 1387,
       "total_broadcasts": 422,
       "total_thinking": 0,

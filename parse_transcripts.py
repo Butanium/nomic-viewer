@@ -360,7 +360,16 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                             # Attach result to the pending tool call
                             if tool_use_id in pending_tool_calls:
                                 evt = pending_tool_calls[tool_use_id]
-                                evt["result"] = result_content[:2000] if isinstance(result_content, str) else str(result_content)[:2000]
+                                # Keep full result for game file reads; truncate others
+                                is_game_file_read = (
+                                    evt.get("tool") == "read"
+                                    and any(gf in evt.get("file_path", "")
+                                            for gf in ("game_rules.md", "game_log.md"))
+                                )
+                                if is_game_file_read:
+                                    evt["result"] = result_content if isinstance(result_content, str) else str(result_content)
+                                else:
+                                    evt["result"] = result_content[:2000] if isinstance(result_content, str) else str(result_content)[:2000]
                                 evt["is_error"] = is_error
                                 del pending_tool_calls[tool_use_id]
 
@@ -480,6 +489,12 @@ def build_game_data(game_dir: Path) -> dict:
                 and any(gf in evt.get("file_path", "") for gf in game_files)):
             result = evt.get("result", "")
             if result:
+                # Strip <system-reminder> tags (tool metadata, not file content)
+                import re as _re
+                result = _re.sub(r"<system-reminder>.*?</system-reminder>", "", result, flags=_re.DOTALL).strip()
+                # Skip if result is just a system message (no actual content)
+                if not result or result.startswith("<"):
+                    continue
                 # Strip cat-n line number prefixes ("     1→content")
                 lines = result.split("\n")
                 if any("→" in l for l in lines[:5]):

@@ -113,23 +113,35 @@ function reconstructFile(initialContent, events) {
   let lastEdit = null;
   for (const evt of events) {
     if (evt.type === 'file_read') {
-      if (!evt.offset && !evt.limit) {
-        // Full read — replace entire content
+      if (!evt.offset || evt.offset <= 0) {
+        // Full read (or negative offset = tail read that includes start)
         content = evt.content;
-      } else {
-        // Partial read — splice into existing content at the given line offset
-        const offset = (evt.offset || 1) - 1; // convert 1-indexed to 0-indexed
-        const existingLines = content.split('\n');
-        const newLines = evt.content.split('\n');
-        // Replace lines from offset, extending if needed
-        const before = existingLines.slice(0, offset);
-        const after = evt.limit ? existingLines.slice(offset + newLines.length) : [];
-        content = [...before, ...newLines, ...after].join('\n');
       }
+      // Skip partial reads — line offsets drift from our reconstruction
     } else if (evt.type === 'file_edit') {
       if (evt.is_error) continue;
       if (evt.tool === 'Edit' && evt.old_string && evt.new_string) {
-        const idx = content.indexOf(evt.old_string);
+        let idx = content.indexOf(evt.old_string);
+        if (idx === -1) {
+          // old_string not found — likely a side-channel write (e.g. roll_dice)
+          // appended content we don't have. The old_string IS the ground truth
+          // of what the file contained at this point, so use it to patch.
+          // Find the longest matching prefix of old_string at the end of content.
+          const lines = content.split('\n');
+          const oldLines = evt.old_string.split('\n');
+          for (let matchLen = Math.min(lines.length, oldLines.length); matchLen > 0; matchLen--) {
+            const tail = lines.slice(-matchLen).join('\n');
+            const head = oldLines.slice(0, matchLen).join('\n');
+            if (tail === head) {
+              // Content ends with the first matchLen lines of old_string.
+              // Append the rest of old_string to get the real file state.
+              const missing = oldLines.slice(matchLen).join('\n');
+              content = content + '\n' + missing;
+              idx = content.indexOf(evt.old_string);
+              break;
+            }
+          }
+        }
         if (idx !== -1) {
           content = content.slice(0, idx) + evt.new_string + content.slice(idx + evt.old_string.length);
           lastEdit = evt;
