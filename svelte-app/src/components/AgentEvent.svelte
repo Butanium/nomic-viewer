@@ -36,6 +36,11 @@
     <div class="evt-thinking-text">{evt.content}</div>
   </div>
 
+{:else if evt.type === 'compaction'}
+  <div class="evt evt-compaction">
+    <span class="compaction-icon">↻</span> context compacted · {shortTime(evt.timestamp)}
+  </div>
+
 {:else if evt.type === 'text'}
   <div class="evt evt-text">{@html renderMarkdown(evt.content)}</div>
 
@@ -80,6 +85,15 @@
     background: var(--bg-panel);
     font-size: 12px; line-height: 1.45; color: var(--text);
   }
+
+  .evt-compaction {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--opus); text-align: center;
+    padding: 6px; border-top: 1px dashed var(--opus);
+    border-bottom: 1px dashed var(--opus);
+    opacity: 0.7;
+  }
+  .compaction-icon { font-size: 12px; }
 
   .evt-tool {
     font-family: var(--font-mono); font-size: 10px;

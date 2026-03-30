@@ -4,7 +4,7 @@
     "start_time": "2026-03-12T12:04:26.557Z",
     "end_time": "2026-03-12T23:46:31.492Z",
     "stats": {
-      "total_events": 1452,
+      "total_events": 1455,
       "total_messages": 381,
       "total_broadcasts": 72,
       "total_thinking": 0,
@@ -7375,6 +7375,11 @@
       "tool_use_id": "toolu_01FZscZCi5i3EPA1K812uBVM"
     },
     {
+      "timestamp": "2026-03-12T13:07:08.934Z",
+      "source": "clerk",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-12T13:07:22.472Z",
       "source": "clerk",
       "type": "message",
@@ -10853,6 +10858,11 @@
       "content": "Waiting for the reveal phase. This vote determines whether the game continues or Onyx wins."
     },
     {
+      "timestamp": "2026-03-12T13:44:12.522Z",
+      "source": "onyx",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-12T13:44:19.060Z",
       "source": "onyx",
       "type": "tool_call",
@@ -11914,6 +11924,11 @@
       "source": "clerk",
       "type": "text",
       "content": "Ember committed. Waiting for Onyx and Zephyr's commitment hashes. (Zephyr expressed support but hasn't sent the hash yet.)"
+    },
+    {
+      "timestamp": "2026-03-12T13:56:17.770Z",
+      "source": "zephyr",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-12T13:56:31.181Z",

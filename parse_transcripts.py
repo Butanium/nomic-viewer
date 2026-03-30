@@ -344,6 +344,13 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                             events.append(evt)
                             pending_tool_calls[tool_id] = evt
 
+            elif entry_type == "system" and entry.get("subtype") == "compact_boundary":
+                events.append({
+                    "timestamp": timestamp,
+                    "source": agent_name,
+                    "type": "compaction",
+                })
+
             elif entry_type == "user":
                 # User events contain tool results and incoming messages.
                 # We only extract tool results to attach to pending tool calls.

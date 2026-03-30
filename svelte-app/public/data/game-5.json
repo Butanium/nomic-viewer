@@ -4,7 +4,7 @@
     "start_time": "2026-03-13T18:55:41.310Z",
     "end_time": "2026-03-14T03:05:28.467Z",
     "stats": {
-      "total_events": 1993,
+      "total_events": 1996,
       "total_messages": 550,
       "total_broadcasts": 244,
       "total_thinking": 0,
@@ -11285,6 +11285,11 @@
       "is_broadcast": false
     },
     {
+      "timestamp": "2026-03-13T23:52:49.788Z",
+      "source": "escargot-rigolo",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-13T23:52:49.892Z",
       "source": "supervisor",
       "type": "message",
@@ -13494,6 +13499,11 @@
       "source": "clerk",
       "type": "text",
       "content": "Waiting for renard-malin..."
+    },
+    {
+      "timestamp": "2026-03-14T00:08:01.319Z",
+      "source": "renard-malin",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-14T00:08:43.189Z",
@@ -15849,6 +15859,11 @@
       "tool_use_id": "toolu_01KFT4ujWUdKU3z75pY9mpJL",
       "result": "{\n  \"success\": true,\n  \"message\": \"Message sent to petit-chat's inbox\",\n  \"routing\": {\n    \"sender\": \"team-lead\",\n    \"target\": \"@petit-chat\",\n    \"targetColor\": \"green\",\n    \"summary\": \"Nudging petit-chat for Round 17 proposal\",\n    \"content\": \"It's your turn (Round 17). Please submit your rule-change proposal using the `propose` tool when ready. Both other players are waiting.\"\n  }\n}",
       "is_error": false
+    },
+    {
+      "timestamp": "2026-03-14T00:27:36.517Z",
+      "source": "petit-chat",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-14T00:27:40.230Z",

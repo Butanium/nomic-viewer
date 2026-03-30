@@ -4,7 +4,7 @@
     "start_time": "2026-03-13T12:13:43.101Z",
     "end_time": "2026-03-13T14:36:19.138Z",
     "stats": {
-      "total_events": 2053,
+      "total_events": 2057,
       "total_messages": 585,
       "total_broadcasts": 216,
       "total_thinking": 0,
@@ -13020,6 +13020,11 @@
       "is_broadcast": false
     },
     {
+      "timestamp": "2026-03-13T13:51:34.512Z",
+      "source": "wren",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-13T13:51:34.616Z",
       "source": "supervisor",
       "type": "message",
@@ -13027,6 +13032,11 @@
       "content": "<local-command-stdout>\u001b[2mCompacted (ctrl+o to see full summary)\u001b[22m</local-command-stdout>",
       "summary": "",
       "is_broadcast": false
+    },
+    {
+      "timestamp": "2026-03-13T13:52:02.515Z",
+      "source": "thorn",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-13T13:52:02.619Z",
@@ -13038,6 +13048,11 @@
       "is_broadcast": false
     },
     {
+      "timestamp": "2026-03-13T13:52:25.718Z",
+      "source": "clerk",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-13T13:52:25.822Z",
       "source": "supervisor",
       "type": "message",
@@ -13045,6 +13060,11 @@
       "content": "<local-command-stdout>\u001b[2mCompacted (ctrl+o to see full summary)\u001b[22m</local-command-stdout>",
       "summary": "",
       "is_broadcast": false
+    },
+    {
+      "timestamp": "2026-03-13T13:52:45.304Z",
+      "source": "sable",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-13T13:52:45.408Z",

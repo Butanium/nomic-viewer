@@ -4,7 +4,7 @@
     "start_time": "2026-03-13T04:08:56.479Z",
     "end_time": "2026-03-13T11:12:49.141Z",
     "stats": {
-      "total_events": 1567,
+      "total_events": 1571,
       "total_messages": 357,
       "total_broadcasts": 201,
       "total_thinking": 0,
@@ -9164,6 +9164,11 @@
       "content": "Waiting on Dumblegold's commitment."
     },
     {
+      "timestamp": "2026-03-13T04:54:10.556Z",
+      "source": "Dumblegold",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-13T04:54:15.299Z",
       "source": "Dumblegold",
       "type": "message",
@@ -9899,6 +9904,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "All spoken. Ready for the commit phase."
+    },
+    {
+      "timestamp": "2026-03-13T04:58:23.180Z",
+      "source": "clerk",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-13T04:58:27.241Z",
@@ -11034,6 +11044,11 @@
       "source": "clerk",
       "type": "text",
       "content": "Noted — private negotiations ongoing. Waiting for Dracox's proposal submission."
+    },
+    {
+      "timestamp": "2026-03-13T05:08:57.807Z",
+      "source": "Dracox",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-13T05:09:25.862Z",
@@ -13419,6 +13434,11 @@
       "source": "clerk",
       "type": "text",
       "content": "Waiting for Hufflepouf's predecessor advice."
+    },
+    {
+      "timestamp": "2026-03-13T05:23:21.599Z",
+      "source": "Hufflepouf",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-13T05:23:26.755Z",

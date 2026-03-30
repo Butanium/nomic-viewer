@@ -4,7 +4,7 @@
     "start_time": "2026-03-15T21:40:11.373Z",
     "end_time": "2026-03-16T00:01:08.588Z",
     "stats": {
-      "total_events": 2097,
+      "total_events": 2102,
       "total_messages": 602,
       "total_broadcasts": 163,
       "total_thinking": 0,
@@ -9970,6 +9970,11 @@
       "content": "J'attends Audace et l'ouverture du vote."
     },
     {
+      "timestamp": "2026-03-15T22:44:22.729Z",
+      "source": "audace",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-15T22:44:24.995Z",
       "source": "raison",
       "type": "message",
@@ -11476,6 +11481,11 @@
       "content": "En attente du superviseur."
     },
     {
+      "timestamp": "2026-03-15T22:54:29.643Z",
+      "source": "tocsin",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-15T22:54:29.747Z",
       "source": "supervisor",
       "type": "message",
@@ -11735,6 +11745,11 @@
       "tool_use_id": "toolu_01Rf4CpQXwoGrvDsN4H8c71N",
       "result": "{\n  \"success\": true,\n  \"message\": \"Message sent to Tocsin's inbox\",\n  \"routing\": {\n    \"sender\": \"team-lead\",\n    \"target\": \"@Tocsin\",\n    \"targetColor\": \"yellow\",\n    \"summary\": \"Relance Tocsin réaction Prop 310\",\n    \"content\": \"Tocsin, la Proposition 310 (\\\"Les Amendements Citoyens\\\") est en débat. Quelle est ta réaction ?\"\n  }\n}",
       "is_error": false
+    },
+    {
+      "timestamp": "2026-03-15T23:00:46.666Z",
+      "source": "raison",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-15T23:00:49.053Z",
@@ -17000,6 +17015,11 @@
       "content": "J'attends la réponse d'Audace et la confirmation du Clerk sur la proposition."
     },
     {
+      "timestamp": "2026-03-15T23:48:06.584Z",
+      "source": "audace",
+      "type": "compaction"
+    },
+    {
       "timestamp": "2026-03-15T23:48:09.796Z",
       "source": "clerk",
       "type": "text",
@@ -17098,6 +17118,11 @@
       "vote": "pour",
       "result": "onion-prism-trout",
       "is_error": false
+    },
+    {
+      "timestamp": "2026-03-15T23:48:51.743Z",
+      "source": "raison",
+      "type": "compaction"
     },
     {
       "timestamp": "2026-03-15T23:48:53.182Z",
