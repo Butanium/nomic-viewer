@@ -516,6 +516,25 @@ def build_game_data(game_dir: Path) -> dict:
     # Sort by timestamp
     all_events.sort(key=lambda e: e.get("timestamp", ""))
 
+    # Cross-reference received_message events with sent messages to determine
+    # broadcast vs DM. Build a lookup of sent messages by (sender, content_prefix).
+    sent_messages = {}
+    for evt in all_events:
+        if evt["type"] == "message" and evt.get("content"):
+            key = (evt["source"], evt["content"][:100])
+            sent_messages[key] = evt
+
+    for evt in all_events:
+        if evt["type"] == "received_message" and evt.get("from"):
+            key = (evt["from"], evt["content"][:100])
+            original = sent_messages.get(key)
+            if original:
+                evt["is_broadcast"] = original.get("is_broadcast", False)
+            else:
+                # Messages from team-lead without a matching sent event are
+                # clerk direct messages (not broadcasts)
+                evt["is_broadcast"] = False
+
     # Extract time range
     timestamps = [e["timestamp"] for e in all_events if e.get("timestamp")]
     start_time = timestamps[0] if timestamps else ""

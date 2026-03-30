@@ -13,8 +13,9 @@
 
   $: incoming = evt._incoming;
   $: isBroadcast = evt.is_broadcast;
-  $: isDM = !isBroadcast && evt.to !== 'team-lead';
-  $: isPlayerDM = isDM && evt.to !== 'clerk' && evt.source !== 'clerk';
+  $: isDM = !isBroadcast && !incoming && evt.to !== 'team-lead';
+  $: isDMIncoming = !isBroadcast && incoming;
+  $: isPlayerDM = (isDM || isDMIncoming) && evt.source !== 'clerk';
   $: truncated = variant !== 'public' && !isPlayerDM && evt.content.length > 200;
   $: color = agentColor($gameData, evt.source);
   $: toColor = agentColor($gameData, evt.to);
@@ -40,7 +41,7 @@
   <div class="evt evt-msg-in" style="border-left-color: {color}">
     <div class="evt-msg-sender" style="color: {color}">
       {evt.source}
-      {#if isDM}<span class="dm-label">DM</span>{/if}
+      {#if isDMIncoming}<span class="dm-label">DM</span>{/if}
       <span class="ts">{shortTime(evt.timestamp)}</span>
     </div>
     <div
