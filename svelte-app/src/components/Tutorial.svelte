@@ -43,32 +43,33 @@
       target: '.agent-panels .agent-col:first-child .evt-msg-in',
       text: "Messages received from other players appear on the left side, with the sender's color. They show at the moment the player actually saw them.",
       needsScroll: true,
+      action: () => { game.activeTab = 'replay'; game.clerkOpen = true; },
     },
     {
       target: '.clerk-panel',
       text: "The Clerk is a neutral administrator \u2014 it manages turns, verifies votes, and updates scores. You can toggle its panel from the topbar.",
-      action: () => { game.clerkOpen = true; },
+      action: () => { game.activeTab = 'replay'; game.clerkOpen = true; },
     },
     {
       target: '.playback-bar',
       text: "Use the playback controls to watch the game unfold. Play/pause with Space, step with arrow keys, and drag the progress bar to jump around.",
-      action: () => { game.clerkOpen = false; },
+      action: () => { game.activeTab = 'replay'; game.clerkOpen = false; },
       needsScroll: true,
     },
     {
       target: '.tab-btn:nth-child(2)',
       text: "The Rules tab shows the current ruleset, updated live as rules change during the game.",
-      action: () => { game.activeTab = 'rules'; },
+      action: () => { game.activeTab = 'rules'; game.clerkOpen = false; },
     },
     {
       target: '.tab-btn:nth-child(3)',
       text: "The Game Log tracks every round's results \u2014 proposals, votes, scores.",
-      action: () => { game.activeTab = 'gamelog'; },
+      action: () => { game.activeTab = 'gamelog'; game.clerkOpen = false; },
     },
     {
       target: null,
       text: "That's it! Press Play to watch the game unfold, or step through events one at a time. Enjoy watching the AIs play politics.",
-      action: () => { game.activeTab = 'replay'; },
+      action: () => { game.activeTab = 'replay'; game.clerkOpen = true; },
     },
   ];
 
