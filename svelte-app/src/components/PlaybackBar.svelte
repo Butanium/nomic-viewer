@@ -2,14 +2,13 @@
   Playback controls: play/pause, step, seek, speed.
 -->
 <script>
-  import { currentIdx, isPlaying, speedIdx, visibleEvents, SPEEDS,
-           stepForward, stepBack, jumpForward, jumpBack, togglePlay, seekTo, speedUp, speedDown } from '../stores/game.js';
+  import { game, visibleEvents, SPEEDS,
+           stepForward, stepBack, jumpForward, jumpBack, togglePlay, seekTo, speedUp, speedDown } from '../stores/game.svelte.js';
   import { shortTime } from '../lib/utils.js';
 
-  $: total = $visibleEvents.length;
-  $: idx = $currentIdx + 1;
-  $: pct = total > 0 ? (idx / total) * 100 : 0;
-  $: currentTs = $currentIdx >= 0 ? shortTime($visibleEvents[$currentIdx]?.timestamp) : '';
+  let total = $derived(visibleEvents().length);
+  let idx = $derived(game.currentIdx + 1);
+  let pct = $derived(total > 0 ? (idx / total) * 100 : 0);
 
   function handleSeek(e) {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -34,8 +33,8 @@
     <button class="pb-btn" title="Previous event" onclick={stepBack}>
       <svg width="10" height="10" viewBox="0 0 10 10"><rect x="0" y="0" width="2" height="10" fill="currentColor"/><path d="M10 0L3 5l7 5V0z" fill="currentColor"/></svg>
     </button>
-    <button class="pb-btn play" class:active={$isPlaying} title="Play/Pause" onclick={togglePlay}>
-      {#if $isPlaying}
+    <button class="pb-btn play" class:active={game.isPlaying} title="Play/Pause" onclick={togglePlay}>
+      {#if game.isPlaying}
         <svg width="8" height="10" viewBox="0 0 8 10"><rect x="0" y="0" width="2.5" height="10" fill="currentColor"/><rect x="5.5" y="0" width="2.5" height="10" fill="currentColor"/></svg>
       {:else}
         <svg width="8" height="10" viewBox="0 0 8 10"><path d="M0 0l8 5-8 5V0z" fill="currentColor"/></svg>
@@ -52,7 +51,7 @@
   <div class="pb-time">{idx} / {total}</div>
 
   <div class="pb-track-wrap">
-    <div class="pb-track" onclick={handleSeek}>
+    <div class="pb-track" role="slider" tabindex="0" aria-valuenow={idx} aria-valuemin={1} aria-valuemax={total} onclick={handleSeek}>
       <div class="pb-progress" style="width: {pct}%"></div>
     </div>
   </div>
@@ -61,7 +60,7 @@
 
   <div class="pb-speed-group">
     <button class="pb-speed-btn" onclick={speedDown}>−</button>
-    <span class="pb-speed-label">{SPEEDS[$speedIdx]}x</span>
+    <span class="pb-speed-label">{SPEEDS[game.speedIdx]}x</span>
     <button class="pb-speed-btn" onclick={speedUp}>+</button>
   </div>
 </div>

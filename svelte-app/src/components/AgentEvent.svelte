@@ -5,7 +5,7 @@
 <script>
   import { shortTime, escapeHtml, renderMarkdown } from '../lib/utils.js';
 
-  export let evt;
+  let { evt } = $props();
 
   function toolDetail(evt) {
     if (evt.tool === 'commit') return evt.result ? `→ ${evt.result}` : '';
@@ -27,7 +27,7 @@
     return evt.content ? evt.content.slice(0, 200) : '';
   }
 
-  $: isNote = evt.type === 'tool_call' && (evt.tool === 'write_note' || evt.tool === 'append_note');
+  let isNote = $derived(evt.type === 'tool_call' && (evt.tool === 'write_note' || evt.tool === 'append_note'));
 </script>
 
 {#if evt.type === 'thinking'}

@@ -3,30 +3,29 @@
   Handles outgoing (sent), incoming (received), and public chat variants.
 -->
 <script>
-  import { gameData } from '../stores/game.js';
+  import { game } from '../stores/game.svelte.js';
   import { agentColor, shortTime, renderMarkdown } from '../lib/utils.js';
 
-  export let evt;
-  export let variant = 'agent'; // 'agent' | 'public'
+  let { evt, variant = 'agent' } = $props();
 
-  let expanded = false;
+  let expanded = $state(false);
 
-  $: incoming = evt._incoming;
-  $: isBroadcast = evt.is_broadcast;
-  $: isDM = !isBroadcast && !incoming && evt.to !== 'team-lead';
-  $: isDMIncoming = !isBroadcast && incoming;
-  $: isPlayerDM = (isDM || isDMIncoming) && evt.source !== 'clerk';
-  $: truncated = variant !== 'public' && !isPlayerDM && evt.content.length > 200;
-  $: color = agentColor($gameData, evt.source);
-  $: toColor = agentColor($gameData, evt.to);
+  let incoming = $derived(evt._incoming);
+  let isBroadcast = $derived(evt.is_broadcast);
+  let isDM = $derived(!isBroadcast && !incoming && evt.to !== 'team-lead');
+  let isDMIncoming = $derived(!isBroadcast && incoming);
+  let isPlayerDM = $derived((isDM || isDMIncoming) && evt.source !== 'clerk');
+  let truncated = $derived(variant !== 'public' && !isPlayerDM && evt.content.length > 200);
+  let color = $derived(agentColor(game.data, evt.source));
+  let toColor = $derived(agentColor(game.data, evt.to));
 </script>
 
 {#if variant === 'public'}
   <div class="chat-msg" style="border-left-color: {color}">
     <div class="sender" style="color: {color}">
       {evt.source}
-      {#if $gameData}
-        {@const model = $gameData.players.find(p => p.name === evt.source)?.model}
+      {#if game.data}
+        {@const model = game.data.players.find(p => p.name === evt.source)?.model}
         {#if model}<span class="badge">{model}</span>{/if}
       {/if}
       <span class="ts">{shortTime(evt.timestamp)}</span>
@@ -34,6 +33,8 @@
     <div
       class="body evt-msg-text"
       class:truncated={truncated && !expanded}
+      role="button"
+      tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
@@ -47,6 +48,8 @@
     <div
       class="evt-msg-text"
       class:truncated={truncated && !expanded}
+      role="button"
+      tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
@@ -65,6 +68,8 @@
     <div
       class="evt-msg-text"
       class:truncated={truncated && !expanded}
+      role="button"
+      tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>

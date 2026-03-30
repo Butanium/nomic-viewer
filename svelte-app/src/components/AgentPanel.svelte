@@ -3,23 +3,22 @@
   Shows their events (thinking, messages, tool calls) and incoming messages.
 -->
 <script>
-  import { afterUpdate } from 'svelte';
-  import { gameData, agentFeeds, agentStatuses } from '../stores/game.js';
+  import { game, agentFeeds, agentStatuses } from '../stores/game.svelte.js';
   import { agentColor } from '../lib/utils.js';
   import ChatMessage from './ChatMessage.svelte';
   import AgentEvent from './AgentEvent.svelte';
 
-  export let name;
-  export let model = '';
+  let { name, model = '' } = $props();
 
-  let feedEl;
+  let feedEl = $state(null);
 
-  $: color = agentColor($gameData, name);
-  $: events = $agentFeeds[name] || [];
-  $: status = $agentStatuses[name] || 'idle';
-  $: isActive = status !== 'idle';
+  let color = $derived(agentColor(game.data, name));
+  let events = $derived(agentFeeds()[name] || []);
+  let status = $derived(agentStatuses()[name] || 'idle');
+  let isActive = $derived(status !== 'idle');
 
-  afterUpdate(() => {
+  $effect(() => {
+    events; // track dependency
     if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
   });
 </script>

@@ -4,9 +4,9 @@
 -->
 <script>
   import { marked } from 'marked';
-  import { currentGameLog } from '../stores/game.js';
+  import { currentGameLog } from '../stores/game.svelte.js';
 
-  $: content = $currentGameLog.content;
+  let content = $derived(currentGameLog().content);
 </script>
 
 <div class="gamelog-tab">

@@ -4,38 +4,30 @@
 -->
 <script>
   import { marked } from 'marked';
-  import { currentRules } from '../stores/game.js';
+  import { currentRules } from '../stores/game.svelte.js';
 
-  $: content = $currentRules.content;
-  $: lastEdit = $currentRules.lastEdit;
+  let content = $derived(currentRules().content);
+  let lastEdit = $derived(currentRules().lastEdit);
 
-  // Split content into: before-diff, added, after-diff
-  // If there's a lastEdit, highlight what was added
-  $: diffParts = (() => {
+  let diffParts = $derived.by(() => {
     if (!lastEdit || !content) return { before: content, added: '', after: '' };
 
     if (lastEdit.tool === 'Write') {
-      // Full file write — show all as "new"
       return { before: '', added: content, after: '' };
     }
 
-    // Edit: the new_string replaced old_string. The added portion is new_string minus old_string.
     const newStr = lastEdit.new_string || '';
     const oldStr = lastEdit.old_string || '';
 
-    // Find where new_string appears in current content
     const idx = content.indexOf(newStr);
     if (idx === -1) return { before: content, added: '', after: '' };
 
-    // The "added" part is what's in new_string but not in old_string
-    // Simple approach: if new_string starts with old_string, the diff is the remainder
     let addedText = '';
     if (newStr.startsWith(oldStr)) {
       addedText = newStr.slice(oldStr.length);
     } else if (newStr.endsWith(oldStr)) {
       addedText = newStr.slice(0, newStr.length - oldStr.length);
     } else {
-      // Full replacement — show entire new_string as the diff
       addedText = newStr;
     }
 
@@ -47,7 +39,7 @@
       added: addedText,
       after: content.slice(addIdx + addedText.length),
     };
-  })();
+  });
 </script>
 
 <div class="rules-tab">

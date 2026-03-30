@@ -1,10 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import { gameData, currentIdx, loadGame } from './stores/game.js';
+  import { game, loadGame, resetGame } from './stores/game.svelte.js';
   import GameIndex from './components/GameIndex.svelte';
   import ReplayView from './components/ReplayView.svelte';
 
-  let currentGame = null; // null = index, string = game id
+  let currentGame = $state(null);
 
   function gameIdToPath(id) {
     return `data/${id}.json`;
@@ -18,12 +18,10 @@
 
   function goBack() {
     currentGame = null;
-    gameData.set(null);
-    currentIdx.set(-1);
+    resetGame();
     window.location.hash = '';
   }
 
-  // Read hash on load and on hash change
   function readHash() {
     const hash = window.location.hash.replace('#/', '').replace('#', '');
     if (hash && hash.startsWith('game-')) {
@@ -41,7 +39,7 @@
   });
 </script>
 
-{#if currentGame && $gameData}
+{#if currentGame && game.data}
   <ReplayView onBack={goBack} />
 {:else if currentGame}
   <div class="loading">Loading game...</div>

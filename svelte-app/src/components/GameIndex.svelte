@@ -5,10 +5,10 @@
   import { onMount } from 'svelte';
   import { agentColor } from '../lib/utils.js';
 
-  export let onSelect; // callback: (gameId) => void
+  let { onSelect } = $props();
 
-  let games = [];
-  let loaded = false;
+  let games = $state([]);
+  let loaded = $state(false);
 
   onMount(async () => {
     const resp = await fetch('data/games.json');

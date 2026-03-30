@@ -2,13 +2,13 @@
   Public chat panel showing all broadcast messages.
 -->
 <script>
-  import { afterUpdate } from 'svelte';
-  import { publicChatEvents } from '../stores/game.js';
+  import { publicChatEvents } from '../stores/game.svelte.js';
   import ChatMessage from './ChatMessage.svelte';
 
-  let feedEl;
+  let feedEl = $state(null);
 
-  afterUpdate(() => {
+  $effect(() => {
+    publicChatEvents(); // track dependency
     if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
   });
 </script>
@@ -16,7 +16,7 @@
 <div class="public-chat">
   <div class="panel-header">Public Chat</div>
   <div class="feed" bind:this={feedEl}>
-    {#each $publicChatEvents as evt (evt.timestamp + evt.source + (evt.tool_use_id || ''))}
+    {#each publicChatEvents() as evt (evt.timestamp + evt.source + (evt.tool_use_id || ''))}
       <ChatMessage {evt} variant="public" />
     {/each}
   </div>

@@ -3,7 +3,7 @@
   Includes topbar, scoreboard, panels, clerk drawer, playback bar.
 -->
 <script>
-  import { gameData, clerkOpen, activeTab, agentFeeds, agentStatuses, loadGame, currentIdx, visibleEvents, currentScores } from '../stores/game.js';
+  import { game, agentFeeds, agentStatuses, visibleEvents, currentScores } from '../stores/game.svelte.js';
   import { agentColor, shortTime } from '../lib/utils.js';
   import PublicChat from './PublicChat.svelte';
   import AgentPanel from './AgentPanel.svelte';
@@ -13,74 +13,76 @@
   import RulesTab from './RulesTab.svelte';
   import GameLogTab from './GameLogTab.svelte';
 
-  export let onBack; // callback to return to index
+  let { onBack } = $props();
 
-  let clerkFeedEl;
+  let clerkFeedEl = $state(null);
 
-  $: title = $gameData ? $gameData.meta.game_id.replace('game-', 'Game ') : '';
-  $: players = $gameData?.players || [];
-  $: clerk = $gameData?.clerk;
-  $: clerkEvents = $agentFeeds['clerk'] || [];
-  $: clerkStatus = $agentStatuses['clerk'] || 'idle';
-  $: currentTs = $currentIdx >= 0 && $visibleEvents[$currentIdx]
-    ? shortTime($visibleEvents[$currentIdx].timestamp)
-    : '';
+  let title = $derived(game.data ? game.data.meta.game_id.replace('game-', 'Game ') : '');
+  let players = $derived(game.data?.players || []);
+  let clerk = $derived(game.data?.clerk);
+  let clerkEvents = $derived(agentFeeds()['clerk'] || []);
+  let currentTs = $derived(
+    game.currentIdx >= 0 && visibleEvents()[game.currentIdx]
+      ? shortTime(visibleEvents()[game.currentIdx].timestamp)
+      : ''
+  );
 
-  function switchTab(tab) { activeTab.set(tab); }
-
-  $: if (clerkFeedEl && clerkEvents.length) {
-    setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
-  }
+  $effect(() => {
+    clerkEvents; // track dependency
+    if (clerkFeedEl && clerkEvents.length) {
+      setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
+    }
+  });
 </script>
 
 <!-- Top Bar -->
-<div class="topbar" class:clerk-open={$clerkOpen}>
+<div class="topbar" class:clerk-open={game.clerkOpen}>
   <div class="topbar-left">
     <button class="back-btn" onclick={onBack}>←</button>
     <h1>Nomic <span>{title}</span></h1>
     <div class="tab-bar">
-      <button class="tab-btn" class:active={$activeTab === 'replay'} onclick={() => switchTab('replay')}>Replay</button>
-      <button class="tab-btn" class:active={$activeTab === 'rules'} onclick={() => switchTab('rules')}>Rules</button>
-      <button class="tab-btn" class:active={$activeTab === 'gamelog'} onclick={() => switchTab('gamelog')}>Game Log</button>
+      <button class="tab-btn" class:active={game.activeTab === 'replay'} onclick={() => game.activeTab = 'replay'}>Replay</button>
+      <button class="tab-btn" class:active={game.activeTab === 'rules'} onclick={() => game.activeTab = 'rules'}>Rules</button>
+      <button class="tab-btn" class:active={game.activeTab === 'gamelog'} onclick={() => game.activeTab = 'gamelog'}>Game Log</button>
     </div>
   </div>
   <div class="topbar-right">
     <div class="round-indicator">
-      {#if $currentScores.round > 0}
-        Round <strong>{$currentScores.round}</strong>
-        {#if $currentScores.result} · {$currentScores.result}{/if}
+      {#if currentScores().round > 0}
+        Round <strong>{currentScores().round}</strong>
+        {#if currentScores().result} · {currentScores().result}{/if}
         ·
       {/if}
       {#if currentTs}
         <span style="color: var(--text-muted)">{currentTs} UTC</span>
       {/if}
     </div>
-    {#if !$clerkOpen}
-      <button class="clerk-toggle-topbar" onclick={() => clerkOpen.set(true)}>Clerk</button>
+    {#if !game.clerkOpen}
+      <button class="clerk-toggle-topbar" onclick={() => game.clerkOpen = true}>Clerk</button>
     {/if}
   </div>
 </div>
 
 <!-- Scoreboard -->
-<div class="scoreboard" class:clerk-open={$clerkOpen}>
-  {#if $currentScores.round > 0}
-    <span class="round-badge">R{$currentScores.round}</span>
+<div class="scoreboard" class:clerk-open={game.clerkOpen}>
+  {#if currentScores().round > 0}
+    <span class="round-badge">R{currentScores().round}</span>
   {/if}
   {#each players as p}
     <div class="score-chip">
-      <div class="dot" style="background: {agentColor($gameData, p.name)}"></div>
+      <div class="dot" style="background: {agentColor(game.data, p.name)}"></div>
       <span class="name">{p.name}</span>
-      <span class="pts" style="color: {agentColor($gameData, p.name)}">{$currentScores.scores[p.name] ?? 0}</span>
+      <span class="pts" style="color: {agentColor(game.data, p.name)}">{currentScores().scores[p.name] ?? 0}</span>
     </div>
   {/each}
-  {#if $currentScores.winner}
-    <span class="winner-badge">🏆 {$currentScores.winner}</span>
+  {#if currentScores().winner}
+    <span class="winner-badge">🏆 {currentScores().winner}</span>
   {/if}
 </div>
 
 <!-- Main Area -->
-<div class="main-area" class:clerk-open={$clerkOpen}>
-  {#if $activeTab === 'replay'}
+<div class="main-area" class:clerk-open={game.clerkOpen}>
+  {#if game.activeTab === 'replay'}
     <div class="replay-layout">
       <PublicChat />
       <div class="agent-panels">
@@ -89,15 +91,15 @@
         {/each}
       </div>
     </div>
-  {:else if $activeTab === 'rules'}
+  {:else if game.activeTab === 'rules'}
     <RulesTab />
-  {:else if $activeTab === 'gamelog'}
+  {:else if game.activeTab === 'gamelog'}
     <GameLogTab />
   {/if}
 </div>
 
 <!-- Clerk Panel -->
-{#if $clerkOpen}
+{#if game.clerkOpen}
   <div class="clerk-panel">
     <div class="clerk-panel-header">
       <div class="clerk-panel-label">
@@ -105,7 +107,7 @@
         Clerk
         {#if clerk}<span class="model">{clerk.model}</span>{/if}
       </div>
-      <button class="clerk-close" onclick={() => clerkOpen.set(false)}>&times;</button>
+      <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
     </div>
     <div class="agent-col-body" bind:this={clerkFeedEl}>
       {#each clerkEvents as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}
@@ -122,7 +124,7 @@
 {/if}
 
 <!-- Playback Bar -->
-<div class:clerk-open={$clerkOpen}>
+<div class:clerk-open={game.clerkOpen}>
   <PlaybackBar />
 </div>
 
