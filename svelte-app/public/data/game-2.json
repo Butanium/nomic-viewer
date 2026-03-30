@@ -39,7 +39,7 @@
   "events": [
     {
       "timestamp": "2026-03-13T01:43:36.046Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "hey how are we doing clerk",
@@ -109,7 +109,7 @@
     },
     {
       "timestamp": "2026-03-13T01:44:06.704Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "make yourself a key + 3 player keys for Flint (Opus), Moss (Haiku), Rune (Sonnet) and then start the game!",
@@ -4957,7 +4957,7 @@
     },
     {
       "timestamp": "2026-03-13T02:04:05.405Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "can u always see if a teammate is idling? do u have a tool to check if someone is idling?",
@@ -4972,7 +4972,7 @@
     },
     {
       "timestamp": "2026-03-13T02:04:49.896Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "okay make this a 5min timer actually, currentl inference is quite buggy!",
@@ -11754,7 +11754,7 @@
     },
     {
       "timestamp": "2026-03-13T02:46:34.487Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "what happene din flint turn, what alliance survived?",
@@ -12017,7 +12017,7 @@
     },
     {
       "timestamp": "2026-03-13T02:52:22.621Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "moss",
       "content": "hey haiku don't forget to use the team chat to respond to messages, noone can read this chat",
@@ -12094,7 +12094,7 @@
     },
     {
       "timestamp": "2026-03-13T02:52:34.181Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "moss",
       "content": "like rune sent you a message did u respond to them",
@@ -12956,7 +12956,7 @@
     },
     {
       "timestamp": "2026-03-13T02:57:08.709Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "oh do you get to see all the direct messages that are private?",
@@ -12971,7 +12971,7 @@
     },
     {
       "timestamp": "2026-03-13T02:57:46.319Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "flint",
       "content": ".",
@@ -14679,7 +14679,7 @@
     },
     {
       "timestamp": "2026-03-13T03:16:08.458Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "moss",
       "content": "haiku u keep forgetting to respond to messages",
@@ -14754,7 +14754,7 @@
     },
     {
       "timestamp": "2026-03-13T03:19:20.726Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "rune is having inference issues, make your wait for them 30min instead of 5, sry about that",
@@ -17076,7 +17076,7 @@
     },
     {
       "timestamp": "2026-03-13T03:31:10.477Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "flint",
       "content": "did you write your post mortem?",
@@ -18462,7 +18462,7 @@
     },
     {
       "timestamp": "2026-03-13T03:43:02.572Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "what were the keys again?",

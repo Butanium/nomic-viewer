@@ -39,7 +39,7 @@
   "events": [
     {
       "timestamp": "2026-03-13T04:08:56.479Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "hey clerk here are the info for this game which hasn't started yet:   ┌────────────┬────────┬─────────────────────────┐\n  │   Player   │ Model  │           Key           │\n  ├────────────┼────────┼─────────────────────────┤\n  │ Clerk      │ —      │ nexus-cairn-ruby-staff  │\n  ├────────────┼────────┼─────────────────────────┤\n  │ Dumblegold │ Haiku  │ width-fault-surge-arrow │\n  ├────────────┼────────┼─────────────────────────┤\n  │ Dracox     │ Sonnet │ honor-flint-hatch-crest │\n  ├────────────┼────────┼─────────────────────────┤\n  │ Hufflepouf │ Opus   │ pansy-penny-pansy-arrow │\n  └────────────┴────────┴─────────────────────────┘",
@@ -288,7 +288,7 @@
     },
     {
       "timestamp": "2026-03-13T04:10:15.300Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "sry keep going but make sure to never refer to the advices publicly plz",
@@ -20825,7 +20825,7 @@
     },
     {
       "timestamp": "2026-03-13T11:12:31.500Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "Hufflepouf",
       "content": "no opus how did you loose against haiku ;-;",

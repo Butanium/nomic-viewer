@@ -50,7 +50,7 @@ function buildAgentEvents(allEvents, agentName) {
       continue;
     }
     // Supervisor messages addressed to this agent
-    if (evt.source === 'supervisor' && evt.to === agentName) {
+    if (evt.source === 'human' && evt.to === agentName) {
       events.push({ ...evt, _incoming: true });
     }
   }

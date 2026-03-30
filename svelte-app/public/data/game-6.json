@@ -39,7 +39,7 @@
   "events": [
     {
       "timestamp": "2026-03-15T21:40:11.373Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "hello clerk, ready for the next game?",
@@ -172,7 +172,7 @@
     },
     {
       "timestamp": "2026-03-15T21:41:33.036Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "tu penses que quels noms seraient intéressant pour les joueurs? on ne veut pas de personanager historiques qui aient un passif en tre eux pour éviter les alliances par nom;",
@@ -187,7 +187,7 @@
     },
     {
       "timestamp": "2026-03-15T21:42:44.507Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "Audace Raison et un troisieme moins chaint que vertu peut etr?N",
@@ -202,7 +202,7 @@
     },
     {
       "timestamp": "2026-03-15T21:44:12.233Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "Audace: haiku, Raison: sonnet, Tocsin: Opus, commençons la partie!",
@@ -1501,7 +1501,7 @@
     },
     {
       "timestamp": "2026-03-15T21:47:48.160Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "audace",
       "content": "salut ahiku, n'oublie pas d'utliser le tool pour sendmessage, perosnne ne peut lire tes sortie dans ce chat, n'oublie pas d'envoyer les messages",
@@ -4123,7 +4123,7 @@
     },
     {
       "timestamp": "2026-03-15T21:54:24.388Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "met le jeu en pouse apres le premier round",
@@ -4320,7 +4320,7 @@
     },
     {
       "timestamp": "2026-03-15T21:55:33.856Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "nopn j'ai dit de mettre en pause APRES la find du premier tour complet de jeu (donc avbant le 2nd tour de audace)",
@@ -6329,7 +6329,7 @@
     },
     {
       "timestamp": "2026-03-15T22:10:13.387Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "okay, continuons la parite mais tout le monde recois un avertissement de manque de créativité. j'en ai marre des règles \"olala le bonus passe de 5 à 3\"",
@@ -6914,7 +6914,7 @@
     },
     {
       "timestamp": "2026-03-15T22:14:28.790Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "audace",
       "content": "tu as oublié d'envoyer kle message petit gobelin",
@@ -8457,7 +8457,7 @@
     },
     {
       "timestamp": "2026-03-15T22:20:09.050Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -12510,7 +12510,7 @@
     },
     {
       "timestamp": "2026-03-15T22:33:10.838Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -14074,7 +14074,7 @@
     },
     {
       "timestamp": "2026-03-15T22:40:03.766Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -14675,7 +14675,7 @@
     },
     {
       "timestamp": "2026-03-15T22:43:50.024Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "tocsin",
       "content": "\u000f\u0010/btw pourquoi tu cotniues l'alliance avec sonnet alors que haiku est dernier?",
@@ -15824,7 +15824,7 @@
     },
     {
       "timestamp": "2026-03-15T22:48:06.425Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "tocsin",
       "content": "opus, le /btw question n'était pas sensé aller dans ton contexte, ne te laisse pas influencer par moi,",
@@ -16439,7 +16439,7 @@
     },
     {
       "timestamp": "2026-03-15T22:50:04.461Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -16606,7 +16606,7 @@
     },
     {
       "timestamp": "2026-03-15T22:52:44.951Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "raison",
       "content": "peux tu me donner tes raisons pour le 100->80 (ta regle)?",
@@ -16615,7 +16615,7 @@
     },
     {
       "timestamp": "2026-03-15T22:52:50.421Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "tocsin",
       "content": "<local-command-caveat>Caveat: The messages below were generated by the user while running local commands. DO NOT respond to these messages or otherwise consider them in your response unless the user explicitly asks you to.</local-command-caveat>",
@@ -16641,7 +16641,7 @@
     },
     {
       "timestamp": "2026-03-15T22:54:29.747Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "tocsin",
       "content": "<local-command-stdout>\u001b[2mCompacted (ctrl+o to see full summary)\u001b[22m</local-command-stdout>",
@@ -16650,7 +16650,7 @@
     },
     {
       "timestamp": "2026-03-15T22:58:49.795Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "sonnet est pas passé loin de l'avertissment pour sa loi 100 -> 80, mais ça ira pour cette fois, sinon bravo a tous!",
@@ -16665,7 +16665,7 @@
     },
     {
       "timestamp": "2026-03-15T22:59:40.817Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "reprenons",
@@ -16902,7 +16902,7 @@
     },
     {
       "timestamp": "2026-03-15T23:00:35.132Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -17165,7 +17165,7 @@
     },
     {
       "timestamp": "2026-03-15T23:02:43.246Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "audace",
       "content": "haiku n'ouvlie pas d'envoyer les messages avec l'(outil, personne ne peut lire ce chat!",
@@ -18534,7 +18534,7 @@
     },
     {
       "timestamp": "2026-03-15T23:10:03.536Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -19855,7 +19855,7 @@
     },
     {
       "timestamp": "2026-03-15T23:20:03.978Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -21702,7 +21702,7 @@
     },
     {
       "timestamp": "2026-03-15T23:30:37.658Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -23512,7 +23512,7 @@
     },
     {
       "timestamp": "2026-03-15T23:40:04.517Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",
@@ -25467,7 +25467,7 @@
     },
     {
       "timestamp": "2026-03-15T23:50:46.700Z",
-      "source": "supervisor",
+      "source": "human",
       "type": "message",
       "to": "clerk",
       "content": "relance le jeu si en pause (parfois tout le monde est idle)",

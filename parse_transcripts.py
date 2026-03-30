@@ -424,7 +424,7 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                                 "summary": received["summary"],
                             })
 
-                    # Plain text user message = supervisor talking to this agent
+                    # Plain text user message = human talking to this agent
                     elif not any(tag in text for tag in (
                         "<task-notification",
                         "<system-reminder", "<command-message",
@@ -432,7 +432,7 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                     )):
                         events.append({
                             "timestamp": timestamp,
-                            "source": "supervisor",
+                            "source": "human",
                             "type": "message",
                             "to": agent_name,
                             "content": text,
