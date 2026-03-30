@@ -193,8 +193,15 @@ const _currentScores = $derived.by(() => {
 
   if (!latestRound) return { scores: {}, round: 0, result: null, winner: null };
 
+  // Normalize score keys to lowercase (YAML may have capitalized names)
+  const rawScores = latestRound.scores || {};
+  const scores = {};
+  for (const [k, v] of Object.entries(rawScores)) {
+    scores[k.toLowerCase()] = v;
+  }
+
   return {
-    scores: latestRound.scores || {},
+    scores,
     round: latestRound.round,
     result: latestRound.result,
     winner: latestRound.winner || null,
@@ -239,6 +246,7 @@ export function togglePlay() {
       game.currentIdx = 0;
     }
     game.isPlaying = true;
+    stepForward();
     scheduleNext();
   }
 }
