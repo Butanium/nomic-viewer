@@ -110,9 +110,10 @@
       return;
     }
 
-    // Measure actual card dimensions if available, else use sensible defaults
-    const cardW = cardEl ? cardEl.offsetWidth : 360;
-    const cardH = cardEl ? cardEl.offsetHeight : 220;
+    // Measure actual card dimensions, with a minimum floor to prevent clipping
+    // when cardEl hasn't fully rendered yet
+    const cardW = Math.max(cardEl ? cardEl.offsetWidth : 360, 360);
+    const cardH = Math.max(cardEl ? cardEl.offsetHeight : 220, 220);
     const gap = 16;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
