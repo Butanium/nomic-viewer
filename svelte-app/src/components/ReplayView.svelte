@@ -12,8 +12,18 @@
   import PlaybackBar from './PlaybackBar.svelte';
   import RulesTab from './RulesTab.svelte';
   import GameLogTab from './GameLogTab.svelte';
+  import Tutorial from './Tutorial.svelte';
 
   let { onBack } = $props();
+
+  let tutorialVisible = $state(false);
+
+  import { onMount } from 'svelte';
+  onMount(() => {
+    if (!localStorage.getItem('nomic-tutorial-seen')) {
+      tutorialVisible = true;
+    }
+  });
 
   import { tick } from 'svelte';
 
@@ -68,6 +78,7 @@
     {#if !game.clerkOpen}
       <button class="clerk-toggle-topbar" onclick={() => game.clerkOpen = true}>Clerk</button>
     {/if}
+    <button class="help-btn" onclick={() => tutorialVisible = true}>?</button>
   </div>
 </div>
 
@@ -136,6 +147,8 @@
   <PlaybackBar />
 </div>
 
+<Tutorial bind:visible={tutorialVisible} />
+
 <style>
   .topbar {
     display: flex; align-items: center; justify-content: space-between;
@@ -180,6 +193,15 @@
     color: var(--clerk); cursor: pointer; transition: all 0.15s;
   }
   .clerk-toggle-topbar:hover { background: var(--bg-hover); color: var(--text); }
+  .help-btn {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    width: 26px; height: 26px;
+    border: 1px solid var(--border); border-radius: 50%;
+    background: var(--bg-raised); color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .help-btn:hover { background: var(--bg-hover); color: var(--accent); border-color: var(--accent); }
 
   .scoreboard {
     display: flex; align-items: center;
@@ -206,6 +228,7 @@
   .main-area {
     flex: 1; display: flex; overflow: hidden;
     transition: margin-right 0.25s ease;
+    min-height: 0;
   }
   .replay-layout { display: flex; flex: 1; overflow: hidden; }
   .agent-panels { flex: 1; display: flex; overflow: hidden; }
