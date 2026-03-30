@@ -8,8 +8,11 @@
   let feedEl = $state(null);
 
   $effect(() => {
-    publicChatEvents(); // track dependency
-    if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
+    publicChatEvents();
+    if (feedEl) {
+      const atBottom = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
+      if (atBottom) feedEl.scrollTop = feedEl.scrollHeight;
+    }
   });
 </script>
 

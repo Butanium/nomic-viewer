@@ -16,8 +16,11 @@
   let isActive = $derived((agentStatuses()[name] || 'idle') !== 'idle');
 
   $effect(() => {
-    agentFeeds(); // track dependency for scroll
-    if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
+    agentFeeds();
+    if (feedEl) {
+      const atBottom = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
+      if (atBottom) feedEl.scrollTop = feedEl.scrollHeight;
+    }
   });
 </script>
 

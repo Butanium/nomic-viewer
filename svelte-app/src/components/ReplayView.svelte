@@ -27,9 +27,12 @@
   );
 
   $effect(() => {
-    agentFeeds(); // track dependency
+    agentFeeds();
     if (clerkFeedEl) {
-      setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
+      const atBottom = clerkFeedEl.scrollHeight - clerkFeedEl.scrollTop - clerkFeedEl.clientHeight < 60;
+      if (atBottom) {
+        setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
+      }
     }
   });
 </script>
