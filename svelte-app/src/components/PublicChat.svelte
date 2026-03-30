@@ -2,23 +2,30 @@
   Public chat panel showing all broadcast messages.
 -->
 <script>
+  import { tick } from 'svelte';
   import { publicChatEvents } from '../stores/game.svelte.js';
   import ChatMessage from './ChatMessage.svelte';
 
   let feedEl = $state(null);
+  let shouldScroll = $state(true);
+
+  function onScroll() {
+    if (feedEl) {
+      shouldScroll = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
+    }
+  }
 
   $effect(() => {
     publicChatEvents();
-    if (feedEl) {
-      const atBottom = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
-      if (atBottom) feedEl.scrollTop = feedEl.scrollHeight;
+    if (feedEl && shouldScroll) {
+      tick().then(() => { if (feedEl) feedEl.scrollTop = feedEl.scrollHeight; });
     }
   });
 </script>
 
 <div class="public-chat">
   <div class="panel-header">Public Chat</div>
-  <div class="feed" bind:this={feedEl}>
+  <div class="feed" bind:this={feedEl} onscroll={onScroll}>
     {#each publicChatEvents() as evt, i (i + ':' + evt.timestamp + evt.source)}
       <ChatMessage {evt} variant="public" />
     {/each}

@@ -10,16 +10,24 @@
 
   let { name, model = '' } = $props();
 
+  import { tick } from 'svelte';
+
   let feedEl = $state(null);
+  let shouldScroll = $state(true);
 
   let color = $derived(agentColor(game.data, name));
   let isActive = $derived((agentStatuses()[name] || 'idle') !== 'idle');
 
+  function onScroll() {
+    if (feedEl) {
+      shouldScroll = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
+    }
+  }
+
   $effect(() => {
     agentFeeds();
-    if (feedEl) {
-      const atBottom = feedEl.scrollHeight - feedEl.scrollTop - feedEl.clientHeight < 60;
-      if (atBottom) feedEl.scrollTop = feedEl.scrollHeight;
+    if (feedEl && shouldScroll) {
+      tick().then(() => { if (feedEl) feedEl.scrollTop = feedEl.scrollHeight; });
     }
   });
 </script>
@@ -33,7 +41,7 @@
     </div>
     <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{agentStatuses()[name] || 'idle'}</div>
   </div>
-  <div class="agent-col-body" bind:this={feedEl}>
+  <div class="agent-col-body" bind:this={feedEl} onscroll={onScroll}>
     {#each (agentFeeds()[name] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
       {#if evt.type === 'message'}
         <ChatMessage {evt} variant="agent" />

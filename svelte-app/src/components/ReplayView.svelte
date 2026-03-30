@@ -15,7 +15,10 @@
 
   let { onBack } = $props();
 
+  import { tick } from 'svelte';
+
   let clerkFeedEl = $state(null);
+  let clerkShouldScroll = $state(true);
 
   let title = $derived(game.data ? game.data.meta.game_id.replace('game-', 'Game ') : '');
   let players = $derived(game.data?.players || []);
@@ -26,13 +29,16 @@
       : ''
   );
 
+  function onClerkScroll() {
+    if (clerkFeedEl) {
+      clerkShouldScroll = clerkFeedEl.scrollHeight - clerkFeedEl.scrollTop - clerkFeedEl.clientHeight < 60;
+    }
+  }
+
   $effect(() => {
     agentFeeds();
-    if (clerkFeedEl) {
-      const atBottom = clerkFeedEl.scrollHeight - clerkFeedEl.scrollTop - clerkFeedEl.clientHeight < 60;
-      if (atBottom) {
-        setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
-      }
+    if (clerkFeedEl && clerkShouldScroll) {
+      tick().then(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; });
     }
   });
 </script>
@@ -111,7 +117,7 @@
       </div>
       <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
     </div>
-    <div class="agent-col-body" bind:this={clerkFeedEl}>
+    <div class="agent-col-body" bind:this={clerkFeedEl} onscroll={onClerkScroll}>
       {#each (agentFeeds()['clerk'] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
         {#if evt.type === 'message'}
           <ChatMessage {evt} variant="agent" />
