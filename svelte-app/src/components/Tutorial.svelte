@@ -149,13 +149,15 @@
     step = newStep;
     const s = STEPS[step];
     if (s.action) s.action();
-    // Allow DOM to update after actions (tab switch, clerk open) before measuring
-    requestAnimationFrame(() => {
+    // If step has an action (tab switch, clerk open/close), wait for CSS
+    // transitions to complete before measuring (margin-right 0.25s = 250ms)
+    const delay = s.action ? 300 : 0;
+    setTimeout(() => {
       requestAnimationFrame(() => {
         updateSpotlight();
         transitioning = false;
       });
-    });
+    }, delay);
   }
 
   function next() {
