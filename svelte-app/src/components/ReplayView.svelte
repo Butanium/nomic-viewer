@@ -60,110 +60,113 @@
   });
 </script>
 
-<!-- Top Bar -->
-<div class="topbar" class:clerk-open={game.clerkOpen}>
-  <div class="topbar-left">
-    <button class="back-btn" onclick={onBack}>←</button>
-    <h1>Nomic <span>{title}</span></h1>
-    <div class="tab-bar">
-      <button class="tab-btn" class:active={game.activeTab === 'replay'} onclick={() => game.activeTab = 'replay'}>Replay</button>
-      <button class="tab-btn" class:active={game.activeTab === 'rules'} onclick={() => game.activeTab = 'rules'}>Rules</button>
-      <button class="tab-btn" class:active={game.activeTab === 'gamelog'} onclick={() => game.activeTab = 'gamelog'}>Game Log</button>
-    </div>
-  </div>
-  <div class="topbar-right">
-    <div class="round-indicator">
-      {#if currentScores().round > 0}
-        Round <strong>{currentScores().round}</strong>
-        {#if currentScores().result} · {currentScores().result}{/if}
-        ·
-      {/if}
-      {#if currentTs}
-        <span style="color: var(--text-muted)">{currentTs} UTC</span>
-      {/if}
-    </div>
-    <button class="share-btn" onclick={share} title="Copy link to this moment">
-      {#if copied}
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>
-      {:else}
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L8 1l2 2"/><path d="M8 1v9"/><path d="M3 8v5a2 2 0 002 2h6a2 2 0 002-2V8"/></svg>
-      {/if}
-    </button>
-    <button class="help-btn" onclick={() => tutorialVisible = true}>?</button>
-    {#if !game.clerkOpen}
-      <button class="clerk-toggle-topbar" onclick={() => game.clerkOpen = true}>Clerk</button>
-    {/if}
-  </div>
-</div>
-
-<!-- Scoreboard -->
-<div class="scoreboard" class:clerk-open={game.clerkOpen}>
-  {#if currentScores().round > 0}
-    <span class="round-badge">R{currentScores().round}</span>
-  {/if}
-  {#each players as p}
-    <div class="score-chip">
-      <div class="dot" style="background: {agentColor(game.data, p.name)}"></div>
-      <span class="name">{p.name}</span>
-      <span class="pts" style="color: {agentColor(game.data, p.name)}">{currentScores().scores[p.name] ?? 0}</span>
-    </div>
-  {/each}
-  {#if currentScores().winner}
-    <span class="winner-badge" style="color: {agentColor(game.data, currentScores().winner.toLowerCase())}">🏆 {currentScores().winner}</span>
-  {/if}
-</div>
-
-<!-- Main Area -->
-<div class="main-area" class:clerk-open={game.clerkOpen}>
-  {#if game.activeTab === 'replay'}
-    <div class="replay-layout">
-      <PublicChat />
-      <div class="agent-panels">
-        {#each players as p}
-          <AgentPanel name={p.name} model={p.model} />
-        {/each}
+<div class="content-wrapper" class:clerk-open={game.clerkOpen}>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="back-btn" onclick={onBack}>←</button>
+      <h1>Nomic <span>{title}</span></h1>
+      <div class="tab-bar">
+        <button class="tab-btn" class:active={game.activeTab === 'replay'} onclick={() => game.activeTab = 'replay'}>Replay</button>
+        <button class="tab-btn" class:active={game.activeTab === 'rules'} onclick={() => game.activeTab = 'rules'}>Rules</button>
+        <button class="tab-btn" class:active={game.activeTab === 'gamelog'} onclick={() => game.activeTab = 'gamelog'}>Game Log</button>
       </div>
     </div>
-  {:else if game.activeTab === 'rules'}
-    <RulesTab />
-  {:else if game.activeTab === 'gamelog'}
-    <GameLogTab />
-  {/if}
+    <div class="topbar-right">
+      <div class="round-indicator">
+        {#if currentScores().round > 0}
+          Round <strong>{currentScores().round}</strong>
+          {#if currentScores().result} · {currentScores().result}{/if}
+          ·
+        {/if}
+        {#if currentTs}
+          <span style="color: var(--text-muted)">{currentTs} UTC</span>
+        {/if}
+      </div>
+      <button class="share-btn" onclick={share} title="Copy link to this moment">
+        {#if copied}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>
+        {:else}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L8 1l2 2"/><path d="M8 1v9"/><path d="M3 8v5a2 2 0 002 2h6a2 2 0 002-2V8"/></svg>
+        {/if}
+      </button>
+      <button class="help-btn" onclick={() => tutorialVisible = true}>?</button>
+      {#if !game.clerkOpen}
+        <button class="clerk-toggle-topbar" onclick={() => game.clerkOpen = true}>Clerk</button>
+      {/if}
+    </div>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    {#if currentScores().round > 0}
+      <span class="round-badge">R{currentScores().round}</span>
+    {/if}
+    {#each players as p}
+      <div class="score-chip">
+        <div class="dot" style="background: {agentColor(game.data, p.name)}"></div>
+        <span class="name">{p.name}</span>
+        <span class="pts" style="color: {agentColor(game.data, p.name)}">{currentScores().scores[p.name] ?? 0}</span>
+      </div>
+    {/each}
+    {#if currentScores().winner}
+      <span class="winner-badge" style="color: {agentColor(game.data, currentScores().winner.toLowerCase())}">🏆 {currentScores().winner}</span>
+    {/if}
+  </div>
+
+  <!-- Main Area -->
+  <div class="main-area">
+    {#if game.activeTab === 'replay'}
+      <div class="replay-layout">
+        <PublicChat />
+        <div class="agent-panels">
+          {#each players as p}
+            <AgentPanel name={p.name} model={p.model} />
+          {/each}
+        </div>
+      </div>
+    {:else if game.activeTab === 'rules'}
+      <RulesTab />
+    {:else if game.activeTab === 'gamelog'}
+      <GameLogTab />
+    {/if}
+  </div>
+
+  <!-- Playback Bar -->
+  <PlaybackBar />
 </div>
 
 <!-- Clerk Panel -->
-{#if game.clerkOpen}
-  <div class="clerk-panel">
-    <div class="clerk-panel-header">
-      <div class="clerk-panel-label">
-        <span class="dot"></span>
-        Clerk
-        {#if clerk}<span class="model">{clerk.model}</span>{/if}
-      </div>
-      <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
+<div class="clerk-panel" class:clerk-open={game.clerkOpen}>
+  <div class="clerk-panel-header">
+    <div class="clerk-panel-label">
+      <span class="dot"></span>
+      Clerk
+      {#if clerk}<span class="model">{clerk.model}</span>{/if}
     </div>
-    <div class="agent-col-body" bind:this={clerkFeedEl} onscroll={onClerkScroll}>
-      {#each (agentFeeds()['clerk'] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
-        {#if evt.type === 'message'}
-          <ChatMessage {evt} variant="agent" />
-        {:else if evt.type === 'received_message'}
-          <ChatMessage evt={{...evt, source: evt.from, _incoming: true}} variant="agent" />
-        {:else}
-          <AgentEvent {evt} />
-        {/if}
-      {/each}
-    </div>
+    <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
   </div>
-{/if}
-
-<!-- Playback Bar -->
-<div class:clerk-open={game.clerkOpen}>
-  <PlaybackBar />
+  <div class="agent-col-body" bind:this={clerkFeedEl} onscroll={onClerkScroll}>
+    {#each (agentFeeds()['clerk'] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
+      {#if evt.type === 'message'}
+        <ChatMessage {evt} variant="agent" />
+      {:else if evt.type === 'received_message'}
+        <ChatMessage evt={{...evt, source: evt.from, _incoming: true}} variant="agent" />
+      {:else}
+        <AgentEvent {evt} />
+      {/if}
+    {/each}
+  </div>
 </div>
 
 <Tutorial bind:visible={tutorialVisible} />
 
 <style>
+  .content-wrapper {
+    display: flex; flex-direction: column; height: 100%;
+    transition: margin-right 0.25s ease;
+  }
+  .content-wrapper.clerk-open { margin-right: 260px; }
   .topbar {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 20px; height: 44px;
@@ -258,7 +261,10 @@
     border-left: 1px solid var(--border);
     display: flex; flex-direction: column;
     background: var(--bg); z-index: 50;
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
   }
+  .clerk-panel.clerk-open { transform: translateX(0); }
   .clerk-panel-header {
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 10px; height: 44px;
@@ -285,6 +291,4 @@
     flex: 1; overflow-y: auto; padding: 8px;
     display: flex; flex-direction: column; gap: 5px;
   }
-
-  .clerk-open { margin-right: 260px; }
 </style>
