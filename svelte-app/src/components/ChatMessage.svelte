@@ -34,7 +34,7 @@
     <div
       class="body evt-msg-text"
       class:truncated={truncated && !expanded}
-      on:click={() => truncated && (expanded = !expanded)}
+      onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {:else if incoming}
@@ -47,7 +47,7 @@
     <div
       class="evt-msg-text"
       class:truncated={truncated && !expanded}
-      on:click={() => truncated && (expanded = !expanded)}
+      onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {:else}
@@ -65,7 +65,7 @@
     <div
       class="evt-msg-text"
       class:truncated={truncated && !expanded}
-      on:click={() => truncated && (expanded = !expanded)}
+      onclick={() => truncated && (expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {/if}

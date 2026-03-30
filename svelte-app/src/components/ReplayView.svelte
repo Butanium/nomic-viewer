@@ -36,12 +36,12 @@
 <!-- Top Bar -->
 <div class="topbar" class:clerk-open={$clerkOpen}>
   <div class="topbar-left">
-    <button class="back-btn" on:click={onBack}>←</button>
+    <button class="back-btn" onclick={onBack}>←</button>
     <h1>Nomic <span>{title}</span></h1>
     <div class="tab-bar">
-      <button class="tab-btn" class:active={$activeTab === 'replay'} on:click={() => switchTab('replay')}>Replay</button>
-      <button class="tab-btn" class:active={$activeTab === 'rules'} on:click={() => switchTab('rules')}>Rules</button>
-      <button class="tab-btn" class:active={$activeTab === 'gamelog'} on:click={() => switchTab('gamelog')}>Game Log</button>
+      <button class="tab-btn" class:active={$activeTab === 'replay'} onclick={() => switchTab('replay')}>Replay</button>
+      <button class="tab-btn" class:active={$activeTab === 'rules'} onclick={() => switchTab('rules')}>Rules</button>
+      <button class="tab-btn" class:active={$activeTab === 'gamelog'} onclick={() => switchTab('gamelog')}>Game Log</button>
     </div>
   </div>
   <div class="topbar-right">
@@ -56,7 +56,7 @@
       {/if}
     </div>
     {#if !$clerkOpen}
-      <button class="clerk-toggle-topbar" on:click={() => clerkOpen.set(true)}>Clerk</button>
+      <button class="clerk-toggle-topbar" onclick={() => clerkOpen.set(true)}>Clerk</button>
     {/if}
   </div>
 </div>
@@ -105,7 +105,7 @@
         Clerk
         {#if clerk}<span class="model">{clerk.model}</span>{/if}
       </div>
-      <button class="clerk-close" on:click={() => clerkOpen.set(false)}>&times;</button>
+      <button class="clerk-close" onclick={() => clerkOpen.set(false)}>&times;</button>
     </div>
     <div class="agent-col-body" bind:this={clerkFeedEl}>
       {#each clerkEvents as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}

@@ -18,7 +18,7 @@
   }
 </script>
 
-<svelte:window on:keydown={(e) => {
+<svelte:window onkeydown={(e) => {
   if (e.key === ' ' || e.key === 'k') { e.preventDefault(); togglePlay(); }
   else if (e.key === 'ArrowRight' || e.key === 'l') { stepForward(); }
   else if (e.key === 'ArrowLeft' || e.key === 'j') { stepBack(); }
@@ -28,23 +28,23 @@
 
 <div class="playback-bar">
   <div class="pb-controls">
-    <button class="pb-btn" title="Rewind 30" on:click={jumpBack}>
+    <button class="pb-btn" title="Rewind 30" onclick={jumpBack}>
       <svg width="14" height="10" viewBox="0 0 14 10"><path d="M7 0L0 5l7 5V0z" fill="currentColor"/><path d="M14 0L7 5l7 5V0z" fill="currentColor"/></svg>
     </button>
-    <button class="pb-btn" title="Previous event" on:click={stepBack}>
+    <button class="pb-btn" title="Previous event" onclick={stepBack}>
       <svg width="10" height="10" viewBox="0 0 10 10"><rect x="0" y="0" width="2" height="10" fill="currentColor"/><path d="M10 0L3 5l7 5V0z" fill="currentColor"/></svg>
     </button>
-    <button class="pb-btn play" class:active={$isPlaying} title="Play/Pause" on:click={togglePlay}>
+    <button class="pb-btn play" class:active={$isPlaying} title="Play/Pause" onclick={togglePlay}>
       {#if $isPlaying}
         <svg width="8" height="10" viewBox="0 0 8 10"><rect x="0" y="0" width="2.5" height="10" fill="currentColor"/><rect x="5.5" y="0" width="2.5" height="10" fill="currentColor"/></svg>
       {:else}
         <svg width="8" height="10" viewBox="0 0 8 10"><path d="M0 0l8 5-8 5V0z" fill="currentColor"/></svg>
       {/if}
     </button>
-    <button class="pb-btn" title="Next event" on:click={stepForward}>
+    <button class="pb-btn" title="Next event" onclick={stepForward}>
       <svg width="10" height="10" viewBox="0 0 10 10"><path d="M0 0l7 5-7 5V0z" fill="currentColor"/><rect x="8" y="0" width="2" height="10" fill="currentColor"/></svg>
     </button>
-    <button class="pb-btn" title="Skip 30" on:click={jumpForward}>
+    <button class="pb-btn" title="Skip 30" onclick={jumpForward}>
       <svg width="14" height="10" viewBox="0 0 14 10"><path d="M0 0l7 5-7 5V0z" fill="currentColor"/><path d="M7 0l7 5-7 5V0z" fill="currentColor"/></svg>
     </button>
   </div>
@@ -52,7 +52,7 @@
   <div class="pb-time">{idx} / {total}</div>
 
   <div class="pb-track-wrap">
-    <div class="pb-track" on:click={handleSeek}>
+    <div class="pb-track" onclick={handleSeek}>
       <div class="pb-progress" style="width: {pct}%"></div>
     </div>
   </div>
@@ -60,9 +60,9 @@
   <div class="pb-event-count">{total} events</div>
 
   <div class="pb-speed-group">
-    <button class="pb-speed-btn" on:click={speedDown}>−</button>
+    <button class="pb-speed-btn" onclick={speedDown}>−</button>
     <span class="pb-speed-label">{SPEEDS[$speedIdx]}x</span>
-    <button class="pb-speed-btn" on:click={speedUp}>+</button>
+    <button class="pb-speed-btn" onclick={speedUp}>+</button>
   </div>
 </div>
 

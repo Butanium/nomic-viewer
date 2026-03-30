@@ -47,7 +47,7 @@
   {:else}
     <div class="game-grid">
       {#each games as game, i}
-        <button class="game-card" on:click={() => onSelect(game.game_id)} style="animation-delay: {i * 60}ms">
+        <button class="game-card" onclick={() => onSelect(game.game_id)} style="animation-delay: {i * 60}ms">
           <div class="card-header">
             <span class="game-num">{game.game_id.replace('game-', 'Game ')}</span>
             <span class="game-date">{formatDate(game.start_time)}</span>
