@@ -44,8 +44,14 @@ export function currentEvent() { return _currentEvent; }
 function buildAgentEvents(allEvents, agentName) {
   const events = [];
   for (const evt of allEvents) {
+    // Events this agent produced (including received_message)
     if (evt.source === agentName) {
       events.push(evt);
+      continue;
+    }
+    // Supervisor messages addressed to this agent
+    if (evt.source === 'supervisor' && evt.to === agentName) {
+      events.push({ ...evt, _incoming: true });
     }
   }
   return events;
