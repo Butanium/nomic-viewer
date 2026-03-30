@@ -72,7 +72,8 @@
           </div>
 
           {#if game.winner}
-            <div class="card-winner">🏆 {game.winner}</div>
+            {@const winnerPlayer = game.players.find(p => p.name.toLowerCase() === game.winner.toLowerCase())}
+            <div class="card-winner" style="color: {winnerPlayer ? modelColor(winnerPlayer.model) : 'var(--win)'}">🏆 {game.winner}</div>
           {/if}
 
           <div class="card-arrow">→</div>
@@ -199,7 +200,7 @@
 
   .card-winner {
     font-family: var(--font-mono); font-size: 12px;
-    color: var(--win); margin-top: 8px;
+    font-weight: 600; margin-top: 8px;
   }
 
   .card-arrow {

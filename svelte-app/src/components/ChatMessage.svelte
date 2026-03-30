@@ -36,6 +36,7 @@
       role="button"
       tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
+      onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && truncated && (e.preventDefault(), expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {:else if incoming}
@@ -51,6 +52,7 @@
       role="button"
       tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
+      onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && truncated && (e.preventDefault(), expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {:else}
@@ -71,6 +73,7 @@
       role="button"
       tabindex="0"
       onclick={() => truncated && (expanded = !expanded)}
+      onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && truncated && (e.preventDefault(), expanded = !expanded)}
     >{@html renderMarkdown(evt.content)}</div>
   </div>
 {/if}

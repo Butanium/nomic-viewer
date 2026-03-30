@@ -169,7 +169,6 @@
     padding: 0 20px; height: 44px;
     border-bottom: 1px solid var(--border);
     background: var(--bg); flex-shrink: 0;
-    transition: margin-right 0.25s ease;
   }
   .topbar-left { display: flex; align-items: center; gap: 14px; }
   .back-btn {
@@ -231,7 +230,6 @@
     border-bottom: 1px solid var(--border-subtle);
     background: var(--bg-raised);
     flex-shrink: 0; height: 36px;
-    transition: margin-right 0.25s ease;
   }
   .score-chip { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; }
   .score-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
@@ -249,7 +247,6 @@
 
   .main-area {
     flex: 1; display: flex; overflow: hidden;
-    transition: margin-right 0.25s ease;
     min-height: 0;
   }
   .replay-layout { display: flex; flex: 1; overflow: hidden; }
