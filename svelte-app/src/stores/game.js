@@ -13,7 +13,7 @@ export const gameData = writable(null);
 // ── Playback state ──
 export const currentIdx = writable(-1);
 export const isPlaying = writable(false);
-export const speedIdx = writable(1);
+export const speedIdx = writable(2);
 export const clerkOpen = writable(true);
 export const activeTab = writable('replay');
 
