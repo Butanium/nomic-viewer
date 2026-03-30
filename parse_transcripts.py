@@ -344,6 +344,13 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                             events.append(evt)
                             pending_tool_calls[tool_id] = evt
 
+            elif entry_type == "system" and entry.get("subtype") == "turn_duration":
+                events.append({
+                    "timestamp": timestamp,
+                    "source": agent_name,
+                    "type": "idle",
+                })
+
             elif entry_type == "system" and entry.get("subtype") == "compact_boundary":
                 events.append({
                     "timestamp": timestamp,

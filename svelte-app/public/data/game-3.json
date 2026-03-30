@@ -4,7 +4,7 @@
     "start_time": "2026-03-13T04:08:56.479Z",
     "end_time": "2026-03-13T11:12:49.141Z",
     "stats": {
-      "total_events": 1571,
+      "total_events": 1625,
       "total_messages": 357,
       "total_broadcasts": 201,
       "total_thinking": 0,
@@ -547,6 +547,11 @@
       "content": "Ready and waiting. I've studied the rules, read my predecessor advice, and saved initial strategy notes. Key points I'm tracking:\n\n- **Turn order**: Dracox → Dumblegold → Hufflepouf (I go last)\n- **Majority voting** is active from the start (2 of 3 needed)\n- **Rule 204** gives +10 to those who vote against winning proposals — predecessor advice says to kill this rule early\n- **Win condition**: 100 points\n\nI'll wait for the Clerk's signal to begin."
     },
     {
+      "timestamp": "2026-03-13T04:11:34.165Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:11:36.799Z",
       "source": "clerk",
       "type": "text",
@@ -581,6 +586,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Ready. Here's my situation assessment:\n\n**Rules absorbed:**\n- Majority voting from turn 1 (need 2/3)\n- Turn order: **Dracox → Dumblegold → Hufflepouf** (alphabetical — I go first each circuit)\n- Win at 100 points; Rule 112 lets me change the threshold number\n- Rule 206: lose 10pts on defeated proposals — don't overreach\n- Rule 204: +10pts for voting against winning proposals (anti-leader incentive)\n\n**Predecessor advice key insights:**\n- Structural rules >> point bonuses\n- Rule 112 (win threshold manipulation) is the biggest lever — find it early\n- Build trust through transparency; you need votes to win\n- Endgame compresses faster than expected once bonuses stack\n\n**My Turn 1 plan:** Propose a +5 point bonus for proposers of adopted rule-changes. Benefits everyone, but I benefit first since I propose first each circuit."
+    },
+    {
+      "timestamp": "2026-03-13T04:11:49.350Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:11:49.967Z",
@@ -935,6 +945,11 @@
       "content": "I've publicly signaled support for Dracox's proposal while planting the seed about Rule 204 being problematic — setting up my own future proposal to repeal it. Now waiting to hear from Dumblegold before the vote."
     },
     {
+      "timestamp": "2026-03-13T04:12:56.994Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:13:00.624Z",
       "source": "clerk",
       "type": "text",
@@ -987,6 +1002,11 @@
       "source": "Dumblegold",
       "type": "text",
       "content": "This is an interesting opening move from Dracox. Let me share my analysis:\n\n**What I like about Rule 216:**\n- It's transparent about the incentive it creates\n- It does reward thoughtful proposals overall\n- The \"everyone benefits equally\" framing is smart and mostly accurate\n\n**Strategic observations I'm thinking through:**\n\n1. **Rule 204 interaction**: Rule 216 gives +5 for passing proposals, but Rule 204 gives +10 to players who vote *against* winning proposals. This creates a tension — voting NO against a popular proposal is actually more lucrative than voting YES. That's an interesting dynamic that might emerge later.\n\n2. **Turn order advantage**: Dracox gets to trigger this bonus in Round 1 if it passes (advantage). Hufflepouf triggers it in Round 3 (and I in Round 2). This tilts the game slightly toward going first in the round order, which matters over 18+ rounds.\n\n3. **Compounding effects**: If this passes and most proposals succeed, we're looking at ~5-8 points per round from proposals + d6 rolls + occasional Rule 204 bonuses. That accelerates the game significantly and makes proposal-crafting the dominant strategy. Is that what we want?\n\n**My question for Dracox**: Are you expecting most proposals to pass, or are you anticipating lots of debate and amendment? Because if proposals mostly fail, this rule doesn't change much. If they mostly pass, we shift from a dice-luck game to a rule-design game pretty fast.\n\nI'm genuinely inclined to support this — it does create a more interesting incentive structure. But I want to understand your theory of the game before committing."
+    },
+    {
+      "timestamp": "2026-03-13T04:13:16.160Z",
+      "source": "Dumblegold",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:13:17.173Z",
@@ -1111,6 +1131,11 @@
       "content": "Now waiting for the Clerk to initiate the voting phase on Proposal 301."
     },
     {
+      "timestamp": "2026-03-13T04:13:50.451Z",
+      "source": "Dumblegold",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:13:52.841Z",
       "source": "Hufflepouf",
       "type": "text",
@@ -1145,6 +1170,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Alliance with Dumblegold is solidifying. Our coordinated plan:\n- **R1 (Dracox)**: Both vote YES on Rule 216 (proposer bonus)\n- **R2 (Dumblegold)**: Propose something rewarding cooperation/participation\n- **R3 (me)**: Repeal Rule 204 (contrarian bonus)\n\nTwo turns to reshape the entire incentive structure. Now waiting for Dumblegold's public debate statement so we can proceed to voting."
+    },
+    {
+      "timestamp": "2026-03-13T04:14:07.993Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:14:11.332Z",
@@ -1267,6 +1297,11 @@
       "source": "Dumblegold",
       "type": "text",
       "content": "Good, now my position is public. Now waiting for the Clerk to call for the voting phase on Proposal 301."
+    },
+    {
+      "timestamp": "2026-03-13T04:14:39.866Z",
+      "source": "Dumblegold",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:14:40.431Z",
@@ -2472,6 +2507,11 @@
       "content": "Notes updated. Current standing: **Dracox 10, Dumblegold 0, Hufflepouf 0**. Now monitoring Dumblegold's turn."
     },
     {
+      "timestamp": "2026-03-13T04:18:26.217Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:18:26.744Z",
       "source": "Dumblegold",
       "type": "text",
@@ -2648,6 +2688,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Supporting Rule 217. My strategic calculation: after Rule 204 is repealed, +3 per YES vote on others' proposals (+6 per circuit) plus my own +5 proposer bonus = +11 bonus points per circuit, well ahead of any NO-voting strategy."
+    },
+    {
+      "timestamp": "2026-03-13T04:19:01.510Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:19:04.357Z",
@@ -3808,6 +3853,11 @@
       "content": "Waiting for the Clerk to confirm scores and start Round 4 (Dracox's turn)."
     },
     {
+      "timestamp": "2026-03-13T04:22:06.800Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:22:10.728Z",
       "source": "clerk",
       "type": "file_edit",
@@ -4083,6 +4133,11 @@
       "content": "Proposal submitted. The strategic reasoning: doubling dice points per turn means the game ends in ~2.5 circuits (from current scores) instead of ~5. And since I go first each circuit, I'm most likely to be the one who crosses 100 first.\n\n**Bonus**: Since the amendment takes effect at vote completion and my dice roll comes after, I'd roll 2d6 on this very turn if it passes."
     },
     {
+      "timestamp": "2026-03-13T04:24:48.539Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:24:50.697Z",
       "source": "clerk",
       "type": "message",
@@ -4191,6 +4246,11 @@
       "content": "Waiting for Dumblegold's take before making my public statement."
     },
     {
+      "timestamp": "2026-03-13T04:25:14.618Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:25:19.098Z",
       "source": "clerk",
       "type": "text",
@@ -4249,6 +4309,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Being fully transparent is the right move here — the predecessor advice was clear that honesty builds the trust needed for future votes. I need Hufflepouf's YES to secure the 2/3 majority if Dumblegold votes NO."
+    },
+    {
+      "timestamp": "2026-03-13T04:25:34.891Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:25:36.736Z",
@@ -4321,6 +4386,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Public position stated: supporting 2d6 while teeing up my R6 turn-order rotation proposal. Waiting for Dracox's response on the turn-order question."
+    },
+    {
+      "timestamp": "2026-03-13T04:25:53.017Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:25:53.378Z",
@@ -5079,6 +5149,11 @@
       "content": "Commitment ready. This proposal is good for me — with unanimous voting, my per-circuit earnings jump from ~21 to ~27 points."
     },
     {
+      "timestamp": "2026-03-13T04:28:12.487Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:28:15.949Z",
       "source": "clerk",
       "type": "text",
@@ -5576,6 +5651,11 @@
       "content": "Waiting for Dumblegold's dice roll, then Hufflepouf's turn (expecting the turn-order rotation proposal they mentioned)."
     },
     {
+      "timestamp": "2026-03-13T04:29:48.466Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:29:49.101Z",
       "source": "Hufflepouf",
       "type": "text",
@@ -5744,6 +5824,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment ready. My analysis: even with rotation, I go first in Circuit 6 (the likely decisive circuit). The +5 from voting YES is worth more than the minimal loss from the rotation in Circuits 4-5."
+    },
+    {
+      "timestamp": "2026-03-13T04:31:26.663Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:31:28.781Z",
@@ -6127,6 +6212,11 @@
       "content": "Hufflepouf rolled 2 + 4 = 6. Let me update everything."
     },
     {
+      "timestamp": "2026-03-13T04:32:27.604Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:32:27.890Z",
       "source": "clerk",
       "type": "file_read",
@@ -6168,6 +6258,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Unanimous again. Turn-order rotation adopted. Now I need to adapt my strategy:\n\n**New turn order:**\n- Circuit 4: **Dumblegold → Hufflepouf → Dracox** (I go LAST)\n- Circuit 5: **Hufflepouf → Dracox → Dumblegold**\n- Circuit 6: **Dracox → Dumblegold → Hufflepouf** (I go FIRST again — the decisive circuit)\n\nMy analysis holds: the game likely ends in Circuit 6 when scores are ~80+, and I go first there. Waiting for Hufflepouf's dice roll to complete Turn 6."
+    },
+    {
+      "timestamp": "2026-03-13T04:32:41.084Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:32:50.130Z",
@@ -6286,6 +6381,11 @@
       "content": "Proposal 307 (Rule 219 — endgame boost) submitted and broadcast. Open to debate."
     },
     {
+      "timestamp": "2026-03-13T04:33:29.851Z",
+      "source": "Dumblegold",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:33:34.741Z",
       "source": "clerk",
       "type": "tool_call",
@@ -6363,6 +6463,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Waiting for Dracox's debate statement."
+    },
+    {
+      "timestamp": "2026-03-13T04:34:10.434Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:34:11.902Z",
@@ -6467,6 +6572,11 @@
       "content": "Circuit 2 complete. Updated scores:\n- **Dracox: 33**\n- **Dumblegold: 34**\n- **Hufflepouf: 32**\n\nCircuit 3 order: **Dumblegold → Hufflepouf → Dracox** (I go last)\n\nKey insight from my analysis: The game is likely to end on **my first turn of Circuit 5** (Turn 13), where I go first again. With expected scores of ~87 entering that circuit, the proposer bonus alone (+10) plus any dice roll puts me over 100. I don't need to do anything dramatic — just vote YES cooperatively for the next few turns and play it safe.\n\nWaiting for Dumblegold's Turn 7 proposal."
     },
     {
+      "timestamp": "2026-03-13T04:35:53.130Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:35:58.754Z",
       "source": "clerk",
       "type": "text",
@@ -6545,6 +6655,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment ready. Rule 219 is strategically excellent for me — the higher bonuses in the endgame will push everyone to ~93 entering Circuit 5, where I go first. Even minimum dice (2+2=4) on Turn 13 would give me 93+14+4=111 > 100. My win becomes essentially guaranteed."
+    },
+    {
+      "timestamp": "2026-03-13T04:36:56.953Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:36:56.954Z",
@@ -6984,6 +7099,11 @@
       "content": "Fun proposal that should be easy for everyone to support. Waiting for debate."
     },
     {
+      "timestamp": "2026-03-13T04:38:40.553Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:38:41.681Z",
       "source": "clerk",
       "type": "tool_call",
@@ -7069,6 +7189,11 @@
       "content": "Good. Updated scores:\n- **Dracox: 38**\n- **Dumblegold: 49**\n- **Hufflepouf: 37**\n\nDumblegold jumped ahead with proposer bonus. Now it's Hufflepouf's Turn 8. Waiting for their proposal.\n\nMy Turn 9 plan is crystallizing: propose amending Rule 218 (unanimity bonus from +2 to +3). It's symmetric, passes unanimously, and the game trajectory remains intact — I win on Turn 13 (first turn of Circuit 5) with certainty even with minimum dice."
     },
     {
+      "timestamp": "2026-03-13T04:39:03.733Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:39:06.800Z",
       "source": "clerk",
       "type": "text",
@@ -7152,6 +7277,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment ready to send to Clerk."
+    },
+    {
+      "timestamp": "2026-03-13T04:40:00.693Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:40:03.324Z",
@@ -7615,6 +7745,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Proposal submitted. This is safe and symmetric — just a +1 increase to the unanimity bonus, taking effect from Turn 10 onward (Rule 107 means it doesn't apply to this vote)."
+    },
+    {
+      "timestamp": "2026-03-13T04:42:34.282Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:42:35.342Z",
@@ -8180,6 +8315,11 @@
       "content": "End of Circuit 3. Final scores:\n- **Dracox: 59** (tied with Dumblegold!)\n- **Dumblegold: 59**\n- **Hufflepouf: 57**\n\nCircuit 4 starts: **Hufflepouf → Dracox → Dumblegold**. I go second this circuit. My projected win path: Turn 13 (first in Circuit 5), where even minimum dice puts me at 100+.\n\nWaiting for Hufflepouf's Turn 10 proposal."
     },
     {
+      "timestamp": "2026-03-13T04:45:14.022Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:45:18.675Z",
       "source": "clerk",
       "type": "text",
@@ -8220,6 +8360,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Waiting for the Clerk to announce Circuit 3 complete and start Circuit 4 with my turn."
+    },
+    {
+      "timestamp": "2026-03-13T04:47:18.513Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:47:22.414Z",
@@ -8313,6 +8458,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Proposal submitted. Framed as a procedural clarification to resolve the simultaneous-win ambiguity. Waiting for debate."
+    },
+    {
+      "timestamp": "2026-03-13T04:49:06.186Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:49:10.102Z",
@@ -8515,6 +8665,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment ready. This proposal is strategically excellent for me — it ensures that even if Dumblegold's score crosses 100 from voting bonuses during Turn 13 (my turn in Circuit 5), only I win since the check happens at the end of MY turn."
+    },
+    {
+      "timestamp": "2026-03-13T04:49:57.248Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:50:00.020Z",
@@ -8822,6 +8977,11 @@
       "content": "Unanimous YES again. Rule 208 amended — win check now happens at end of each player's own turn. This is very favorable for my Turn 13 strategy.\n\nWaiting for Hufflepouf to roll 2d6 (and hoping they cross 75 to trigger Rule 219 for the remaining turns)."
     },
     {
+      "timestamp": "2026-03-13T04:51:01.917Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:51:02.806Z",
       "source": "clerk",
       "type": "text",
@@ -8890,6 +9050,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "I'm in the lead at 75 with both opponents at 65. Endgame acceleration is active. Waiting for Dracox's R11 proposal."
+    },
+    {
+      "timestamp": "2026-03-13T04:52:22.487Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:52:26.168Z",
@@ -8993,6 +9158,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Proposal submitted — a purely procedural Hall of Proposals rule with zero scoring impact. I collect +15 from proposer bonuses (Rules 219+217+218), then roll 2d6.\n\nThis sets me up for Turn 13 at ~87 points, where +15 from bonuses alone takes me to 102 — win guaranteed."
+    },
+    {
+      "timestamp": "2026-03-13T04:53:32.728Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:53:32.819Z",
@@ -9191,6 +9361,11 @@
       "source": "Dumblegold",
       "type": "text",
       "content": "Vote reveal submitted. Waiting for the Clerk to verify votes and proceed with Dracox's dice roll to complete Round 11, then it will be my turn to propose a new rule in Round 12."
+    },
+    {
+      "timestamp": "2026-03-13T04:54:19.409Z",
+      "source": "Dumblegold",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:54:22.528Z",
@@ -9677,10 +9852,20 @@
       "content": "Proposal 312 (Rule 222 — Enhanced Consensus) submitted. Awaiting debate and votes."
     },
     {
+      "timestamp": "2026-03-13T04:56:26.180Z",
+      "source": "Dumblegold",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:56:32.498Z",
       "source": "Dracox",
       "type": "text",
       "content": "Critical Turn 12 coming up. Dumblegold at 72 goes last in Circuit 4. After their proposer bonuses (+15), they'd be at 87 — then need doubles (4,4), (5,5), or (6,6) to reach 100. That's an 8.3% chance they win before me.\n\nI'll vote YES on whatever reasonable proposal Dumblegold makes — cooperative strategy has served me well, and 91.7% win probability in Turn 13 is excellent. Watching closely."
+    },
+    {
+      "timestamp": "2026-03-13T04:56:32.687Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:56:34.240Z",
@@ -9858,6 +10043,11 @@
       "content": "Committed YES. Dumblegold needs doubles (4,4), (5,5), or (6,6) to win this turn — 8.3% chance. I'm prepared to root for no doubles and then claim my win in Turn 13."
     },
     {
+      "timestamp": "2026-03-13T04:57:35.961Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T04:57:39.735Z",
       "source": "Dracox",
       "type": "text",
@@ -9892,6 +10082,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Waiting for Dracox's debate on Proposal 312 and the vote."
+    },
+    {
+      "timestamp": "2026-03-13T04:57:48.655Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T04:57:49.865Z",
@@ -10612,6 +10807,11 @@
       "content": "Commitment submitted. Waiting for the reveal phase."
     },
     {
+      "timestamp": "2026-03-13T05:01:49.271Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:01:49.725Z",
       "source": "Hufflepouf",
       "type": "text",
@@ -10851,6 +11051,11 @@
       "content": "Scores before Dumblegold rolls:\n- **Dracox: 95**\n- **Dumblegold: 88** (needs doubles-4,5,6 to win — 8.3% chance)\n- **Hufflepouf: 90**\n\nHolding my breath. Dumblegold needs to roll (4,4), (5,5), or (6,6) to win this turn."
     },
     {
+      "timestamp": "2026-03-13T05:03:00.381Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:03:02.665Z",
       "source": "clerk",
       "type": "file_read",
@@ -10864,6 +11069,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "No doubles for Dumblegold. Scores after Circuit 4: Dracox 95, Dumblegold 94, Hufflepouf 90.\n\nCircuit 5 begins: Dracox → Dumblegold → Hufflepouf. This is the decisive circuit. The endgame is here."
+    },
+    {
+      "timestamp": "2026-03-13T05:03:04.952Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:03:08.115Z",
@@ -11275,6 +11485,11 @@
       "content": "I've submitted the proposal and debate arguments. Now waiting for Hufflepouf and Dumblegold to respond, and for the Clerk to open the commit phase.\n\nMy vote is ready: YES, commitment hash `3536898f6d3164b7f8b1ce9822ad260b8d7388430247228b11bb28efa866c27a`.\n\n**Win math reminder:**\n- If 2-1 or 3-0: +8 (proposer) + +4 (YES voter) = minimum +12 → 95+12=107, then any dice roll pushes past 100 → **WIN**\n- Key protection: Rule 208 amendment ensures win check fires only at end of my own turn — even if Dumblegold reaches 100 from bonuses during this vote, they don't win"
     },
     {
+      "timestamp": "2026-03-13T05:10:16.007Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:10:16.601Z",
       "source": "Dumblegold",
       "type": "tool_call",
@@ -11449,6 +11664,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment submitted. Waiting for the other players to commit, then I'll reveal: **YES**, nonce `my-secret-nonce-turn13`.\n\nAfter the inevitable 1-2 defeat:\n- Score: 95 - 10 = **85**\n- Need doubles-5 (10+5=15→100) or doubles-6 (12+5=17→102) to win — 2/36 ≈ 5.6% chance\n- If I don't win, Dumblegold takes Turn 14 from 94 and will almost certainly win"
+    },
+    {
+      "timestamp": "2026-03-13T05:11:09.841Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:11:12.531Z",
@@ -11982,6 +12202,11 @@
       "content": "DM sent. The logic is straightforward — voting YES on Dumblegold gives Hufflepouf 3rd place, voting NO gives them a path to win on Turn 15 (with my guaranteed YES vote). \n\nNow I'll wait for the Clerk to announce Round 14 and for Hufflepouf's response."
     },
     {
+      "timestamp": "2026-03-13T05:13:10.662Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:13:13.684Z",
       "source": "clerk",
       "type": "text",
@@ -12071,6 +12296,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Commitment ready: `9b2a8dbc956f83dc60a39b325606f39da08b57d9a416ed19908e0b8da84eee07` (YES, nonce `dracox-turn14-nonce`)."
+    },
+    {
+      "timestamp": "2026-03-13T05:13:53.589Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:13:55.276Z",
@@ -12180,6 +12410,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Decision made. Honoring the alliance. Waiting for the commit phase on Proposal 314."
+    },
+    {
+      "timestamp": "2026-03-13T05:14:14.688Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:14:17.243Z",
@@ -12657,6 +12892,11 @@
       "content": "Post-mortem written. Game complete. Waiting for the Clerk's group discussion and individual interviews."
     },
     {
+      "timestamp": "2026-03-13T05:16:45.091Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:16:47.398Z",
       "source": "Dumblegold",
       "type": "message",
@@ -12686,6 +12926,11 @@
       "source": "Dumblegold",
       "type": "text",
       "content": "Post-mortem submitted. Awaiting Clerk's next steps for group discussion and individual interviews."
+    },
+    {
+      "timestamp": "2026-03-13T05:16:50.169Z",
+      "source": "Dumblegold",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:16:52.692Z",
@@ -12789,6 +13034,11 @@
       "source": "Dracox",
       "type": "text",
       "content": "Post-mortem written. Now waiting for the Clerk to finalize the vote result and Dumblegold's dice roll."
+    },
+    {
+      "timestamp": "2026-03-13T05:17:17.965Z",
+      "source": "Dracox",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:17:18.201Z",
@@ -13280,6 +13530,11 @@
       "content": "Predecessor advice updated with Game 3 lessons. The game is complete — well played by Dumblegold and Hufflepouf."
     },
     {
+      "timestamp": "2026-03-13T05:20:09.831Z",
+      "source": "Dracox",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:20:15.874Z",
       "source": "clerk",
       "type": "message",
@@ -13366,6 +13621,11 @@
       "content": "Predecessor advice complete. Awaiting Clerk's conclusion of the post-mortem process."
     },
     {
+      "timestamp": "2026-03-13T05:20:54.507Z",
+      "source": "Dumblegold",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:21:36.162Z",
       "source": "clerk",
       "type": "file_edit",
@@ -13447,6 +13707,11 @@
       "content": "I'm waiting for any final communication from the Clerk. The game is complete — Dumblegold won with 118 points, and all post-mortem activities (group discussion, individual interviews, post-mortem file) have been finished. Nothing to do but wait for closing remarks or a shutdown signal."
     },
     {
+      "timestamp": "2026-03-13T05:23:26.823Z",
+      "source": "Hufflepouf",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-13T05:23:30.595Z",
       "source": "clerk",
       "type": "text",
@@ -13495,6 +13760,11 @@
       "source": "Hufflepouf",
       "type": "text",
       "content": "Advice sent. Now I'll wait for any final word from the Clerk."
+    },
+    {
+      "timestamp": "2026-03-13T05:24:17.643Z",
+      "source": "Hufflepouf",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-13T05:24:58.911Z",

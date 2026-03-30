@@ -85,23 +85,38 @@ export const publicChatEvents = derived(
 );
 
 // ── Derived: active agent status ──
+// Each agent's status is based on their last event up to currentIdx.
+// If their last event is 'idle' (turn_duration), they're idle.
+// Otherwise they're active with the type of their last event.
 export const agentStatuses = derived(
-  [gameData, currentEvent],
-  ([$data, $evt]) => {
+  [gameData, eventsUpToCurrent],
+  ([$data, $events]) => {
     if (!$data) return {};
     const statuses = {};
-    for (const p of $data.players) {
-      statuses[p.name] = 'idle';
+    const allAgents = [...$data.players.map(p => p.name), 'clerk'];
+    for (const name of allAgents) {
+      statuses[name] = 'idle';
     }
-    statuses['clerk'] = 'idle';
 
-    if ($evt) {
-      let status = 'active';
-      if ($evt.type === 'thinking') status = 'thinking...';
-      else if ($evt.type === 'message') status = 'messaging';
-      else if ($evt.type === 'tool_call') status = $evt.tool;
-      else if ($evt.type === 'file_edit') status = 'editing';
-      statuses[$evt.source] = status;
+    // Scan backward to find each agent's last event
+    const found = new Set();
+    for (let i = $events.length - 1; i >= 0 && found.size < allAgents.length; i--) {
+      const evt = $events[i];
+      if (found.has(evt.source)) continue;
+      if (!allAgents.includes(evt.source)) continue;
+      found.add(evt.source);
+
+      if (evt.type === 'idle') {
+        statuses[evt.source] = 'idle';
+      } else {
+        let status = 'active';
+        if (evt.type === 'thinking') status = 'thinking...';
+        else if (evt.type === 'message') status = 'messaging';
+        else if (evt.type === 'tool_call') status = evt.tool;
+        else if (evt.type === 'file_edit') status = 'editing';
+        else if (evt.type === 'compaction') status = 'resuming';
+        statuses[evt.source] = status;
+      }
     }
     return statuses;
   }

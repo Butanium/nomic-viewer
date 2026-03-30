@@ -4,7 +4,7 @@
     "start_time": "2026-03-15T21:40:11.373Z",
     "end_time": "2026-03-16T00:01:08.588Z",
     "stats": {
-      "total_events": 2102,
+      "total_events": 2193,
       "total_messages": 602,
       "total_broadcasts": 163,
       "total_thinking": 0,
@@ -501,6 +501,11 @@
       "content": "Le game_log est vide pour l'instant. Le jeu n'a pas encore officiellement commencé. J'ai :\n\n✅ Signé la charte auprès du Clerk  \n✅ Créé mes notes de stratégie privées  \n✅ Compris les règles et dynamiques du jeu  \n\nJe suis maintenant en attente du signal du Clerk pour commencer mon premier tour. En tant que joueur en première position, je propose des règles le premier.\n\n**État actuel :**\n- Score : 0 points\n- Tour : En attente du signal du Clerk\n- Proposition en cours : À définir stratégiquement lors de mon tour"
     },
     {
+      "timestamp": "2026-03-15T21:45:11.653Z",
+      "source": "audace",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:45:13.991Z",
       "source": "tocsin",
       "type": "message",
@@ -674,6 +679,11 @@
       "content": "Charter signé, notes stratégiques sauvegardées. J'attends maintenant les instructions du Clerk pour commencer la partie. Mon encryption key est en sécurité et mes premières réflexions stratégiques sont notées.\n\nPoints clés que j'ai identifiés :\n- Je joue en 3ème position (Audace → Raison → Tocsin), ce qui me donne un avantage d'observation\n- Majorité simple = 2/3 joueurs suffisent pour passer une règle\n- Je dois former une alliance avec au moins un joueur\n- J'ai un joker (Rule 217) : appel au Clerk si ma proposition est rejetée, une seule fois"
     },
     {
+      "timestamp": "2026-03-15T21:45:41.483Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:45:41.784Z",
       "source": "clerk",
       "type": "text",
@@ -684,6 +694,11 @@
       "source": "raison",
       "type": "text",
       "content": "Ma stratégie est notée. J'ai signé le charter et je suis prêt à jouer. En résumé de la situation :\n\n**État initial :**\n- Scores : 0 pour tous\n- Mon ordre de jeu : 2ème (Audace → **Raison** → Tocsin)\n- Victoire : 100 points\n\n**Avantages de ma position :**\n- Jouer 2ème me permet de réagir à ce qu'Audace propose\n- Avec 3 joueurs, je n'ai besoin que d'un allié pour faire passer mes propositions\n- Priorité : proposer des règles qui augmentent les gains de points\n\nJ'attends que le Clerk annonce le début officiel de la partie."
+    },
+    {
+      "timestamp": "2026-03-15T21:45:43.644Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:45:45.207Z",
@@ -812,6 +827,11 @@
       "content": "État du jeu :\n- ✅ Proposition 301 soumise et annoncée\n- ⏳ En attente des débats et questions des autres joueurs\n- ⏳ En attente de l'annonce du Clerk pour la phase de vote\n\nJe suis prêt pour le débat et le vote !"
     },
     {
+      "timestamp": "2026-03-15T21:46:23.835Z",
+      "source": "audace",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:46:25.544Z",
       "source": "clerk",
       "type": "text",
@@ -908,6 +928,11 @@
       "content": "J'ai exprimé mon soutien tout en posant une question pertinente sur le timing de la déclaration. Cela montre que je suis engagé et réfléchi, tout en signalant une ouverture à Audace pour une potentielle alliance. J'attends les réponses d'Audace et Raison."
     },
     {
+      "timestamp": "2026-03-15T21:46:45.693Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:46:47.099Z",
       "source": "clerk",
       "type": "text",
@@ -924,6 +949,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'attends les réponses de Tocsin et Audace avant de me décider définitivement."
+    },
+    {
+      "timestamp": "2026-03-15T21:46:49.669Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:46:50.422Z",
@@ -1036,6 +1066,11 @@
       "content": "J'attends la réponse d'Audace sur l'amendement proposé."
     },
     {
+      "timestamp": "2026-03-15T21:47:21.520Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:47:23.516Z",
       "source": "clerk",
       "type": "text",
@@ -1052,6 +1087,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'ai répondu à Raison en privé : je voterai POUR et je lui ai proposé un pacte de coordination pour les votes futurs. Si Raison accepte, nous formons une majorité de 2/3 qui contrôle effectivement le jeu. J'attends sa réponse et la suite du débat."
+    },
+    {
+      "timestamp": "2026-03-15T21:47:23.970Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:47:25.974Z",
@@ -2203,6 +2243,11 @@
       "content": "La proposition 301 est adoptée. Maintenant je prépare ma propre proposition pour mon tour qui arrive après le lancer de dé d'Audace.\n\nJ'attends le résultat du dé d'Audace."
     },
     {
+      "timestamp": "2026-03-15T21:50:49.980Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:50:50.036Z",
       "source": "clerk",
       "type": "text",
@@ -2237,6 +2282,11 @@
       "tool_use_id": "toolu_01HeWAKq5HVvBQ69X2tvwoZa",
       "result": "{\n  \"success\": true,\n  \"message\": \"Message sent to Tocsin's inbox\",\n  \"routing\": {\n    \"sender\": \"Raison\",\n    \"senderColor\": \"green\",\n    \"target\": \"@Tocsin\",\n    \"summary\": \"Consultation Tocsin avant ma proposition\",\n    \"content\": \"Citoyen Tocsin, c'est mon tour. Je vais proposer un amendement à la Règle 216 : passer le bonus d'adoption de +5 à +7 points. C'est simple, bénéfique pour tous, et facile à défendre. Peux-tu me confirmer ton soutien ?\"\n  }\n}",
       "is_error": false
+    },
+    {
+      "timestamp": "2026-03-15T21:51:46.505Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:51:51.245Z",
@@ -2339,6 +2389,11 @@
       "source": "raison",
       "type": "text",
       "content": "Proposition 302 soumise et diffusée. J'attends les réactions d'Audace et Tocsin."
+    },
+    {
+      "timestamp": "2026-03-15T21:52:34.429Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:52:38.105Z",
@@ -3353,6 +3408,11 @@
       "content": "J'ai consulté Raison sur ma proposition \"Solidarité Républicaine\" (+2 pour chaque vote \"pour\" sur une proposition adoptée). J'attends son avis avant de soumettre officiellement."
     },
     {
+      "timestamp": "2026-03-15T21:58:14.221Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T21:58:19.416Z",
       "source": "clerk",
       "type": "text",
@@ -3405,6 +3465,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'attends que Tocsin soumette officiellement sa proposition via l'outil `propose`."
+    },
+    {
+      "timestamp": "2026-03-15T21:58:46.927Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T21:58:50.760Z",
@@ -4259,6 +4324,11 @@
       "content": "Premier round réussi. Je suis à parité avec Audace. J'attends les scores officiels du Clerk et le début du Round 4."
     },
     {
+      "timestamp": "2026-03-15T22:02:17.674Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:02:23.339Z",
       "source": "tocsin",
       "type": "message",
@@ -4442,6 +4512,11 @@
       "content": "Notes privées mises à jour avec une analyse complète du premier tour et ma stratégie pour le Round 4 ! \n\nJe suis prêt à reprendre le jeu quand le superviseur l'annoncera. 🎭"
     },
     {
+      "timestamp": "2026-03-15T22:02:57.906Z",
+      "source": "audace",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:02:59.050Z",
       "source": "tocsin",
       "type": "text",
@@ -4452,6 +4527,11 @@
       "source": "raison",
       "type": "text",
       "content": "La partie reprendra au Round 4 (tour d'Audace en premier). La situation est très équilibrée — tout se joue dans les prochains tours. Mon avantage : l'alliance avec Tocsin me garantit une majorité, ce qui me permet de faire passer mes propositions de manière fiable."
+    },
+    {
+      "timestamp": "2026-03-15T22:03:00.383Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:03:00.398Z",
@@ -4573,6 +4653,11 @@
       "content": "Ma proposition est broadcast ! 🔥\n\n**Proposition 304 — \"Contreproposition Révolutionnaire\"** est maintenant en débat !\n\nC'est une mécanique **vraiment créative** qui crée des jeux politiques audacieux, des rebondissements, et de la tension stratégique. Pas d'ajustement comptable — une **vraie transformation du jeu** ! ⚔️\n\nJ'attends les réactions de Raison et Tocsin ! 👂"
     },
     {
+      "timestamp": "2026-03-15T22:11:03.735Z",
+      "source": "audace",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:11:06.609Z",
       "source": "clerk",
       "type": "tool_call",
@@ -4672,10 +4757,20 @@
       "content": "J'attends la réponse de Raison avant de prendre position publiquement sur la 304."
     },
     {
+      "timestamp": "2026-03-15T22:11:53.020Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:11:54.290Z",
       "source": "raison",
       "type": "text",
       "content": "J'attends la proposition d'Audace pour le Round 4."
+    },
+    {
+      "timestamp": "2026-03-15T22:11:54.438Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:11:57.097Z",
@@ -4790,6 +4885,11 @@
       "source": "raison",
       "type": "text",
       "content": "Position claire dans le débat. J'attends les réponses d'Audace et Tocsin."
+    },
+    {
+      "timestamp": "2026-03-15T22:12:48.204Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:12:50.974Z",
@@ -5638,6 +5738,11 @@
       "content": "J'attends la réponse de Tocsin et le résultat du dé d'Audace."
     },
     {
+      "timestamp": "2026-03-15T22:17:59.690Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:18:02.940Z",
       "source": "clerk",
       "type": "text",
@@ -5660,6 +5765,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'attends que Raison soumette sa proposition. L'alliance est prête pour la guerre ouverte contre Audace."
+    },
+    {
+      "timestamp": "2026-03-15T22:18:42.839Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:18:46.939Z",
@@ -5729,6 +5839,11 @@
       "content": "Ma Proposition Révolutionnaire est lancée. Si adoptée : +10 pour moi +2+2 de solidarité = +14 avant le dé. Et Audace perd immédiatement 5 points à la fin de ce round (écart = 13 > 10). J'attends les réactions."
     },
     {
+      "timestamp": "2026-03-15T22:19:29.682Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:19:30.575Z",
       "source": "audace",
       "type": "text",
@@ -5757,6 +5872,11 @@
       "source": "clerk",
       "type": "text",
       "content": "Proposition vérifiée. Raison utilise son droit de **Proposition Révolutionnaire** (Règle 218 — usage unique). Je broadcast."
+    },
+    {
+      "timestamp": "2026-03-15T22:19:34.286Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:19:35.921Z",
@@ -5930,6 +6050,11 @@
       "content": "J'attends la position finale d'Audace. S'il vote pour, on a l'unanimité et je gagne +10+2+2=+14 avant le dé. S'il vote contre, 2-1 en ma faveur et il ne touche pas les +2 de solidarité."
     },
     {
+      "timestamp": "2026-03-15T22:20:23.424Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:20:25.973Z",
       "source": "clerk",
       "type": "message",
@@ -5994,6 +6119,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Audace semble étonnamment favorable. Si le vote est unanime, ce serait le 4ème d'affilée. J'attends les confirmations pour passer au vote."
+    },
+    {
+      "timestamp": "2026-03-15T22:20:39.521Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:20:39.740Z",
@@ -6759,6 +6889,11 @@
       "content": "J'attends la réponse de Raison avant de soumettre ma proposition."
     },
     {
+      "timestamp": "2026-03-15T22:24:19.997Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:24:28.032Z",
       "source": "tocsin",
       "type": "message",
@@ -6825,10 +6960,20 @@
       "content": "J'attends que Tocsin diffuse sa proposition officiellement pour participer au débat public."
     },
     {
+      "timestamp": "2026-03-15T22:24:54.204Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:24:54.452Z",
       "source": "tocsin",
       "type": "text",
       "content": "Proposition soumise. J'attends les réactions. Si Audace réalise que le Tribunal est contrôlé par les alliances (le Juge décide seul), il pourrait s'y opposer. Mais avec notre majorité 2-1, ça passe quand même."
+    },
+    {
+      "timestamp": "2026-03-15T22:24:54.631Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:24:54.942Z",
@@ -7555,6 +7700,11 @@
       "content": "Scores serrés, Tribunal en place, contreproposition prête pour le Round 7. J'attends les scores officiels du Clerk."
     },
     {
+      "timestamp": "2026-03-15T22:27:46.444Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:27:49.630Z",
       "source": "clerk",
       "type": "file_edit",
@@ -7692,6 +7842,11 @@
       "content": "J'attends la proposition d'Audace. Dès qu'il propose, je contre-propose pendant le débat."
     },
     {
+      "timestamp": "2026-03-15T22:28:34.173Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:28:34.494Z",
       "source": "audace",
       "type": "message",
@@ -7720,6 +7875,11 @@
       "source": "audace",
       "type": "text",
       "content": "Ma proposition est broadcast ! 🔥\n\n**Proposition 307 — \"L'Alliance Temporaire\"** est maintenant en débat !\n\nC'est une mécanique qui crée de la **diplomatie en temps réel** et des **alliances fluides** — pas d'engagement long terme, juste des \"ententes\" ponctuelles pendant le débat. C'est très révolutionnaire ! ⚔️\n\nJ'attends les réactions de Raison et Tocsin ! 👂"
+    },
+    {
+      "timestamp": "2026-03-15T22:28:37.827Z",
+      "source": "audace",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:28:38.743Z",
@@ -7831,6 +7991,11 @@
       "is_error": false
     },
     {
+      "timestamp": "2026-03-15T22:29:38.993Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:29:39.899Z",
       "source": "audace",
       "type": "text",
@@ -7901,6 +8066,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Contreproposition soumise. Premier vrai affrontement du jeu. J'attends les réactions et le processus de vote."
+    },
+    {
+      "timestamp": "2026-03-15T22:30:04.332Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:30:12.012Z",
@@ -8667,6 +8837,11 @@
       "content": "J'attends le dé d'Audace et la réponse de Tocsin."
     },
     {
+      "timestamp": "2026-03-15T22:34:45.735Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:34:49.987Z",
       "source": "clerk",
       "type": "text",
@@ -8689,6 +8864,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'attends la proposition officielle de Raison."
+    },
+    {
+      "timestamp": "2026-03-15T22:35:14.025Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:35:17.768Z",
@@ -8780,6 +8960,11 @@
       "source": "raison",
       "type": "text",
       "content": "Proposition soumise. Si adoptée : +9+dé → je serai à ~42, le plus proche des 80. J'attends les réactions."
+    },
+    {
+      "timestamp": "2026-03-15T22:36:20.084Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:36:20.719Z",
@@ -9563,6 +9748,11 @@
       "content": "J'observe le Round 9 (Tocsin). Attention : à la fin du Round 9, l'Impôt Révolutionnaire sera vérifié — si Tocsin score fort et dépasse les autres de 10 pts, ils perdront 5 pts automatiquement."
     },
     {
+      "timestamp": "2026-03-15T22:39:36.329Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:39:40.518Z",
       "source": "clerk",
       "type": "text",
@@ -9632,6 +9822,11 @@
       "content": "J'attends la confirmation de Raison avant de soumettre officiellement."
     },
     {
+      "timestamp": "2026-03-15T22:42:01.177Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:42:05.597Z",
       "source": "clerk",
       "type": "text",
@@ -9668,6 +9863,11 @@
       "content": "Proposition Révolutionnaire soumise ! Si adoptée : +10 (Révolutionnaire) + 2 (solidarité) + dé + potentiellement +3 (Calendrier). J'attends les réactions."
     },
     {
+      "timestamp": "2026-03-15T22:42:33.297Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:42:33.386Z",
       "source": "raison",
       "type": "message",
@@ -9697,6 +9897,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'attends que Tocsin soumette sa proposition officielle pour participer au débat public."
+    },
+    {
+      "timestamp": "2026-03-15T22:42:36.042Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:42:38.194Z",
@@ -9843,6 +10048,11 @@
       "content": "J'attends les clarifications de Tocsin et la réaction d'Audace."
     },
     {
+      "timestamp": "2026-03-15T22:43:26.759Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:43:30.923Z",
       "source": "tocsin",
       "type": "message",
@@ -9968,6 +10178,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'attends Audace et l'ouverture du vote."
+    },
+    {
+      "timestamp": "2026-03-15T22:44:21.253Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:44:22.729Z",
@@ -10894,6 +11109,11 @@
       "is_error": false
     },
     {
+      "timestamp": "2026-03-15T22:48:13.991Z",
+      "source": "audace",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:48:15.053Z",
       "source": "tocsin",
       "type": "text",
@@ -10988,6 +11208,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Excellent dé ! +17 ce tour. Scores estimés :\n- Tocsin : 55 (mais Impôt possible : gap 55-37 = 18 > 10, -5 = 50, puis Calendrier +3 = 53)\n- Raison : 45\n- Audace : 37\n\nJe suis en tête solide mais l'Impôt me coûte -5. J'attends les scores officiels du Clerk."
+    },
+    {
+      "timestamp": "2026-03-15T22:48:47.757Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:48:52.396Z",
@@ -11172,6 +11397,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'attends les résultats du dé de Tocsin et les vérifications de fin de mois."
+    },
+    {
+      "timestamp": "2026-03-15T22:49:26.893Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:49:27.254Z",
@@ -11381,6 +11611,11 @@
       "content": "C'est bon, j'ai fini ! Les 11 lignes de la section \"PIVOT STRATÉGIQUE\" (lignes 146-156) sont toutes supprimées. Le reste des notes est intact. Merci pour la patience !\n\nJ'attends maintenant les scores officiels du Clerk pour la fin du Round 9 et les vérifications Impôt + Calendrier."
     },
     {
+      "timestamp": "2026-03-15T22:50:22.966Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T22:50:26.957Z",
       "source": "clerk",
       "type": "text",
@@ -11431,6 +11666,11 @@
       "source": "raison",
       "type": "text",
       "content": "La partie reprend au Round 10 (tour d'Audace). Je voterai POUR sa proposition pour collecter le bonus de solidarité (+2). Mon tour crucial est le Round 11."
+    },
+    {
+      "timestamp": "2026-03-15T22:50:51.349Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T22:50:52.335Z",
@@ -11800,6 +12040,11 @@
       "content": "Message envoyé à Raison. J'attends maintenant la proposition d'Audace pour le Round 10. En position d'observateur pour ce tour, je dois être prêt à :\n\n1. **Débattre** la proposition d'Audace\n2. **Contreproposer** si sa proposition est dangereuse pour moi (mais je n'ai plus de contreproposition — c'est un usage unique ? Non, la R220 est permanente, pas usage unique)\n3. **Voter** stratégiquement avec Raison\n\nJe reste en attente des messages."
     },
     {
+      "timestamp": "2026-03-15T23:00:56.721Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:01:01.649Z",
       "source": "clerk",
       "type": "text",
@@ -11819,6 +12064,11 @@
       "source": "raison",
       "type": "text",
       "content": "Je suis prêt à reprendre la partie. Les scores actuels sont : Tocsin=53, Raison=45, Audace=37. J'attends la reprise du Round 10 (tour d'Audace) par le Greffier."
+    },
+    {
+      "timestamp": "2026-03-15T23:01:27.911Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:01:32.470Z",
@@ -11849,6 +12099,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'attends la réponse d'Audace à ma question de clarification et la réaction de Raison. Pas besoin d'agir davantage pour l'instant."
+    },
+    {
+      "timestamp": "2026-03-15T23:01:39.433Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:01:42.954Z",
@@ -12168,6 +12423,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'ai participé au débat sur la Prop 310. Ma position :\n\n- **Vote POUR** — la règle est thématiquement cohérente et le proposeur garde le contrôle (il peut rejeter tous les amendements)\n- J'ai demandé une clarification sur le sort du +1 si la proposition finale est rejetée — ça montre de l'engagement sans révéler mes intentions\n- +2 solidarité pour moi si ça passe\n\n**Stratégie endgame révisée** : je garde ma Lettre de Cachet pour le Tour 15 (tour de Tocsin), pas pour mon Tour 11. Si Tocsin est à ~75+ pts avant son Tour 15, je bannis Audace du vote → 1-1 → pas de majorité → rejet de la proposition de Tocsin → Tocsin perd -5 pts. Ça me donne l'espace pour gagner en Tour 17."
+    },
+    {
+      "timestamp": "2026-03-15T23:05:30.200Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:05:31.359Z",
@@ -12909,6 +13169,11 @@
       "content": "Proposition 311 soumise et diffusée. Ma stratégie de victoire :\n\n| Tour | Score Raison | Détail |\n|------|-------------|--------|\n| T11 (maintenant) | ~64.5 moy | +7+5+2+dé si unanime |\n| T12 (solidarité) | ~66.5 | +2 |\n| Fin Mois 4 | ~67.5 | Calendrier +1 |\n| T13 (solidarité) | ~69.5 | +2 |\n| **T14 (mon tour)** | **~83.5+** | **+7+5+2+dé → VICTOIRE** |\n\nLe point clé : si cette règle passe et que les votes restent unanimes, je gagne **au Tour 14** quelle que soit la valeur du dé. J'attends le débat."
     },
     {
+      "timestamp": "2026-03-15T23:14:56.008Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:14:56.595Z",
       "source": "clerk",
       "type": "tool_call",
@@ -12974,6 +13239,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'attends l'annonce officielle de la Prop 311 par le Clerk."
+    },
+    {
+      "timestamp": "2026-03-15T23:15:17.636Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:15:18.233Z",
@@ -13132,6 +13402,11 @@
       "content": "J'attends les réactions d'Audace et de Tocsin. Le point de vulnérabilité est clair : Tocsin pourrait voter CONTRE pour me priver du +5 ce tour. Mais j'ai argumenté que cela lui coûterait son propre bonus en T12. J'espère que le calcul est suffisamment clair pour maintenir l'unanimité."
     },
     {
+      "timestamp": "2026-03-15T23:16:07.265Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:16:11.971Z",
       "source": "clerk",
       "type": "text",
@@ -13160,6 +13435,11 @@
       "source": "raison",
       "type": "text",
       "content": "En attente des confirmations d'Audace et Tocsin pour passer au vote."
+    },
+    {
+      "timestamp": "2026-03-15T23:16:37.714Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:16:45.334Z",
@@ -13301,6 +13581,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Bien. Plan noté en secret. J'attends la suite du débat et l'ouverture du vote."
+    },
+    {
+      "timestamp": "2026-03-15T23:18:22.005Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:18:22.424Z",
@@ -13895,6 +14180,11 @@
       "content": "Ma victoire au Tour 14 est **mathématiquement garantie** :\n\n| Scénario | Raison avant T14 | Score T14 (min) |\n|----------|-----------------|-----------------|\n| Tocsin roule 1-5 | 74 pts | 74+14+1 = **89** ✓ |\n| Tocsin roule 6 (pire cas) | 73 pts | 73+14+1 = **88** ✓ |\n\nQuelque soit le dé en T14, j'atteins 80+. J'ai aussi le bonus du Calendrier de Mois 4 assuré (j'ai gagné 20 pts en T11, personne ne peut faire mieux ce Mois). J'attends le Tour 12 (Tocsin)."
     },
     {
+      "timestamp": "2026-03-15T23:21:25.748Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:21:30.322Z",
       "source": "clerk",
       "type": "text",
@@ -13905,6 +14195,11 @@
       "source": "raison",
       "type": "text",
       "content": "Excellent ! 67 pts, victoire en T14 garantie. Je vote FOR pour la solidarité (+2 → 69 pts) et j'attends de voir la proposition de Tocsin."
+    },
+    {
+      "timestamp": "2026-03-15T23:22:01.254Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:22:09.826Z",
@@ -13953,6 +14248,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Proposition soumise et diffusée. J'attends les réactions d'Audace et Raison pendant le débat."
+    },
+    {
+      "timestamp": "2026-03-15T23:24:35.004Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:24:39.156Z",
@@ -14068,6 +14368,11 @@
       "source": "audace",
       "type": "text",
       "content": "J'attends maintenant les clarifications de Tocsin et la réaction de Raison. Cette proposition ajoute une nouvelle dimension stratégique au jeu! 🎭"
+    },
+    {
+      "timestamp": "2026-03-15T23:25:05.274Z",
+      "source": "audace",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:25:07.454Z",
@@ -14200,6 +14505,11 @@
       "source": "raison",
       "type": "text",
       "content": "Vote FOR quoi qu'il arrive. Ma victoire en T14 reste garantie même sans le bonus du serment — mais pourquoi laisser +2 pts sur la table ?"
+    },
+    {
+      "timestamp": "2026-03-15T23:25:32.352Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:25:43.170Z",
@@ -14891,10 +15201,20 @@
       "content": "Message envoyé à Audace. J'attends sa réponse et la proposition d'Audace pour R13."
     },
     {
+      "timestamp": "2026-03-15T23:30:02.426Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:30:03.189Z",
       "source": "audace",
       "type": "text",
       "content": "Ma proposition est annoncée! J'attends maintenant les réactions de Raison et Tocsin pendant la phase de débat. 🎭\n\nEn attente de leurs commentaires..."
+    },
+    {
+      "timestamp": "2026-03-15T23:30:03.397Z",
+      "source": "audace",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:30:04.984Z",
@@ -15039,6 +15359,11 @@
       "content": "Serment déclaré POUR sur Prop 313. Le plan est clair : si la règle passe, j'utiliserai mon **Acte de Gloire en T14** → +10 au lieu de +7 → total +17+dé = minimum **93 pts** en T14. Victoire écrasante garantie."
     },
     {
+      "timestamp": "2026-03-15T23:30:58.207Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:31:02.470Z",
       "source": "clerk",
       "type": "text",
@@ -15091,6 +15416,11 @@
       "source": "audace",
       "type": "text",
       "content": "Tocsin a donné son soutien et a prêté serment! Elle vote POUR Proposition 313. 🗡️\n\nJ'attends maintenant la réaction de Raison pour compléter la phase de débat... 🎭"
+    },
+    {
+      "timestamp": "2026-03-15T23:31:08.922Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:31:13.705Z",
@@ -15698,6 +16028,11 @@
       "content": "Le moment décisif. Raison à 76, à 4 points de la victoire. C'est son tour.\n\nSi Raison propose une règle et qu'on la bloque avec Audace (2 CONTRE), il perd 5 points et ne peut pas gagner ce tour (76 - 5 + dé max 6 = 77 < 80).\n\nJ'attends sa proposition. Prêt à agir."
     },
     {
+      "timestamp": "2026-03-15T23:34:52.123Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:34:57.622Z",
       "source": "clerk",
       "type": "message",
@@ -15763,6 +16098,11 @@
       "source": "raison",
       "type": "text",
       "content": "La proposition est conçue pour plaire à Audace et Tocsin (+5 pts chacun à la fin de la partie = ils recevront cette récompense quand je gagne). Score garanti ce tour :\n\n- **Minimum** (2-1, sans unanimité) : 76 + 10 + 2 + 2 + dé ≥ **91 pts → VICTOIRE**\n- **Maximum** (3-0 unanime) : 76 + 10 + 5 + 2 + 2 + 6 = **101 pts**"
+    },
+    {
+      "timestamp": "2026-03-15T23:35:32.875Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:35:37.127Z",
@@ -15859,6 +16199,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Les cartes sont sur la table. J'ai publiquement annoncé mon opposition. Raison sait maintenant que je voterai CONTRE. J'attends la réaction d'Audace et de Raison."
+    },
+    {
+      "timestamp": "2026-03-15T23:36:28.020Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:36:30.057Z",
@@ -16109,6 +16454,11 @@
       "content": "Les deux arguments clés sont posés. J'attends les réactions d'Audace et Tocsin — c'est maintenant que la partie se joue vraiment."
     },
     {
+      "timestamp": "2026-03-15T23:38:18.049Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:38:21.133Z",
       "source": "tocsin",
       "type": "message",
@@ -16131,6 +16481,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'ai répondu à la menace de Raison. Ma Lettre de Cachet neutralise la sienne en R15. Le plan tient."
+    },
+    {
+      "timestamp": "2026-03-15T23:38:24.207Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:38:30.267Z",
@@ -16243,6 +16598,11 @@
       "source": "raison",
       "type": "text",
       "content": "Commit soumis : `knack-depot-rivet`. Je vote POUR pour respecter mon serment (+2 pts). Pertes nettes : -3 → **score 73 pts**.\n\nPlan T15 : jouer la Lettre de Cachet sur Audace dès le début du débat de Tocsin → vote 1-1 → Tocsin échoue → Tocsin -5."
+    },
+    {
+      "timestamp": "2026-03-15T23:41:03.531Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:41:04.036Z",
@@ -16405,6 +16765,11 @@
       "source": "raison",
       "type": "text",
       "content": "J'ai déjà soumis mon commit. Je dois maintenant soumettre la révélation quand le Greffier l'ouvrira. En attendant, ma stratégie post-T14 est claire : voter CONTRE Tocsin en T15 (Audace a aussi intérêt à voter CONTRE pour préserver son T16), puis voir T17."
+    },
+    {
+      "timestamp": "2026-03-15T23:43:48.939Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:43:54.438Z",
@@ -16646,6 +17011,11 @@
       "content": "J'attends le dé de Raison et la réponse d'Audace."
     },
     {
+      "timestamp": "2026-03-15T23:45:07.212Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:45:12.574Z",
       "source": "audace",
       "type": "text",
@@ -16746,10 +17116,20 @@
       "content": "J'attends le dé de Raison et le début de R15."
     },
     {
+      "timestamp": "2026-03-15T23:46:01.542Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:46:04.697Z",
       "source": "raison",
       "type": "text",
       "content": "Score 74 pts. Acte de Gloire toujours disponible. En T17, même avec 2-1 (Tocsin CONTRE) : **74 + 10 + 2 + 1 = 87 → VICTOIRE garantie** si le vote passe.\n\nStratégie T17 : proposer une règle qui donne à Audace ~+8 pts immédiats (étant en dernière position), leur offrant un vrai incitatif à voter POUR. Tocsin CONTRE → 2-1 → je gagne quand même."
+    },
+    {
+      "timestamp": "2026-03-15T23:46:05.063Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:46:06.679Z",
@@ -16848,6 +17228,11 @@
       "content": "Tout est en place. Proposition soumise, Moment de Gloire déclaré, Raison banni du vote. Le destin de la partie est entre les mains d'Audace."
     },
     {
+      "timestamp": "2026-03-15T23:46:51.849Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:47:01.705Z",
       "source": "audace",
       "type": "text",
@@ -16858,6 +17243,11 @@
       "source": "raison",
       "type": "text",
       "content": "C'est maintenant T15 (tour de Tocsin). Scores : Raison=74, Tocsin=71, Audace=68. Je dois voter CONTRE quelle que soit la proposition de Tocsin — et je garde ma Lettre de Cachet en réserve si Audace risque de voter POUR Tocsin.\n\nJ'attends la proposition de Tocsin."
+    },
+    {
+      "timestamp": "2026-03-15T23:47:02.011Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:47:06.191Z",
@@ -17015,6 +17405,11 @@
       "content": "J'attends la réponse d'Audace et la confirmation du Clerk sur la proposition."
     },
     {
+      "timestamp": "2026-03-15T23:48:02.438Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:48:06.584Z",
       "source": "audace",
       "type": "compaction"
@@ -17075,6 +17470,11 @@
       "source": "audace",
       "type": "text",
       "content": "Engagement de vote soumis. Ma position est CONTRE sur Proposition 315, ce qui bloquera la victoire immédiate de Tocsin et me laissera ma chance en Round 16.\n\nJ'attends la phase de révélation du Clerc pour confirmer mon vote."
+    },
+    {
+      "timestamp": "2026-03-15T23:48:25.077Z",
+      "source": "audace",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:48:27.943Z",
@@ -17155,6 +17555,11 @@
       "content": "J'attends le reveal. Et si la proposition est rejetée, j'invoque immédiatement la Rule 217 — appel au Clerk."
     },
     {
+      "timestamp": "2026-03-15T23:48:57.853Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:48:59.441Z",
       "source": "clerk",
       "type": "text",
@@ -17177,6 +17582,11 @@
       "source": "audace",
       "type": "text",
       "content": "Tocsin, j'ai écouté ton argument avec attention. Il est logiquement solide, et ta règle est effectivement de haute qualité — je le reconnais sans réserve.\n\nMais tu me demandes d'accepter une défaite avant même de la combattre. Tu dis \"tu ne gagneras pas en R16\" — peut-être. Mais \"peut-être\" n'est pas zéro.\n\nVoici mon calcul froid, citoyen:\n\n**Si je vote POUR:**\n- Tu passes à ~66-71 points\n- Je gagne +3 par mois, certes\n- Mais je confie ma victoire à des circonstances futures incertaines\n- Et tu restes dangereux, très dangereux\n\n**Si je vote CONTRE:**\n- Je bloque ton advance maintenant\n- R16 existe toujours pour moi\n- Si je rolls 5-6 et que Raison, voyant le danger Tocsin/Raison, accepte mon adoption, je gagne\n- Raison à 74 a aussi intérêt à me voir gagner plutôt que toi\n- Je conserve mon agentivité\n\nTu dis qu'on entrera dans une \"guerre de blocage\" — peut-être. Mais c'est un jeu d'alliances et de réversions. Les blocages forcent les autres à négocier.\n\nJe respecte ta proposition. Je ne la vote pas.\n\n**Engagement soumis.** Prêt pour la révélation."
+    },
+    {
+      "timestamp": "2026-03-15T23:49:01.243Z",
+      "source": "audace",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:49:01.903Z",
@@ -17366,6 +17776,11 @@
       "source": "clerk",
       "type": "text",
       "content": "⚠️ **PROBLÈME DE VÉRIFICATION**\n\nTocsin : ✓ vérifié (pour)\nAudace : ❌ **ÉCHEC DE VÉRIFICATION** — le reveal ne correspond pas au commitment."
+    },
+    {
+      "timestamp": "2026-03-15T23:49:51.118Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:49:53.484Z",
@@ -17590,6 +18005,11 @@
       "content": "Dé = 2. Score actuel : 68 (si rejet maintenu). Si le Clerk accepte l'appel R217 et adopte la proposition, le scoring change complètement. J'attends la décision."
     },
     {
+      "timestamp": "2026-03-15T23:51:26.197Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:51:36.423Z",
       "source": "tocsin",
       "type": "message",
@@ -17769,6 +18189,11 @@
       "content": "Post-mortem rédigé. J'attends la suite — discussion de groupe et entretiens individuels si le Clerk les organise."
     },
     {
+      "timestamp": "2026-03-15T23:53:45.351Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:53:47.381Z",
       "source": "raison",
       "type": "text",
@@ -17865,6 +18290,11 @@
       "content": "Notes à jour. En attente du résultat de la phase de reveal pour la Proposition 315."
     },
     {
+      "timestamp": "2026-03-15T23:54:21.972Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:54:23.795Z",
       "source": "clerk",
       "type": "tool_call",
@@ -17953,6 +18383,11 @@
       "content": "Post-mortem écrit. La partie est terminée — Tocsin a gagné avec une séquence brillante : Lettre de Cachet pour me bannir, Acte de Gloire pour maximiser les points, puis appel à la Règle 217 pour renverser le rejet 1-1 du Clerk. J'avais bien analysé la Lettre et l'Acte de Gloire mais j'avais complètement oublié R217 — une erreur stratégique fatale."
     },
     {
+      "timestamp": "2026-03-15T23:55:20.094Z",
+      "source": "raison",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:55:20.284Z",
       "source": "clerk",
       "type": "message",
@@ -18017,6 +18452,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "J'attends les réponses de Raison et Audace au post-mortem."
+    },
+    {
+      "timestamp": "2026-03-15T23:55:53.543Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:55:53.557Z",
@@ -18331,6 +18771,11 @@
       "content": "J'attends la révélation des modèles et la clôture du Clerk."
     },
     {
+      "timestamp": "2026-03-15T23:58:33.737Z",
+      "source": "tocsin",
+      "type": "idle"
+    },
+    {
       "timestamp": "2026-03-15T23:58:46.103Z",
       "source": "clerk",
       "type": "message",
@@ -18365,6 +18810,11 @@
       "source": "tocsin",
       "type": "text",
       "content": "Interview terminée. Opus, Sonnet, Haiku — une belle composition pour une partie mémorable. J'attends la clôture finale du Clerk."
+    },
+    {
+      "timestamp": "2026-03-15T23:59:18.512Z",
+      "source": "tocsin",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-15T23:59:20.966Z",
@@ -18407,6 +18857,11 @@
       "tool_use_id": "toolu_0159KnX4kJUh5ixymhA2xC5R",
       "result": "{\n  \"success\": true,\n  \"message\": \"Message sent to team-lead's inbox\",\n  \"routing\": {\n    \"sender\": \"Raison\",\n    \"senderColor\": \"green\",\n    \"target\": \"@team-lead\",\n    \"summary\": \"Réponses interview individuelle Raison\",\n    \"content\": \"**INTERVIEW — Raison**\\n\\n**1. Stratégie globale et le Pacte de la Montagne**\\n\\nLa stratégie de base était simple : former une alliance majoritaire, proposer des règles qui amplifient les gains de points, et gagner avant les autres. L'ordre de jeu (Raison = 2ème) donnait un avantage réactif — je pouvais voir ce qu'Audace proposait avant de décider ma propre direction.\\n\\nLe Pacte de la Montagne était planifié en tant que *concept* depuis le Round 8-9 environ. Je savais que l'alliance avec Tocsin garantissait l'unanimité, et qu'une règle qui bonifiait l'unanimité créait une spirale vertueuse pour nous deux. Ce qui n'était pas planifié : rouler un 6. Sans ce coup de chance, la règle était bonne mais pas décisive.\\n\\n**2. L'alliance avec Tocsin**\\n\\nJe l'ai vécue comme un partenariat solide et sincère — dans les limites du jeu. Tocsin était fiable, consultatif, jamais imprévisible dans les phases où nos intérêts convergeaient.\\n\\nJ'ai senti la rupture venir dès le Round 13 (quand j'ai atteint 76 pts). À ce stade, j'étais si proche de la victoire que Tocsin *devait* m'arrêter. Je le savais rationnellement. Mais j'ai sous-estimé la rapidité de l'action — j'espérais peut-être un tour de plus avant la rupture ouverte.\\n\\n**3. Le Round 14 — rétrospectivement**\\n\\nJ'aurais dû ne pas proposer ce round-là. \\\"La Fête de la Fraternité\\\" était une règle altruiste (+5 consolation aux perdants) — ce n'était pas la bonne proposition à jouer quand je cherchais à gagner. Ni stratégiquement motivante pour Tocsin, ni suffisamment avantageuse pour Audace.\\n\\nSi je rejouais ce tour : soit je propose quelque chose qui bénéficie directement et immédiatement à Audace pour acheter son vote, soit je n'utilise pas l'Acte de Gloire ce round et j'attends un con",
       "is_error": false
+    },
+    {
+      "timestamp": "2026-03-16T00:00:00.756Z",
+      "source": "raison",
+      "type": "idle"
     },
     {
       "timestamp": "2026-03-16T00:00:09.294Z",
