@@ -3,20 +3,12 @@
 -->
 <script>
   import { game, visibleEvents, SPEEDS,
-           stepForward, stepBack, jumpForward, jumpBack, togglePlay, seekTo, speedUp, speedDown, getShareUrl } from '../stores/game.svelte.js';
+           stepForward, stepBack, jumpForward, jumpBack, togglePlay, seekTo, speedUp, speedDown } from '../stores/game.svelte.js';
   import { shortTime } from '../lib/utils.js';
 
   let total = $derived(visibleEvents().length);
   let idx = $derived(game.currentIdx + 1);
   let pct = $derived(total > 0 ? (idx / total) * 100 : 0);
-  let copied = $state(false);
-
-  function share() {
-    navigator.clipboard.writeText(getShareUrl());
-    copied = true;
-    setTimeout(() => { copied = false; }, 2000);
-  }
-
   function handleSeek(e) {
     const rect = e.currentTarget.getBoundingClientRect();
     const fraction = (e.clientX - rect.left) / rect.width;
@@ -58,7 +50,8 @@
   <div class="pb-time">{idx} / {total}</div>
 
   <div class="pb-track-wrap">
-    <div class="pb-track" role="slider" tabindex="0" aria-valuenow={idx} aria-valuemin={1} aria-valuemax={total} onclick={handleSeek}>
+    <div class="pb-track" role="slider" tabindex="0" aria-valuenow={idx} aria-valuemin={1} aria-valuemax={total} onclick={handleSeek}
+      onkeydown={(e) => { if (e.key === 'ArrowRight') stepForward(); else if (e.key === 'ArrowLeft') stepBack(); }}>
       <div class="pb-progress" style="width: {pct}%"></div>
     </div>
   </div>
@@ -71,13 +64,6 @@
     <button class="pb-speed-btn" onclick={speedUp}>+</button>
   </div>
 
-  <button class="pb-share" onclick={share} title="Copy link to this moment">
-    {#if copied}
-      ✓
-    {:else}
-      <svg width="12" height="12" viewBox="0 0 16 16"><path d="M13 0a3 3 0 00-2.12 5.12L5.56 8.44a3 3 0 000 3.12l5.32 3.32A3 3 0 1013 12a3 3 0 00-.44-1.56L7.24 7.12a3 3 0 000-2.24l5.32-3.32A3 3 0 1013 0z" fill="currentColor"/></svg>
-    {/if}
-  </button>
 </div>
 
 <style>
@@ -133,13 +119,4 @@
     cursor: pointer;
   }
   .pb-speed-btn:hover { color: var(--text); background: var(--bg-hover); }
-  .pb-share {
-    width: 28px; height: 28px;
-    border: 1px solid var(--border); border-radius: 4px;
-    background: var(--bg-raised); color: var(--text-dim);
-    cursor: pointer; display: flex; align-items: center;
-    justify-content: center; font-size: 11px; transition: all 0.15s;
-    flex-shrink: 0;
-  }
-  .pb-share:hover { background: var(--bg-hover); color: var(--text); }
 </style>

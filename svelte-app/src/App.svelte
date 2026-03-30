@@ -23,7 +23,7 @@
   }
 
   function readHash() {
-    const hash = window.location.hash.replace('#/', '').replace('#', '');
+    const hash = window.location.hash.replace('#/', '').replace('#', '').split('?')[0];
     if (hash && hash.startsWith('game-')) {
       currentGame = hash;
       loadGame(gameIdToPath(hash));

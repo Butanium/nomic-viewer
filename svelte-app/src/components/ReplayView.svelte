@@ -3,7 +3,7 @@
   Includes topbar, scoreboard, panels, clerk drawer, playback bar.
 -->
 <script>
-  import { game, agentFeeds, agentStatuses, visibleEvents, currentScores } from '../stores/game.svelte.js';
+  import { game, agentFeeds, agentStatuses, visibleEvents, currentScores, getShareUrl } from '../stores/game.svelte.js';
   import { agentColor, shortTime } from '../lib/utils.js';
   import PublicChat from './PublicChat.svelte';
   import AgentPanel from './AgentPanel.svelte';
@@ -17,6 +17,13 @@
   let { onBack } = $props();
 
   let tutorialVisible = $state(false);
+  let copied = $state(false);
+
+  function share() {
+    navigator.clipboard.writeText(getShareUrl());
+    copied = true;
+    setTimeout(() => { copied = false; }, 2000);
+  }
 
   import { onMount } from 'svelte';
   onMount(() => {
@@ -75,10 +82,17 @@
         <span style="color: var(--text-muted)">{currentTs} UTC</span>
       {/if}
     </div>
+    <button class="share-btn" onclick={share} title="Copy link to this moment">
+      {#if copied}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>
+      {:else}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L8 1l2 2"/><path d="M8 1v9"/><path d="M3 8v5a2 2 0 002 2h6a2 2 0 002-2V8"/></svg>
+      {/if}
+    </button>
+    <button class="help-btn" onclick={() => tutorialVisible = true}>?</button>
     {#if !game.clerkOpen}
       <button class="clerk-toggle-topbar" onclick={() => game.clerkOpen = true}>Clerk</button>
     {/if}
-    <button class="help-btn" onclick={() => tutorialVisible = true}>?</button>
   </div>
 </div>
 
@@ -184,7 +198,7 @@
   }
   .tab-btn:hover { color: var(--text-dim); }
   .tab-btn.active { background: var(--bg-panel); color: var(--text); }
-  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
   .round-indicator { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); }
   .clerk-toggle-topbar {
     font-family: var(--font-mono); font-size: 10px;
@@ -193,6 +207,14 @@
     color: var(--clerk); cursor: pointer; transition: all 0.15s;
   }
   .clerk-toggle-topbar:hover { background: var(--bg-hover); color: var(--text); }
+  .share-btn {
+    width: 26px; height: 26px;
+    border: 1px solid var(--border); border-radius: 50%;
+    background: var(--bg-raised); color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .share-btn:hover { background: var(--bg-hover); color: var(--accent); border-color: var(--accent); }
   .help-btn {
     font-family: var(--font-mono); font-size: 12px; font-weight: 500;
     width: 26px; height: 26px;
