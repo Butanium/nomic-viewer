@@ -1,6 +1,10 @@
 <!--
   Interactive tutorial overlay for the Nomic game replay viewer.
-  Walks users through game rules and UI via spotlight + explanation cards.
+  Walks users through game rules and UI via z-index spotlight + explanation cards.
+
+  Approach: instead of clip-path cutouts (which break under CSS zoom / viewport
+  transforms), we elevate the target element above a simple dark overlay using
+  z-index + box-shadow glow. No coordinate math needed for the spotlight itself.
 -->
 <script>
   import { game, visibleEvents, advanceTo } from '../stores/game.svelte.js';
@@ -8,10 +12,10 @@
   let { visible = $bindable(false) } = $props();
 
   let step = $state(0);
-  let spotlightRect = $state(null);
   let cardStyle = $state('');
   let transitioning = $state(false);
   let cardEl = $state(null);
+  let currentTarget = $state(null);
 
   const STEPS = [
     {
@@ -70,79 +74,115 @@
 
   let totalSteps = STEPS.length;
 
-  function measureAndPosition(el) {
-    const r = el.getBoundingClientRect();
-    const pad = 6;
-    spotlightRect = {
-      x: r.left - pad,
-      y: r.top - pad,
-      w: r.width + pad * 2,
-      h: r.height + pad * 2,
+  /** Apply spotlight styles directly to a DOM element, elevating it above the overlay. */
+  function highlightElement(selector) {
+    // Clean up previous target
+    if (currentTarget) {
+      currentTarget.style.removeProperty('z-index');
+      currentTarget.style.removeProperty('position');
+      currentTarget.style.removeProperty('box-shadow');
+      currentTarget.style.removeProperty('border-radius');
+      currentTarget.style.removeProperty('pointer-events');
+    }
+
+    if (!selector) {
+      currentTarget = null;
+      positionCard(null);
+      return;
+    }
+
+    const el = document.querySelector(selector);
+    if (!el) {
+      currentTarget = null;
+      positionCard(null);
+      return;
+    }
+
+    // Elevate above the overlay (z-index 999)
+    el.style.zIndex = '1000';
+    if (getComputedStyle(el).position === 'static') {
+      el.style.position = 'relative';
+    }
+    el.style.boxShadow = '0 0 0 4px var(--accent), 0 0 20px rgba(196, 160, 255, 0.3)';
+    el.style.borderRadius = '4px';
+    el.style.pointerEvents = 'auto';
+    currentTarget = el;
+
+    positionCard(el);
+  }
+
+  /** Position the explanation card near the target element. */
+  function positionCard(el) {
+    if (!el) {
+      cardStyle = 'top: 50%; left: 50%; transform: translate(-50%, -50%);';
+      return;
+    }
+
+    // CSS zoom inflates getBoundingClientRect() values and window.innerWidth/Height,
+    // but position: fixed top/left operates in CSS (unzoomed) space. Divide by zoom.
+    const zoom = parseFloat(getComputedStyle(document.body).zoom) || 1;
+    const rawRect = el.getBoundingClientRect();
+    const rect = {
+      top: rawRect.top / zoom,
+      left: rawRect.left / zoom,
+      right: rawRect.right / zoom,
+      bottom: rawRect.bottom / zoom,
+      width: rawRect.width / zoom,
+      height: rawRect.height / zoom,
     };
-    positionCard(spotlightRect);
+    const cardW = Math.max(cardEl ? cardEl.offsetWidth : 360, 360);
+    const cardH = Math.max(cardEl ? cardEl.offsetHeight : 220, 220);
+    const gap = 16;
+    const vw = window.innerWidth / zoom;
+    const vh = window.innerHeight / zoom;
+
+    // Try right of target
+    let x = rect.right + gap;
+    let y = rect.top + rect.height / 2 - cardH / 2;
+
+    // If overflows right, try left
+    if (x + cardW > vw - 20) {
+      x = rect.left - cardW - gap;
+    }
+
+    // If overflows left, place below
+    if (x < 20) {
+      x = rect.left + rect.width / 2 - cardW / 2;
+      y = rect.bottom + gap;
+    }
+
+    // If overflows bottom, place above
+    if (y + cardH > vh - 20) {
+      y = rect.top - cardH - gap;
+    }
+
+    // If still overflows (target near bottom AND tall card), center vertically
+    if (y < 20 || y + cardH > vh - 20) {
+      y = (vh - cardH) / 2;
+      x = rect.left - cardW - gap;
+      if (x < 20) x = rect.right + gap;
+    }
+
+    // Clamp to viewport
+    x = Math.max(20, Math.min(x, vw - cardW - 20));
+    y = Math.max(20, Math.min(y, vh - cardH - 20));
+
+    cardStyle = `top: ${y}px; left: ${x}px;`;
   }
 
   function updateSpotlight() {
     const s = STEPS[step];
     if (!s.target) {
-      spotlightRect = null;
-      positionCard(null);
+      highlightElement(null);
       return;
     }
     const el = document.querySelector(s.target);
-    if (!el) {
-      spotlightRect = null;
-      positionCard(null);
-      return;
-    }
-    if (s.needsScroll) {
+    if (el && s.needsScroll) {
       el.scrollIntoView({ block: 'center', behavior: 'instant' });
-      // Wait for scroll to settle before measuring
-      requestAnimationFrame(() => measureAndPosition(el));
+      requestAnimationFrame(() => highlightElement(s.target));
     } else {
-      measureAndPosition(el);
+      highlightElement(s.target);
     }
-  }
-
-  function positionCard(rect) {
-    if (!rect) {
-      cardStyle = 'top: 50%; left: 50%; transform: translate(-50%, -50%);';
-      return;
-    }
-
-    // Measure actual card dimensions, with a minimum floor to prevent clipping
-    // when cardEl hasn't fully rendered yet
-    const cardW = Math.max(cardEl ? cardEl.offsetWidth : 360, 360);
-    const cardH = Math.max(cardEl ? cardEl.offsetHeight : 220, 220);
-    const gap = 16;
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-
-    // Try right of spotlight
-    let x = rect.x + rect.w + gap;
-    let y = rect.y + rect.h / 2 - cardH / 2;
-
-    // If overflows right, try left
-    if (x + cardW > vw - 20) {
-      x = rect.x - cardW - gap;
-    }
-
-    // If overflows left, try below
-    if (x < 20) {
-      x = rect.x + rect.w / 2 - cardW / 2;
-      y = rect.y + rect.h + gap;
-    }
-
-    // If overflows bottom, try above
-    if (y + cardH > vh - 20) {
-      y = rect.y - cardH - gap;
-    }
-
-    // Clamp
-    x = Math.max(20, Math.min(x, vw - cardW - 20));
-    y = Math.max(20, Math.min(y, vh - cardH - 20));
-
-    cardStyle = `top: ${y}px; left: ${x}px;`;
   }
 
   function goTo(newStep) {
@@ -170,12 +210,23 @@
     if (step > 0) goTo(step - 1);
   }
 
+  /** Remove all inline styles from current target and reset state. */
+  function cleanup() {
+    if (currentTarget) {
+      currentTarget.style.removeProperty('z-index');
+      currentTarget.style.removeProperty('position');
+      currentTarget.style.removeProperty('box-shadow');
+      currentTarget.style.removeProperty('border-radius');
+      currentTarget.style.removeProperty('pointer-events');
+      currentTarget = null;
+    }
+  }
+
   function close() {
+    cleanup();
     visible = false;
     step = 0;
-    spotlightRect = null;
     localStorage.setItem('nomic-tutorial-seen', '1');
-    // Restore replay tab
     game.activeTab = 'replay';
   }
 
@@ -183,15 +234,12 @@
   $effect(() => {
     if (visible) {
       step = 0;
-      // Ensure we're on replay tab with clerk open and at a good position
       game.activeTab = 'replay';
       game.clerkOpen = true;
-      // Jump to event 500 for rich state
       const events = visibleEvents();
       if (events.length > 0) {
         advanceTo(Math.min(499, events.length - 1));
       }
-      // Wait for DOM to settle
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           updateSpotlight();
@@ -200,7 +248,7 @@
     }
   });
 
-  // Register capture-phase keydown to intercept before PlaybackBar
+  // Capture-phase keydown to intercept before PlaybackBar
   $effect(() => {
     if (visible) {
       window.addEventListener('keydown', onKeydown, true);
@@ -208,56 +256,24 @@
     }
   });
 
-  // Recalculate on window resize
+  // Recalculate card position on resize
   function onResize() {
-    if (visible) updateSpotlight();
+    if (visible && currentTarget) positionCard(currentTarget);
   }
 
-  // Keyboard navigation
-  // Use capture phase to intercept keyboard events before PlaybackBar's window listener
   function onKeydown(e) {
     if (!visible) return;
     if (e.key === 'Escape') { e.preventDefault(); e.stopImmediatePropagation(); close(); }
     else if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopImmediatePropagation(); next(); }
     else if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopImmediatePropagation(); back(); }
   }
-
-  let clipPath = $derived.by(() => {
-    if (!spotlightRect) return 'none';
-    const r = spotlightRect;
-    const vw = typeof window !== 'undefined' ? window.innerWidth : 1920;
-    const vh = typeof window !== 'undefined' ? window.innerHeight : 1080;
-    // polygon that covers the whole viewport with a rectangular hole
-    return `polygon(
-      0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%,
-      ${r.x}px ${r.y}px,
-      ${r.x}px ${r.y + r.h}px,
-      ${r.x + r.w}px ${r.y + r.h}px,
-      ${r.x + r.w}px ${r.y}px,
-      ${r.x}px ${r.y}px
-    )`;
-  });
 </script>
 
 <svelte:window onresize={onResize} />
 
 {#if visible}
-  <!-- Overlay with cutout -->
-  <div
-    class="tutorial-overlay"
-    class:no-cutout={!spotlightRect}
-    style={spotlightRect ? `clip-path: ${clipPath};` : ''}
-    onclick={close}
-    role="presentation"
-  ></div>
-
-  <!-- Spotlight glow border -->
-  {#if spotlightRect}
-    <div
-      class="spotlight-ring"
-      style="top: {spotlightRect.y}px; left: {spotlightRect.x}px; width: {spotlightRect.w}px; height: {spotlightRect.h}px;"
-    ></div>
-  {/if}
+  <!-- Dark overlay — simple full-viewport, no clip-path -->
+  <div class="tutorial-overlay" onclick={close} role="presentation"></div>
 
   <!-- Explanation card -->
   <div class="tutorial-card" style={cardStyle} class:transitioning bind:this={cardEl}>
@@ -281,27 +297,13 @@
   .tutorial-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.72);
-    z-index: 1000;
-    transition: clip-path 0.35s ease;
-  }
-  .tutorial-overlay.no-cutout {
-    clip-path: none;
-  }
-
-  .spotlight-ring {
-    position: fixed;
-    z-index: 1001;
-    border-radius: 6px;
-    border: 1.5px solid var(--accent);
-    box-shadow: 0 0 20px rgba(196, 160, 255, 0.25), inset 0 0 20px rgba(196, 160, 255, 0.05);
-    pointer-events: none;
-    transition: all 0.35s ease;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
   }
 
   .tutorial-card {
     position: fixed;
-    z-index: 1002;
+    z-index: 1001;
     width: 360px;
     background: var(--bg-panel);
     border: 1px solid var(--border);

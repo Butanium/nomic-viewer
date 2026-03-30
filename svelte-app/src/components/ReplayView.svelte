@@ -95,7 +95,7 @@
     </div>
   {/each}
   {#if currentScores().winner}
-    <span class="winner-badge">🏆 {currentScores().winner}</span>
+    <span class="winner-badge" style="color: {agentColor(game.data, currentScores().winner.toLowerCase())}">🏆 {currentScores().winner}</span>
   {/if}
 </div>
 
@@ -222,7 +222,7 @@
   }
   .winner-badge {
     font-family: var(--font-mono); font-size: 11px;
-    color: var(--win);
+    font-weight: 600;
   }
 
   .main-area {
