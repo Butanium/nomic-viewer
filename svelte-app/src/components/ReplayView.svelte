@@ -20,7 +20,6 @@
   let title = $derived(game.data ? game.data.meta.game_id.replace('game-', 'Game ') : '');
   let players = $derived(game.data?.players || []);
   let clerk = $derived(game.data?.clerk);
-  let clerkEvents = $derived(agentFeeds()['clerk'] || []);
   let currentTs = $derived(
     game.currentIdx >= 0 && visibleEvents()[game.currentIdx]
       ? shortTime(visibleEvents()[game.currentIdx].timestamp)
@@ -28,8 +27,8 @@
   );
 
   $effect(() => {
-    clerkEvents; // track dependency
-    if (clerkFeedEl && clerkEvents.length) {
+    agentFeeds(); // track dependency
+    if (clerkFeedEl) {
       setTimeout(() => { if (clerkFeedEl) clerkFeedEl.scrollTop = clerkFeedEl.scrollHeight; }, 0);
     }
   });
@@ -110,7 +109,7 @@
       <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
     </div>
     <div class="agent-col-body" bind:this={clerkFeedEl}>
-      {#each clerkEvents as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}
+      {#each (agentFeeds()['clerk'] || []) as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}
         {#if evt.type === 'message'}
           <ChatMessage {evt} variant="agent" />
         {:else if evt.type === 'received_message'}

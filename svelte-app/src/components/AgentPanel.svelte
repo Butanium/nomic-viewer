@@ -13,12 +13,10 @@
   let feedEl = $state(null);
 
   let color = $derived(agentColor(game.data, name));
-  let events = $derived(agentFeeds()[name] || []);
-  let status = $derived(agentStatuses()[name] || 'idle');
-  let isActive = $derived(status !== 'idle');
+  let isActive = $derived((agentStatuses()[name] || 'idle') !== 'idle');
 
   $effect(() => {
-    events; // track dependency
+    agentFeeds(); // track dependency for scroll
     if (feedEl) feedEl.scrollTop = feedEl.scrollHeight;
   });
 </script>
@@ -30,10 +28,10 @@
       <span class="agent-name-label" style="color: {color}">{name}</span>
       <span class="agent-model">{model}</span>
     </div>
-    <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{status}</div>
+    <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{agentStatuses()[name] || 'idle'}</div>
   </div>
   <div class="agent-col-body" bind:this={feedEl}>
-    {#each events as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || '') + (evt.from || ''))}
+    {#each (agentFeeds()[name] || []) as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || '') + (evt.from || ''))}
       {#if evt.type === 'message'}
         <ChatMessage {evt} variant="agent" />
       {:else if evt.type === 'received_message'}
