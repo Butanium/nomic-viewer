@@ -241,6 +241,7 @@ export function togglePlay() {
   if (game.isPlaying) {
     game.isPlaying = false;
     clearTimeout(playTimer);
+    updateUrlPosition();
   } else {
     if (game.currentIdx < 0) {
       game.currentIdx = 0;
@@ -284,9 +285,22 @@ function scheduleNext() {
   }, delay);
 }
 
+function updateUrlPosition() {
+  const hash = window.location.hash.replace(/\?.*$/, '');
+  if (hash && game.currentIdx >= 0) {
+    history.replaceState(null, '', `${hash}?t=${game.currentIdx}`);
+  }
+}
+
 export function seekTo(pct) {
   const targetIdx = Math.floor(pct * _visibleEvents.length);
   advanceTo(Math.max(0, Math.min(targetIdx, _visibleEvents.length - 1)));
+  updateUrlPosition();
+}
+
+export function getShareUrl() {
+  const hash = window.location.hash.replace(/\?.*$/, '');
+  return `${window.location.origin}${window.location.pathname}${hash}?t=${game.currentIdx}`;
 }
 
 export function speedUp() {
@@ -308,11 +322,14 @@ export async function loadGame(path) {
   const data = await resp.json();
   game.data = data;
 
-  const params = new URLSearchParams(window.location.search);
-  const startAt = parseInt(params.get('start')) || 0;
+  // Read start position from URL: #/game-7?t=500 or ?start=500
+  const hashQuery = window.location.hash.includes('?')
+    ? new URLSearchParams(window.location.hash.split('?')[1])
+    : new URLSearchParams(window.location.search);
+  const startAt = parseInt(hashQuery.get('t') || hashQuery.get('start')) || 0;
   if (startAt > 0) {
     setTimeout(() => {
-      advanceTo(Math.min(startAt - 1, _visibleEvents.length - 1));
+      advanceTo(Math.min(startAt, _visibleEvents.length - 1));
     }, 0);
   }
 }
