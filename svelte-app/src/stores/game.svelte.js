@@ -32,7 +32,9 @@ const _visibleEvents = $derived.by(() => {
 });
 export function visibleEvents() { return _visibleEvents; }
 
-const _eventsUpToCurrent = $derived(_visibleEvents.slice(0, game.currentIdx + 1));
+const _eventsUpToCurrent = $derived.by(() => {
+  return _visibleEvents.slice(0, game.currentIdx + 1);
+});
 export function eventsUpToCurrent() { return _eventsUpToCurrent; }
 
 const _currentEvent = $derived(game.currentIdx >= 0 ? _visibleEvents[game.currentIdx] : null);

@@ -31,7 +31,7 @@
     <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{agentStatuses()[name] || 'idle'}</div>
   </div>
   <div class="agent-col-body" bind:this={feedEl}>
-    {#each (agentFeeds()[name] || []) as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || '') + (evt.from || ''))}
+    {#each (agentFeeds()[name] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
       {#if evt.type === 'message'}
         <ChatMessage {evt} variant="agent" />
       {:else if evt.type === 'received_message'}

@@ -16,7 +16,7 @@
 <div class="public-chat">
   <div class="panel-header">Public Chat</div>
   <div class="feed" bind:this={feedEl}>
-    {#each publicChatEvents() as evt (evt.timestamp + evt.source + (evt.tool_use_id || ''))}
+    {#each publicChatEvents() as evt, i (i + ':' + evt.timestamp + evt.source)}
       <ChatMessage {evt} variant="public" />
     {/each}
   </div>

@@ -3,7 +3,7 @@
   Includes topbar, scoreboard, panels, clerk drawer, playback bar.
 -->
 <script>
-  import { game, agentFeeds, agentStatuses, visibleEvents, currentScores } from '../stores/game.svelte.js';
+  import { game, agentFeeds, agentStatuses, visibleEvents, currentScores, publicChatEvents } from '../stores/game.svelte.js';
   import { agentColor, shortTime } from '../lib/utils.js';
   import PublicChat from './PublicChat.svelte';
   import AgentPanel from './AgentPanel.svelte';
@@ -81,6 +81,15 @@
 
 <!-- Main Area -->
 <div class="main-area" class:clerk-open={game.clerkOpen}>
+  <!-- DEBUG: raw store values -->
+  <div style="position:fixed;top:0;left:0;z-index:9999;background:red;color:white;font-size:11px;padding:4px 8px;font-family:monospace;pointer-events:none">
+    idx={game.currentIdx}
+    | feeds={Object.keys(agentFeeds()).join(',')}
+    | clerk={agentFeeds()['clerk']?.length ?? '?'}
+    | p0={(agentFeeds()[players[0]?.name] || []).length}
+    | pub={publicChatEvents().length}
+  </div>
+
   {#if game.activeTab === 'replay'}
     <div class="replay-layout">
       <PublicChat />
@@ -109,7 +118,7 @@
       <button class="clerk-close" onclick={() => game.clerkOpen = false}>&times;</button>
     </div>
     <div class="agent-col-body" bind:this={clerkFeedEl}>
-      {#each (agentFeeds()['clerk'] || []) as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}
+      {#each (agentFeeds()['clerk'] || []) as evt, i (i + ':' + evt.timestamp + evt.type)}
         {#if evt.type === 'message'}
           <ChatMessage {evt} variant="agent" />
         {:else if evt.type === 'received_message'}
