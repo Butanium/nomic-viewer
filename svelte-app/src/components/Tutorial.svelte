@@ -9,7 +9,7 @@
 <script>
   import { game, visibleEvents, advanceTo } from '../stores/game.svelte.js';
 
-  let { visible = $bindable(false), onBack = null } = $props();
+  let { visible = $bindable(false) } = $props();
 
   let step = $state(0);
   let cardStyle = $state('');
@@ -208,12 +208,7 @@
   }
 
   function back() {
-    if (step > 0) {
-      goTo(step - 1);
-    } else if (onBack) {
-      close();
-      onBack();
-    }
+    if (step > 0) goTo(step - 1);
   }
 
   /** Remove all inline styles from current target and reset state. */
