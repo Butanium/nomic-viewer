@@ -34,14 +34,20 @@ export const visibleEvents = derived(gameData, $data => {
 
 // ── Derived: events visible up to current playback position ──
 export const eventsUpToCurrent = derived(
-  [visibleEvents, currentIdx],
-  ([$events, $idx]) => $events.slice(0, $idx + 1)
+  currentIdx,
+  ($idx) => {
+    const $events = get(visibleEvents);
+    return $events.slice(0, $idx + 1);
+  }
 );
 
 // ── Derived: current event ──
 export const currentEvent = derived(
-  [visibleEvents, currentIdx],
-  ([$events, $idx]) => $idx >= 0 ? $events[$idx] : null
+  currentIdx,
+  ($idx) => {
+    const $events = get(visibleEvents);
+    return $idx >= 0 ? $events[$idx] : null;
+  }
 );
 
 // ── Derived: per-agent event feeds ──
@@ -57,8 +63,9 @@ function buildAgentEvents(allEvents, agentName) {
 }
 
 export const agentFeeds = derived(
-  [gameData, eventsUpToCurrent],
-  ([$data, $events]) => {
+  eventsUpToCurrent,
+  ($events) => {
+    const $data = get(gameData);
     if (!$data) return {};
     const feeds = {};
     for (const p of $data.players) {
@@ -80,8 +87,9 @@ export const publicChatEvents = derived(
 // If their last event is 'idle' (turn_duration), they're idle.
 // Otherwise they're active with the type of their last event.
 export const agentStatuses = derived(
-  [gameData, eventsUpToCurrent],
-  ([$data, $events]) => {
+  eventsUpToCurrent,
+  ($events) => {
+    const $data = get(gameData);
     if (!$data) return {};
     const statuses = {};
     const allAgents = [...$data.players.map(p => p.name), 'clerk'];
@@ -179,8 +187,9 @@ function reconstructFile(initialContent, events) {
 
 function fileState(filename) {
   return derived(
-    [gameData, eventsUpToCurrent],
-    ([$data, $events]) => {
+    eventsUpToCurrent,
+    ($events) => {
+      const $data = get(gameData);
       const initial = $data?.initial_files?.[filename] || '';
       const fileEvents = $events.filter(e =>
         (e.type === 'file_read' || e.type === 'file_edit') && e.filename === filename
@@ -195,8 +204,10 @@ export const currentGameLog = fileState('game_log.md');
 
 // ── Derived: current scores from game_state.yaml rounds ──
 export const currentScores = derived(
-  [gameData, visibleEvents, currentIdx],
-  ([$data, $events, $idx]) => {
+  currentIdx,
+  ($idx) => {
+    const $data = get(gameData);
+    const $events = get(visibleEvents);
     if (!$data?.rounds?.length) return { scores: {}, round: 0, result: null, winner: null };
     if ($idx < 0) return { scores: {}, round: 0, result: null, winner: null };
 
