@@ -34,9 +34,11 @@
     <div class="agent-status" style="color: {isActive ? 'var(--for)' : 'var(--text-muted)'}">{status}</div>
   </div>
   <div class="agent-col-body" bind:this={feedEl}>
-    {#each events as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || ''))}
+    {#each events as evt (evt.timestamp + evt.type + (evt.source || '') + (evt.tool_use_id || '') + (evt.from || ''))}
       {#if evt.type === 'message'}
         <ChatMessage {evt} variant="agent" />
+      {:else if evt.type === 'received_message'}
+        <ChatMessage evt={{...evt, source: evt.from, _incoming: true}} variant="agent" />
       {:else}
         <AgentEvent {evt} />
       {/if}

@@ -108,9 +108,11 @@
       <button class="clerk-close" on:click={() => clerkOpen.set(false)}>&times;</button>
     </div>
     <div class="agent-col-body" bind:this={clerkFeedEl}>
-      {#each clerkEvents as evt (evt.timestamp + evt.type + (evt.tool_use_id || ''))}
+      {#each clerkEvents as evt (evt.timestamp + evt.type + (evt.tool_use_id || '') + (evt.from || ''))}
         {#if evt.type === 'message'}
           <ChatMessage {evt} variant="agent" />
+        {:else if evt.type === 'received_message'}
+          <ChatMessage evt={{...evt, source: evt.from, _incoming: true}} variant="agent" />
         {:else}
           <AgentEvent {evt} />
         {/if}

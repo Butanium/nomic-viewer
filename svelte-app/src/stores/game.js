@@ -48,18 +48,9 @@ export const currentEvent = derived(
 function buildAgentEvents(allEvents, agentName) {
   const events = [];
   for (const evt of allEvents) {
-    // Events this agent produced
+    // Events this agent produced (including received_message)
     if (evt.source === agentName) {
       events.push(evt);
-      continue;
-    }
-    // Incoming messages to this agent
-    if (evt.type === 'message') {
-      if (evt.is_broadcast && evt.source !== agentName) {
-        events.push({ ...evt, _incoming: true });
-      } else if (evt.to === agentName) {
-        events.push({ ...evt, _incoming: true });
-      }
     }
   }
   return events;

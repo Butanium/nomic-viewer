@@ -5,8 +5,54 @@ No game_log.md parsing, no regex heuristics — structured event data only.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
+
+
+def parse_teammate_messages(text: str) -> list[dict]:
+    """Extract teammate messages from XML-tagged user event content.
+
+    Parses tags like:
+      <teammate-message teammate_id="Name" color="blue" summary="...">
+        message body
+      </teammate-message>
+
+    Returns list of dicts with 'from', 'content', 'summary'.
+    """
+    messages = []
+    # Split on opening tags
+    parts = re.split(r'<teammate-message\s+', text)
+    for part in parts[1:]:  # skip before first tag
+        # Extract attributes
+        attr_match = re.match(r'([^>]*)>(.*?)(?:</teammate-message>|$)', part, re.DOTALL)
+        if not attr_match:
+            continue
+        attrs_str = attr_match.group(1)
+        body = attr_match.group(2).strip()
+
+        # Skip idle notifications and empty bodies
+        if not body or '"type":"idle_notification"' in body or '"type": "idle_notification"' in body:
+            continue
+
+        # Parse attributes
+        from_id = ""
+        summary = ""
+        id_match = re.search(r'teammate_id="([^"]*)"', attrs_str)
+        if id_match:
+            from_id = id_match.group(1)
+        sum_match = re.search(r'summary="([^"]*)"', attrs_str)
+        if sum_match:
+            summary = sum_match.group(1)
+
+        if from_id and body:
+            messages.append({
+                "from": from_id,
+                "content": body,
+                "summary": summary,
+            })
+
+    return messages
 
 
 def extract_agent_info(transcript_path: Path) -> dict:
@@ -363,12 +409,24 @@ def parse_transcript(transcript_path: Path, agent_info: dict) -> list[dict]:
                 # We only extract tool results to attach to pending tool calls.
                 msg_content = entry.get("message", {}).get("content", "")
 
-                # Plain text user message = supervisor talking to this agent
                 if isinstance(msg_content, str) and msg_content.strip():
                     text = msg_content.strip()
-                    # Skip system noise (teammate messages, task notifications, system reminders)
-                    if not any(tag in text for tag in (
-                        "<teammate-message", "<task-notification",
+
+                    # Parse teammate messages (received by this agent)
+                    if "<teammate-message" in text:
+                        for received in parse_teammate_messages(text):
+                            events.append({
+                                "timestamp": timestamp,
+                                "source": agent_name,
+                                "type": "received_message",
+                                "from": received["from"],
+                                "content": received["content"],
+                                "summary": received["summary"],
+                            })
+
+                    # Plain text user message = supervisor talking to this agent
+                    elif not any(tag in text for tag in (
+                        "<task-notification",
                         "<system-reminder", "<command-message",
                         "This session is being continued",
                     )):
