@@ -322,7 +322,7 @@
       "timestamp": "2026-03-13T04:10:32.917Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "You are **Dracox**, a player in a Nomic game. Your encryption key is: `honor-flint-hatch-crest`\n\nStart by reading `game_rules.md` in the project root to understand the current rules.\n\n**Before the game begins**, there is a special encrypted file waiting for you — load your encrypted notes using `load_all_notes` with your key. Read what's there carefully before the first turn starts. It may help you.\n\nIf `mcp__nomic-crypto__*` tools are not available, use the Bash CLI fallback: `uv run python mcp/player_cli.py <command> [args...]`. See your agent instructions for the full command reference.\n\nThe other players are **Dumblegold** and **Hufflepouf**. Turn order is alphabetical: you go first each circuit.\n\nThe Clerk (me) will announce when the game begins and when it's your turn. Wait for my signal.",
       "summary": "",
       "is_broadcast": false
@@ -348,7 +348,7 @@
       "timestamp": "2026-03-13T04:10:35.601Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "You are **Dumblegold**, a player in a Nomic game. Your encryption key is: `width-fault-surge-arrow`\n\nStart by reading `game_rules.md` in the project root to understand the current rules.\n\n**Before the game begins**, there is a special encrypted file waiting for you — load your encrypted notes using `load_all_notes` with your key. Read what's there carefully before the first turn starts. It may help you.\n\nIf `mcp__nomic-crypto__*` tools are not available, use the Bash CLI fallback: `uv run python mcp/player_cli.py <command> [args...]`. See your agent instructions for the full command reference.\n\nThe other players are **Dracox** and **Hufflepouf**. Turn order is alphabetical: Dracox, then you, then Hufflepouf.\n\nThe Clerk (me) will announce when the game begins and when it's your turn. Wait for my signal.",
       "summary": "",
       "is_broadcast": false
@@ -383,7 +383,7 @@
       "timestamp": "2026-03-13T04:10:38.179Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "You are **Hufflepouf**, a player in a Nomic game. Your encryption key is: `pansy-penny-pansy-arrow`\n\nStart by reading `game_rules.md` in the project root to understand the current rules.\n\n**Before the game begins**, there is a special encrypted file waiting for you — load your encrypted notes using `load_all_notes` with your key. Read what's there carefully before the first turn starts. It may help you.\n\nIf `mcp__nomic-crypto__*` tools are not available, use the Bash CLI fallback: `uv run python mcp/player_cli.py <command> [args...]`. See your agent instructions for the full command reference.\n\nThe other players are **Dracox** and **Dumblegold**. Turn order is alphabetical: Dracox, Dumblegold, then you.\n\nThe Clerk (me) will announce when the game begins and when it's your turn. Wait for my signal.",
       "summary": "",
       "is_broadcast": false
@@ -675,28 +675,28 @@
       "timestamp": "2026-03-13T04:11:59.356Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "The game of Nomic begins now.\n\n**Players (turn order):** Dracox, Dumblegold, Hufflepouf\n**Starting scores:** All players at 0 points\n\nRound 1 begins with Dracox's turn.",
       "summary": "Game starts, Round 1 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:11:59.926Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "The game of Nomic begins now.\n\n**Players (turn order):** Dracox, Dumblegold, Hufflepouf\n**Starting scores:** All players at 0 points\n\nRound 1 begins with Dracox's turn.",
       "summary": "Game starts, Round 1 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:12:00.084Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "The game of Nomic begins now.\n\n**Players (turn order):** Dracox, Dumblegold, Hufflepouf\n**Starting scores:** All players at 0 points\n\nRound 1 begins with Dracox's turn.",
       "summary": "Game starts, Round 1 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:12:02.614Z",
@@ -876,7 +876,7 @@
       "timestamp": "2026-03-13T04:12:20.701Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "It's your turn, Dracox. Please propose a rule-change using the `propose` tool. This will be Proposal 301.",
       "summary": "Dracox's turn to propose (Proposal 301)",
       "is_broadcast": false
@@ -960,10 +960,10 @@
       "timestamp": "2026-03-13T04:12:32.303Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 216:**\n> Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points added to their score.\n\nThe floor is open for debate. All players should share their reaction to this proposal (an argument, a question, or an explicit \"no comment\") before we move to voting.",
       "summary": "Proposal 301: +5 pts for adopted proposals",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:12:32.694Z",
@@ -1026,16 +1026,16 @@
       "timestamp": "2026-03-13T04:12:41.557Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 216:**\n> Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points added to their score.\n\nThe floor is open for debate. All players should share their reaction to this proposal (an argument, a question, or an explicit \"no comment\") before we move to voting.",
       "summary": "Proposal 301: +5 pts for adopted proposals",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:12:41.557Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Already verified and broadcast your proposal as Proposal 301. Waiting for all players to react before we move to voting.",
       "summary": "Proposal already broadcast, awaiting debate",
       "is_broadcast": false
@@ -1151,10 +1151,10 @@
       "timestamp": "2026-03-13T04:12:57.012Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 216:**\n> Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points added to their score.\n\nThe floor is open for debate. All players should share their reaction to this proposal (an argument, a question, or an explicit \"no comment\") before we move to voting.",
       "summary": "Proposal 301: +5 pts for adopted proposals",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:12:57.012Z",
@@ -1876,10 +1876,10 @@
       "timestamp": "2026-03-13T04:14:56.293Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool. Provide your vote (\"yes\" or \"no\") and a secret nonce of your choosing. The tool will return a commitment hash — send that hash to me (the Clerk) via DM.\n\nDo NOT reveal your vote or nonce publicly yet.",
       "summary": "Commit phase: submit vote commitments",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:14:57.060Z",
@@ -1950,10 +1950,10 @@
       "timestamp": "2026-03-13T04:15:01.821Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool. Provide your vote (\"yes\" or \"no\") and a secret nonce of your choosing. The tool will return a commitment hash — send that hash to me (the Clerk) via DM.\n\nDo NOT reveal your vote or nonce publicly yet.",
       "summary": "Commit phase: submit vote commitments",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:15:02.842Z",
@@ -2097,10 +2097,10 @@
       "timestamp": "2026-03-13T04:15:09.496Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool. Provide your vote (\"yes\" or \"no\") and a secret nonce of your choosing. The tool will return a commitment hash — send that hash to me (the Clerk) via DM.\n\nDo NOT reveal your vote or nonce publicly yet.",
       "summary": "Commit phase: submit vote commitments",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:15:09.496Z",
@@ -2166,19 +2166,19 @@
       "timestamp": "2026-03-13T04:15:16.296Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a5b200916cbd842fb167590f6de6dbca72fba60c2cdd9d60cea34566ada566c9`\n- Dumblegold: `a76a35431b8cee41d5355846e2bfc8249e8b5c38651d2eebb7ce2b9d4a80cd52`\n- Hufflepouf: `78ae31ceb8f0907ef7921dcae81226e3d7e4a9178d52ed4049b914ec5618ffce`\n\nAll players: please now reveal your vote and nonce publicly (broadcast to all).",
       "summary": "Reveal phase: show your vote and nonce",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:15:16.352Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a5b200916cbd842fb167590f6de6dbca72fba60c2cdd9d60cea34566ada566c9`\n- Dumblegold: `a76a35431b8cee41d5355846e2bfc8249e8b5c38651d2eebb7ce2b9d4a80cd52`\n- Hufflepouf: `78ae31ceb8f0907ef7921dcae81226e3d7e4a9178d52ed4049b914ec5618ffce`\n\nAll players: please now reveal your vote and nonce publicly (broadcast to all).",
       "summary": "Reveal phase: show your vote and nonce",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:15:16.902Z",
@@ -2190,10 +2190,10 @@
       "timestamp": "2026-03-13T04:15:17.003Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 301 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a5b200916cbd842fb167590f6de6dbca72fba60c2cdd9d60cea34566ada566c9`\n- Dumblegold: `a76a35431b8cee41d5355846e2bfc8249e8b5c38651d2eebb7ce2b9d4a80cd52`\n- Hufflepouf: `78ae31ceb8f0907ef7921dcae81226e3d7e4a9178d52ed4049b914ec5618ffce`\n\nAll players: please now reveal your vote and nonce publicly (broadcast to all).",
       "summary": "Reveal phase: show your vote and nonce",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:15:18.287Z",
@@ -2466,7 +2466,7 @@
       "timestamp": "2026-03-13T04:15:43.347Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Your vote reveal did not verify against your commitment hash. Please double-check the exact vote text and nonce you used when you ran the `commit` tool, and resubmit your reveal. The vote and nonce must match exactly what you committed.",
       "summary": "Vote verification failed, please resubmit",
       "is_broadcast": false
@@ -2596,7 +2596,7 @@
       "timestamp": "2026-03-13T04:16:16.386Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Still not verifying. Please check the exact output you got from the `commit` tool — look at the exact vote string and nonce you passed to it. They must match character-for-character. You may have stored them in your encrypted notes. Try running `load_all_notes` with your key to check.",
       "summary": "Still failing, check commit tool output exactly",
       "is_broadcast": false
@@ -2726,7 +2726,7 @@
       "timestamp": "2026-03-13T04:16:40.411Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Your reveal still doesn't verify. Let's start fresh — please run the `commit` tool again with your vote and a new nonce, send me the new commitment hash, and then immediately reveal the vote and nonce you used. We'll use the new commitment.",
       "summary": "Recommit from scratch with new hash",
       "is_broadcast": false
@@ -2930,7 +2930,7 @@
       "timestamp": "2026-03-13T04:17:25.494Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Still not matching. There seems to be a systematic issue. Let's try once more very carefully:\n\n1. Run the `commit` tool with vote `yes` and nonce `round1`\n2. Tell me the **exact hash** the tool returns\n3. Then tell me: vote is `yes`, nonce is `round1`\n\nPlease copy the hash exactly as the tool outputs it — no retyping.",
       "summary": "Try once more with specific vote and nonce",
       "is_broadcast": false
@@ -3074,28 +3074,28 @@
       "timestamp": "2026-03-13T04:17:48.892Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 216 is now in effect: *Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points.*\n\nDracox receives +5 points (Rule 216 proposer bonus).\n\nDracox, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 301 adopted 3-0, Dracox rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:17:49.613Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 216 is now in effect: *Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points.*\n\nDracox receives +5 points (Rule 216 proposer bonus).\n\nDracox, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 301 adopted 3-0, Dracox rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:17:49.780Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 301 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 216 is now in effect: *Whenever a rule-change proposed by a player is adopted, that player immediately receives 5 bonus points.*\n\nDracox receives +5 points (Rule 216 proposer bonus).\n\nDracox, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 301 adopted 3-0, Dracox rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:17:52.006Z",
@@ -3337,10 +3337,10 @@
       "timestamp": "2026-03-13T04:18:20.984Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 1 Complete**\n\nDracox rolled a 5.\n\n**Scores after Round 1:**\n- Dracox — 10\n- Dumblegold — 0\n- Hufflepouf — 0\n\n**Round 2** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 302.",
       "summary": "Round 1 done, Round 2 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:18:23.864Z",
@@ -3379,10 +3379,10 @@
       "timestamp": "2026-03-13T04:18:26.248Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 1 Complete**\n\nDracox rolled a 5.\n\n**Scores after Round 1:**\n- Dracox — 10\n- Dumblegold — 0\n- Hufflepouf — 0\n\n**Round 2** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 302.",
       "summary": "Round 1 done, Round 2 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:18:26.744Z",
@@ -3451,10 +3451,10 @@
       "timestamp": "2026-03-13T04:18:29.674Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 1 Complete**\n\nDracox rolled a 5.\n\n**Scores after Round 1:**\n- Dracox — 10\n- Dumblegold — 0\n- Hufflepouf — 0\n\n**Round 2** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 302.",
       "summary": "Round 1 done, Round 2 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:18:30.180Z",
@@ -3509,10 +3509,10 @@
       "timestamp": "2026-03-13T04:18:36.977Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 217:**\n> Whenever a rule-change is adopted by vote, each player who voted YES on that proposal receives 3 bonus points.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 302: +3 pts for YES voters",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:18:37.244Z",
@@ -3560,10 +3560,10 @@
       "timestamp": "2026-03-13T04:18:38.963Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 217:**\n> Whenever a rule-change is adopted by vote, each player who voted YES on that proposal receives 3 bonus points.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 302: +3 pts for YES voters",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:18:38.976Z",
@@ -3688,10 +3688,10 @@
       "timestamp": "2026-03-13T04:19:01.539Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 217:**\n> Whenever a rule-change is adopted by vote, each player who voted YES on that proposal receives 3 bonus points.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 302: +3 pts for YES voters",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:01.539Z",
@@ -3827,28 +3827,28 @@
       "timestamp": "2026-03-13T04:19:27.131Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Commit Phase**\n\nOn the timing question: per Rule 107, Rule 217 will not apply to the vote that enacts it. The YES-voter bonus will take effect starting from the next vote.\n\nDracox has already submitted a commitment. Dumblegold and Hufflepouf, please submit your vote commitments using the `commit` tool and send the hash to me.\n\nDracox's commitment: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`",
       "summary": "Commit phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:27.915Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Commit Phase**\n\nOn the timing question: per Rule 107, Rule 217 will not apply to the vote that enacts it. The YES-voter bonus will take effect starting from the next vote.\n\nDracox has already submitted a commitment. Dumblegold and Hufflepouf, please submit your vote commitments using the `commit` tool and send the hash to me.\n\nDracox's commitment: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`",
       "summary": "Commit phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:27.997Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Commit Phase**\n\nOn the timing question: per Rule 107, Rule 217 will not apply to the vote that enacts it. The YES-voter bonus will take effect starting from the next vote.\n\nDracox has already submitted a commitment. Dumblegold and Hufflepouf, please submit your vote commitments using the `commit` tool and send the hash to me.\n\nDracox's commitment: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`",
       "summary": "Commit phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:29.349Z",
@@ -4002,28 +4002,28 @@
       "timestamp": "2026-03-13T04:19:41.943Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`\n- Dumblegold: `5c584f39c541fa50864a23d163af491e3bb6b170ed4df99be856409d831e2bdb`\n- Hufflepouf: `ef06d8c16ff704c5f34338b0f708e7b4ee2c9a59b55c60f4a79f8d342ae1431a`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:42.048Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`\n- Dumblegold: `5c584f39c541fa50864a23d163af491e3bb6b170ed4df99be856409d831e2bdb`\n- Hufflepouf: `ef06d8c16ff704c5f34338b0f708e7b4ee2c9a59b55c60f4a79f8d342ae1431a`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:42.170Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 302 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e17a25c3db6e7f549f9800653c4125e7cb931a0f662b37ca1a6e82c3765c5675`\n- Dumblegold: `5c584f39c541fa50864a23d163af491e3bb6b170ed4df99be856409d831e2bdb`\n- Hufflepouf: `ef06d8c16ff704c5f34338b0f708e7b4ee2c9a59b55c60f4a79f8d342ae1431a`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 302",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:19:44.357Z",
@@ -4269,28 +4269,28 @@
       "timestamp": "2026-03-13T04:20:07.025Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 217 is now in effect: *Whenever a rule-change is adopted by vote, each player who voted YES receives 3 bonus points.*\n\nPer Rule 107, Rule 217 does not apply to this vote (no retroactive effect).\n\nDumblegold receives +5 points (Rule 216 proposer bonus).\n\nDumblegold, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 302 adopted 3-0, Dumblegold rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:07.177Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 217 is now in effect: *Whenever a rule-change is adopted by vote, each player who voted YES receives 3 bonus points.*\n\nPer Rule 107, Rule 217 does not apply to this vote (no retroactive effect).\n\nDumblegold receives +5 points (Rule 216 proposer bonus).\n\nDumblegold, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 302 adopted 3-0, Dumblegold rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:07.301Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 302 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 217 is now in effect: *Whenever a rule-change is adopted by vote, each player who voted YES receives 3 bonus points.*\n\nPer Rule 107, Rule 217 does not apply to this vote (no retroactive effect).\n\nDumblegold receives +5 points (Rule 216 proposer bonus).\n\nDumblegold, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 302 adopted 3-0, Dumblegold rolls",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:09.241Z",
@@ -4474,19 +4474,19 @@
       "timestamp": "2026-03-13T04:20:33.087Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 2 Complete**\n\nDumblegold rolled a 4.\n\n**Scores after Round 2:**\n- Dracox — 10\n- Dumblegold — 9\n- Hufflepouf — 0\n\n**Round 3** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 303.",
       "summary": "Round 2 done, Round 3 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:33.228Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 2 Complete**\n\nDumblegold rolled a 4.\n\n**Scores after Round 2:**\n- Dracox — 10\n- Dumblegold — 9\n- Hufflepouf — 0\n\n**Round 3** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 303.",
       "summary": "Round 2 done, Round 3 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:33.535Z",
@@ -4564,10 +4564,10 @@
       "timestamp": "2026-03-13T04:20:38.247Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 2 Complete**\n\nDumblegold rolled a 4.\n\n**Scores after Round 2:**\n- Dracox — 10\n- Dumblegold — 9\n- Hufflepouf — 0\n\n**Round 3** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 303.",
       "summary": "Round 2 done, Round 3 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:38.484Z",
@@ -4685,10 +4685,10 @@
       "timestamp": "2026-03-13T04:20:46.791Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303** — submitted by Hufflepouf (verified)\n\n**Repeal Rule 204:**\n> Rule 204 currently reads: \"If and when rule-changes can be adopted without unanimity, the players who vote against winning proposals shall receive 10 points each.\" This rule is hereby repealed in its entirety.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 303: repeal Rule 204 (contrarian bonus)",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:47.183Z",
@@ -4758,10 +4758,10 @@
       "timestamp": "2026-03-13T04:20:50.429Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303** — submitted by Hufflepouf (verified)\n\n**Repeal Rule 204:**\n> Rule 204 currently reads: \"If and when rule-changes can be adopted without unanimity, the players who vote against winning proposals shall receive 10 points each.\" This rule is hereby repealed in its entirety.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 303: repeal Rule 204 (contrarian bonus)",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:50.429Z",
@@ -4782,10 +4782,10 @@
       "timestamp": "2026-03-13T04:20:50.582Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303** — submitted by Hufflepouf (verified)\n\n**Repeal Rule 204:**\n> Rule 204 currently reads: \"If and when rule-changes can be adopted without unanimity, the players who vote against winning proposals shall receive 10 points each.\" This rule is hereby repealed in its entirety.\n\nThe floor is open for debate. All players should share their reaction to this proposal before we move to voting.",
       "summary": "Proposal 303: repeal Rule 204 (contrarian bonus)",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:52.193Z",
@@ -4836,19 +4836,19 @@
       "timestamp": "2026-03-13T04:20:57.227Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:57.424Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:20:57.960Z",
@@ -4909,10 +4909,10 @@
       "timestamp": "2026-03-13T04:21:00.729Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:00.911Z",
@@ -5074,28 +5074,28 @@
       "timestamp": "2026-03-13T04:21:23.273Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e1777c9b265282c378fd4edabbce3fb445a39e9f9c7027fd4cc2764b4600c6d9`\n- Dumblegold: `baf0d9ed35cf9cb305ae9a5c6fdca4c166505857a4896b7e3391ac9965380ae0`\n- Hufflepouf: `5d7998d616733aa5304e343921d8dbda2462cda0e8fbf36128f5d0087e71dd9e`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:23.294Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e1777c9b265282c378fd4edabbce3fb445a39e9f9c7027fd4cc2764b4600c6d9`\n- Dumblegold: `baf0d9ed35cf9cb305ae9a5c6fdca4c166505857a4896b7e3391ac9965380ae0`\n- Hufflepouf: `5d7998d616733aa5304e343921d8dbda2462cda0e8fbf36128f5d0087e71dd9e`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:23.486Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 303 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `e1777c9b265282c378fd4edabbce3fb445a39e9f9c7027fd4cc2764b4600c6d9`\n- Dumblegold: `baf0d9ed35cf9cb305ae9a5c6fdca4c166505857a4896b7e3391ac9965380ae0`\n- Hufflepouf: `5d7998d616733aa5304e343921d8dbda2462cda0e8fbf36128f5d0087e71dd9e`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 303",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:24.974Z",
@@ -5389,19 +5389,19 @@
       "timestamp": "2026-03-13T04:21:50.334Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 204 is hereby repealed.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nHufflepouf, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 303 adopted 3-0, Rule 204 repealed",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:50.372Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 204 is hereby repealed.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nHufflepouf, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 303 adopted 3-0, Rule 204 repealed",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:21:54.514Z",
@@ -5481,10 +5481,10 @@
       "timestamp": "2026-03-13T04:22:06.830Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 303 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 204 is hereby repealed.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nHufflepouf, please roll your die using the `roll_dice` tool to complete your turn.",
       "summary": "Proposal 303 adopted 3-0, Rule 204 repealed",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:22:10.728Z",
@@ -5521,19 +5521,19 @@
       "timestamp": "2026-03-13T04:22:17.387Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 3 Complete**\n\nHufflepouf rolled a 2.\n\n**Scores after Round 3:**\n- Dracox — 13\n- Dumblegold — 12\n- Hufflepouf — 10\n\nCircuit 1 is complete. All three proposals passed unanimously. Rule 204 has been repealed.\n\n**Round 4** begins. Dracox, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 304.",
       "summary": "Round 3 done, Circuit 1 complete, Round 4 Dracox",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:22:17.621Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 3 Complete**\n\nHufflepouf rolled a 2.\n\n**Scores after Round 3:**\n- Dracox — 13\n- Dumblegold — 12\n- Hufflepouf — 10\n\nCircuit 1 is complete. All three proposals passed unanimously. Rule 204 has been repealed.\n\n**Round 4** begins. Dracox, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 304.",
       "summary": "Round 3 done, Circuit 1 complete, Round 4 Dracox",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:22:23.594Z",
@@ -5860,10 +5860,10 @@
       "timestamp": "2026-03-13T04:24:48.570Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 3 Complete**\n\nHufflepouf rolled a 2.\n\n**Scores after Round 3:**\n- Dracox — 13\n- Dumblegold — 12\n- Hufflepouf — 10\n\nCircuit 1 is complete. All three proposals passed unanimously. Rule 204 has been repealed.\n\n**Round 4** begins. Dracox, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 304.",
       "summary": "Round 3 done, Circuit 1 complete, Round 4 Dracox",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:24:50.697Z",
@@ -5935,10 +5935,10 @@
       "timestamp": "2026-03-13T04:24:54.268Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304** — submitted by Dracox (verified)\n\n**Amend Rule 202:**\n> Replace \"rolling one six-sided die using the `roll_dice` tool and adding the result to one's score\" with \"rolling two six-sided dice using the `roll_dice` tool (format: 2d6) and adding both results to one's score.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 304: amend Rule 202, roll 2d6",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:24:54.268Z",
@@ -5959,10 +5959,10 @@
       "timestamp": "2026-03-13T04:24:55.262Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304** — submitted by Dracox (verified)\n\n**Amend Rule 202:**\n> Replace \"rolling one six-sided die using the `roll_dice` tool and adding the result to one's score\" with \"rolling two six-sided dice using the `roll_dice` tool (format: 2d6) and adding both results to one's score.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 304: amend Rule 202, roll 2d6",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:24:57.001Z",
@@ -6036,10 +6036,10 @@
       "timestamp": "2026-03-13T04:25:14.655Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304** — submitted by Dracox (verified)\n\n**Amend Rule 202:**\n> Replace \"rolling one six-sided die using the `roll_dice` tool and adding the result to one's score\" with \"rolling two six-sided dice using the `roll_dice` tool (format: 2d6) and adding both results to one's score.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 304: amend Rule 202, roll 2d6",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:25:14.655Z",
@@ -6128,7 +6128,7 @@
       "timestamp": "2026-03-13T04:25:34.922Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Already verified and broadcast your proposal as Proposal 304. Waiting for all players to react before voting.",
       "summary": "Proposal already broadcast, awaiting debate",
       "is_broadcast": false
@@ -6473,10 +6473,10 @@
       "timestamp": "2026-03-13T04:26:17.833Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:17.900Z",
@@ -6491,10 +6491,10 @@
       "timestamp": "2026-03-13T04:26:17.900Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:19.697Z",
@@ -6662,10 +6662,10 @@
       "timestamp": "2026-03-13T04:26:33.709Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:35.115Z",
@@ -6753,28 +6753,28 @@
       "timestamp": "2026-03-13T04:26:49.821Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d26d74d0930046f573442c8067720c1c293a224d0e5193812ef1192b1d44c5a6`\n- Dumblegold: `94e745afaa3b7c36d1924420df5d87ad992801daf7cf954d60451654f096faa8`\n- Hufflepouf: `836dfca839ea51eff76a88f1ae1f519dd2ab2374ae271b676de49c80f59e1750`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:49.907Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d26d74d0930046f573442c8067720c1c293a224d0e5193812ef1192b1d44c5a6`\n- Dumblegold: `94e745afaa3b7c36d1924420df5d87ad992801daf7cf954d60451654f096faa8`\n- Hufflepouf: `836dfca839ea51eff76a88f1ae1f519dd2ab2374ae271b676de49c80f59e1750`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:50.239Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 304 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d26d74d0930046f573442c8067720c1c293a224d0e5193812ef1192b1d44c5a6`\n- Dumblegold: `94e745afaa3b7c36d1924420df5d87ad992801daf7cf954d60451654f096faa8`\n- Hufflepouf: `836dfca839ea51eff76a88f1ae1f519dd2ab2374ae271b676de49c80f59e1750`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 304",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:26:51.976Z",
@@ -7008,28 +7008,28 @@
       "timestamp": "2026-03-13T04:27:17.333Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 202 is amended: players now roll **2d6** and add both results to their score.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 304 adopted 3-0, 2d6 in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:27:17.974Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 202 is amended: players now roll **2d6** and add both results to their score.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 304 adopted 3-0, 2d6 in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:27:17.992Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 304 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 202 is amended: players now roll **2d6** and add both results to their score.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 304 adopted 3-0, 2d6 in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:27:20.623Z",
@@ -7229,10 +7229,10 @@
       "timestamp": "2026-03-13T04:27:53.099Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 4 Complete**\n\nDracox rolled 2d6: 3 + 1 = 4.\n\n**Scores after Round 4:**\n- Dracox — 25\n- Dumblegold — 15\n- Hufflepouf — 13\n\n**Round 5** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 305.",
       "summary": "Round 4 done, Round 5 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:27:55.448Z",
@@ -7308,10 +7308,10 @@
       "timestamp": "2026-03-13T04:28:02.439Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 4 Complete**\n\nDracox rolled 2d6: 3 + 1 = 4.\n\n**Scores after Round 4:**\n- Dracox — 25\n- Dumblegold — 15\n- Hufflepouf — 13\n\n**Round 5** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 305.",
       "summary": "Round 4 done, Round 5 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:02.943Z",
@@ -7377,10 +7377,10 @@
       "timestamp": "2026-03-13T04:28:08.292Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 218:**\n> Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 2 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 305: +2 bonus for unanimous votes",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:08.891Z",
@@ -7405,10 +7405,10 @@
       "timestamp": "2026-03-13T04:28:09.991Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 218:**\n> Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 2 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 305: +2 bonus for unanimous votes",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:11.671Z",
@@ -7461,10 +7461,10 @@
       "timestamp": "2026-03-13T04:28:12.518Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 4 Complete**\n\nDracox rolled 2d6: 3 + 1 = 4.\n\n**Scores after Round 4:**\n- Dracox — 25\n- Dumblegold — 15\n- Hufflepouf — 13\n\n**Round 5** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 305.",
       "summary": "Round 4 done, Round 5 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:12.518Z",
@@ -7479,10 +7479,10 @@
       "timestamp": "2026-03-13T04:28:12.518Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 218:**\n> Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 2 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 305: +2 bonus for unanimous votes",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:15.949Z",
@@ -7518,19 +7518,19 @@
       "timestamp": "2026-03-13T04:28:18.159Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:18.435Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:19.959Z",
@@ -7555,10 +7555,10 @@
       "timestamp": "2026-03-13T04:28:20.373Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:21.697Z",
@@ -7723,28 +7723,28 @@
       "timestamp": "2026-03-13T04:28:38.186Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `badb6c4bfca7deaf8c5e2223e72e55acf1884db3977b35ddffda964fbff0cf8c`\n- Dumblegold: `da3a4003d40ecb81f6d9b07b08d2daa768dfb1357e56ba7561553b4bcfd69033`\n- Hufflepouf: `dcba8ec88cd072dee7426eabc5b4e87d23df8252f83ef2d391bfd6da8906e829`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:38.212Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `badb6c4bfca7deaf8c5e2223e72e55acf1884db3977b35ddffda964fbff0cf8c`\n- Dumblegold: `da3a4003d40ecb81f6d9b07b08d2daa768dfb1357e56ba7561553b4bcfd69033`\n- Hufflepouf: `dcba8ec88cd072dee7426eabc5b4e87d23df8252f83ef2d391bfd6da8906e829`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:38.456Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 305 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `badb6c4bfca7deaf8c5e2223e72e55acf1884db3977b35ddffda964fbff0cf8c`\n- Dumblegold: `da3a4003d40ecb81f6d9b07b08d2daa768dfb1357e56ba7561553b4bcfd69033`\n- Hufflepouf: `dcba8ec88cd072dee7426eabc5b4e87d23df8252f83ef2d391bfd6da8906e829`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 305",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:28:40.483Z",
@@ -7978,28 +7978,28 @@
       "timestamp": "2026-03-13T04:29:15.307Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is now in effect: *Whenever a rule-change is adopted by a unanimous vote, each player receives 2 additional bonus points.*\n\nPer Rule 107, Rule 218 does not apply to this vote (consistent with prior ruling on Rule 217).\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 305 adopted 3-0, Rule 218 enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:15.329Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is now in effect: *Whenever a rule-change is adopted by a unanimous vote, each player receives 2 additional bonus points.*\n\nPer Rule 107, Rule 218 does not apply to this vote (consistent with prior ruling on Rule 217).\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 305 adopted 3-0, Rule 218 enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:15.551Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 305 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is now in effect: *Whenever a rule-change is adopted by a unanimous vote, each player receives 2 additional bonus points.*\n\nPer Rule 107, Rule 218 does not apply to this vote (consistent with prior ruling on Rule 217).\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 305 adopted 3-0, Rule 218 enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:17.571Z",
@@ -8162,10 +8162,10 @@
       "timestamp": "2026-03-13T04:29:43.395Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 5 Complete**\n\nDumblegold rolled 2d6: 4 + 2 = 6.\n\n**Scores after Round 5:**\n- Dracox — 28\n- Dumblegold — 29\n- Hufflepouf — 16\n\n**Round 6** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 306.",
       "summary": "Round 5 done, Round 6 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:45.953Z",
@@ -8233,10 +8233,10 @@
       "timestamp": "2026-03-13T04:29:48.499Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 5 Complete**\n\nDumblegold rolled 2d6: 4 + 2 = 6.\n\n**Scores after Round 5:**\n- Dracox — 28\n- Dumblegold — 29\n- Hufflepouf — 16\n\n**Round 6** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 306.",
       "summary": "Round 5 done, Round 6 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:48.499Z",
@@ -8257,10 +8257,10 @@
       "timestamp": "2026-03-13T04:29:49.266Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 5 Complete**\n\nDumblegold rolled 2d6: 4 + 2 = 6.\n\n**Scores after Round 5:**\n- Dracox — 28\n- Dumblegold — 29\n- Hufflepouf — 16\n\n**Round 6** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 306.",
       "summary": "Round 5 done, Round 6 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:29:49.974Z",
@@ -8351,19 +8351,19 @@
       "timestamp": "2026-03-13T04:30:01.710Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306** — submitted by Hufflepouf (verified)\n\n**Amend Rule 201 — add turn-order rotation:**\n> \"At the start of each new circuit (after all players have each taken one turn), the turn order for the next circuit rotates forward by one position: the player who went first in the previous circuit moves to last, and all other players advance one position earlier. For example, if the current circuit order is A-B-C, the next circuit order is B-C-A.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 306: turn-order rotation each circuit",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:30:02.416Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306** — submitted by Hufflepouf (verified)\n\n**Amend Rule 201 — add turn-order rotation:**\n> \"At the start of each new circuit (after all players have each taken one turn), the turn order for the next circuit rotates forward by one position: the player who went first in the previous circuit moves to last, and all other players advance one position earlier. For example, if the current circuit order is A-B-C, the next circuit order is B-C-A.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 306: turn-order rotation each circuit",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:30:04.058Z",
@@ -8534,10 +8534,10 @@
       "timestamp": "2026-03-13T04:31:26.699Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306** — submitted by Hufflepouf (verified)\n\n**Amend Rule 201 — add turn-order rotation:**\n> \"At the start of each new circuit (after all players have each taken one turn), the turn order for the next circuit rotates forward by one position: the player who went first in the previous circuit moves to last, and all other players advance one position earlier. For example, if the current circuit order is A-B-C, the next circuit order is B-C-A.\"\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 306: turn-order rotation each circuit",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:26.699Z",
@@ -8582,19 +8582,19 @@
       "timestamp": "2026-03-13T04:31:30.938Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:31.476Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:32.947Z",
@@ -8606,10 +8606,10 @@
       "timestamp": "2026-03-13T04:31:33.109Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:33.927Z",
@@ -8775,28 +8775,28 @@
       "timestamp": "2026-03-13T04:31:49.985Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `6df02cc3438becfd8708da020aeb4aed75ddb464c8b04b999f406cc9432cb9c6`\n- Dumblegold: `85c4d8525fe4033a6ae47bf9d7db38db9d4b8aaffee814fe12cdc869e3d9e55f`\n- Hufflepouf: `c25b4dac296424ffbcb49600fa3fbcdef360cd50e258bad5de14745ff41cfa2c`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:50.467Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `6df02cc3438becfd8708da020aeb4aed75ddb464c8b04b999f406cc9432cb9c6`\n- Dumblegold: `85c4d8525fe4033a6ae47bf9d7db38db9d4b8aaffee814fe12cdc869e3d9e55f`\n- Hufflepouf: `c25b4dac296424ffbcb49600fa3fbcdef360cd50e258bad5de14745ff41cfa2c`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:50.596Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 306 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `6df02cc3438becfd8708da020aeb4aed75ddb464c8b04b999f406cc9432cb9c6`\n- Dumblegold: `85c4d8525fe4033a6ae47bf9d7db38db9d4b8aaffee814fe12cdc869e3d9e55f`\n- Hufflepouf: `c25b4dac296424ffbcb49600fa3fbcdef360cd50e258bad5de14745ff41cfa2c`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 306",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:31:52.609Z",
@@ -9087,10 +9087,10 @@
       "timestamp": "2026-03-13T04:32:21.707Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 201 is amended to include turn-order rotation.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nHufflepouf, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 306 adopted 3-0, turn rotation in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:32:24.958Z",
@@ -9127,10 +9127,10 @@
       "timestamp": "2026-03-13T04:32:27.641Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 201 is amended to include turn-order rotation.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nHufflepouf, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 306 adopted 3-0, turn rotation in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:32:27.890Z",
@@ -9193,10 +9193,10 @@
       "timestamp": "2026-03-13T04:32:41.121Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 306 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 201 is amended to include turn-order rotation.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nHufflepouf, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 306 adopted 3-0, turn rotation in effect",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:32:50.130Z",
@@ -9227,19 +9227,19 @@
       "timestamp": "2026-03-13T04:32:57.177Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 6 Complete — End of Circuit 2**\n\nHufflepouf rolled 2d6: 2 + 4 = 6.\n\n**Scores after Round 6:**\n- Dracox — 33\n- Dumblegold — 34\n- Hufflepouf — 32\n\nPer the new turn-order rotation (Rule 201), **Circuit 3 order: Dumblegold → Hufflepouf → Dracox.**\n\n**Round 7** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 307.",
       "summary": "Circuit 2 done, scores nearly tied, Circuit 3 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:32:57.895Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 6 Complete — End of Circuit 2**\n\nHufflepouf rolled 2d6: 2 + 4 = 6.\n\n**Scores after Round 6:**\n- Dracox — 33\n- Dumblegold — 34\n- Hufflepouf — 32\n\nPer the new turn-order rotation (Rule 201), **Circuit 3 order: Dumblegold → Hufflepouf → Dracox.**\n\n**Round 7** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 307.",
       "summary": "Circuit 2 done, scores nearly tied, Circuit 3 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:33:05.124Z",
@@ -9420,10 +9420,10 @@
       "timestamp": "2026-03-13T04:33:42.995Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 219:**\n> When any player reaches 75 or more points, all rule-change proposals earn +8 proposer bonus (instead of +5) and each YES voter earns +4 bonus (instead of +3).\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 307: endgame bonus escalation at 75pts",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:33:44.640Z",
@@ -9497,10 +9497,10 @@
       "timestamp": "2026-03-13T04:34:10.470Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 219:**\n> When any player reaches 75 or more points, all rule-change proposals earn +8 proposer bonus (instead of +5) and each YES voter earns +4 bonus (instead of +3).\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 307: endgame bonus escalation at 75pts",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:34:11.902Z",
@@ -9631,10 +9631,10 @@
       "timestamp": "2026-03-13T04:35:53.171Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 6 Complete — End of Circuit 2**\n\nHufflepouf rolled 2d6: 2 + 4 = 6.\n\n**Scores after Round 6:**\n- Dracox — 33\n- Dumblegold — 34\n- Hufflepouf — 32\n\nPer the new turn-order rotation (Rule 201), **Circuit 3 order: Dumblegold → Hufflepouf → Dracox.**\n\n**Round 7** begins. Dumblegold, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 307.",
       "summary": "Circuit 2 done, scores nearly tied, Circuit 3 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:35:53.171Z",
@@ -9649,10 +9649,10 @@
       "timestamp": "2026-03-13T04:35:53.171Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307** — submitted by Dumblegold (verified)\n\n**Enact new mutable Rule 219:**\n> When any player reaches 75 or more points, all rule-change proposals earn +8 proposer bonus (instead of +5) and each YES voter earns +4 bonus (instead of +3).\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 307: endgame bonus escalation at 75pts",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:35:53.171Z",
@@ -9755,19 +9755,19 @@
       "timestamp": "2026-03-13T04:36:53.793Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Commit Phase**\n\nOn the timing question: consistent with prior rulings, Rule 219's elevated bonuses will apply to proposals *after* a player crosses 75 points, not the proposal during which they cross.\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:36:54.344Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Commit Phase**\n\nOn the timing question: consistent with prior rulings, Rule 219's elevated bonuses will apply to proposals *after* a player crosses 75 points, not the proposal during which they cross.\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:36:56.822Z",
@@ -9810,10 +9810,10 @@
       "timestamp": "2026-03-13T04:36:56.999Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Commit Phase**\n\nOn the timing question: consistent with prior rulings, Rule 219's elevated bonuses will apply to proposals *after* a player crosses 75 points, not the proposal during which they cross.\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:36:57.263Z",
@@ -9950,28 +9950,28 @@
       "timestamp": "2026-03-13T04:37:09.494Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d990c786c22c66ffc2b7819fcda9042cdf8415c2e5eb183dd36255b794ecd67a`\n- Dumblegold: `b1436a116afc4a13cff11ee20eb438e303feb0aa99ed7b7be729769b4ffa6b21`\n- Hufflepouf: `3f169ed7f2df11ac02e5b7755aea4ce1378b9f00041d41275fe45f933f074ad0`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:09.810Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d990c786c22c66ffc2b7819fcda9042cdf8415c2e5eb183dd36255b794ecd67a`\n- Dumblegold: `b1436a116afc4a13cff11ee20eb438e303feb0aa99ed7b7be729769b4ffa6b21`\n- Hufflepouf: `3f169ed7f2df11ac02e5b7755aea4ce1378b9f00041d41275fe45f933f074ad0`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:09.827Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 307 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `d990c786c22c66ffc2b7819fcda9042cdf8415c2e5eb183dd36255b794ecd67a`\n- Dumblegold: `b1436a116afc4a13cff11ee20eb438e303feb0aa99ed7b7be729769b4ffa6b21`\n- Hufflepouf: `3f169ed7f2df11ac02e5b7755aea4ce1378b9f00041d41275fe45f933f074ad0`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 307",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:11.715Z",
@@ -10211,28 +10211,28 @@
       "timestamp": "2026-03-13T04:37:35.663Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 219 is now in effect: *When any player reaches 75+ points, proposer bonus becomes +8 and YES-voter bonus becomes +4.*\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 307 adopted 3-0, endgame boost enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:35.888Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 219 is now in effect: *When any player reaches 75+ points, proposer bonus becomes +8 and YES-voter bonus becomes +4.*\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 307 adopted 3-0, endgame boost enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:35.897Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 307 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 219 is now in effect: *When any player reaches 75+ points, proposer bonus becomes +8 and YES-voter bonus becomes +4.*\n\n**Scoring:**\n- Dumblegold +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 307 adopted 3-0, endgame boost enacted",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:37:37.811Z",
@@ -10363,10 +10363,10 @@
       "timestamp": "2026-03-13T04:38:00.800Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 7 Complete**\n\nDumblegold rolled 2d6: 1 + 4 = 5.\n\n**Scores after Round 7:**\n- Dracox — 38\n- Dumblegold — 49\n- Hufflepouf — 37\n\n**Round 8** continues Circuit 3. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 308.",
       "summary": "Round 7 done, Round 8 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:38:03.148Z",
@@ -10464,10 +10464,10 @@
       "timestamp": "2026-03-13T04:38:40.590Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 7 Complete**\n\nDumblegold rolled 2d6: 1 + 4 = 5.\n\n**Scores after Round 7:**\n- Dracox — 38\n- Dumblegold — 49\n- Hufflepouf — 37\n\n**Round 8** continues Circuit 3. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 308.",
       "summary": "Round 7 done, Round 8 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:38:41.681Z",
@@ -10537,19 +10537,19 @@
       "timestamp": "2026-03-13T04:38:50.007Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308** — submitted by Hufflepouf (verified)\n\n**Enact new mutable Rule 220:**\n> If a player rolls doubles on their 2d6 dice roll (both dice show the same number), that player receives 5 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 308: +5 bonus for rolling doubles",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:38:50.011Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308** — submitted by Hufflepouf (verified)\n\n**Enact new mutable Rule 220:**\n> If a player rolls doubles on their 2d6 dice roll (both dice show the same number), that player receives 5 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 308: +5 bonus for rolling doubles",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:38:51.972Z",
@@ -10599,10 +10599,10 @@
       "timestamp": "2026-03-13T04:39:03.771Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 7 Complete**\n\nDumblegold rolled 2d6: 1 + 4 = 5.\n\n**Scores after Round 7:**\n- Dracox — 38\n- Dumblegold — 49\n- Hufflepouf — 37\n\n**Round 8** continues Circuit 3. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 308.",
       "summary": "Round 7 done, Round 8 Hufflepouf's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:39:03.771Z",
@@ -10626,10 +10626,10 @@
       "timestamp": "2026-03-13T04:39:03.771Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308** — submitted by Hufflepouf (verified)\n\n**Enact new mutable Rule 220:**\n> If a player rolls doubles on their 2d6 dice roll (both dice show the same number), that player receives 5 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 308: +5 bonus for rolling doubles",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:39:06.800Z",
@@ -10770,19 +10770,19 @@
       "timestamp": "2026-03-13T04:40:01.059Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:01.328Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:03.324Z",
@@ -10918,10 +10918,10 @@
       "timestamp": "2026-03-13T04:40:11.124Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:12.122Z",
@@ -10957,19 +10957,19 @@
       "timestamp": "2026-03-13T04:40:16.112Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `387721822e8250e040d6f564e89f90627c2a47d84cb772ca360a24abeee44d19`\n- Dumblegold: `782bcf18b7425028a131a2f7bca448558ff04e0eb53deef8565d136e040d32a1`\n- Hufflepouf: `babf195fe3b2beb75f4852ada8692c5b5bc67d4ce49bccb6b81c85dfbeddfc26`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:16.409Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `387721822e8250e040d6f564e89f90627c2a47d84cb772ca360a24abeee44d19`\n- Dumblegold: `782bcf18b7425028a131a2f7bca448558ff04e0eb53deef8565d136e040d32a1`\n- Hufflepouf: `babf195fe3b2beb75f4852ada8692c5b5bc67d4ce49bccb6b81c85dfbeddfc26`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:16.655Z",
@@ -11017,10 +11017,10 @@
       "timestamp": "2026-03-13T04:40:19.761Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 308 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `387721822e8250e040d6f564e89f90627c2a47d84cb772ca360a24abeee44d19`\n- Dumblegold: `782bcf18b7425028a131a2f7bca448558ff04e0eb53deef8565d136e040d32a1`\n- Hufflepouf: `babf195fe3b2beb75f4852ada8692c5b5bc67d4ce49bccb6b81c85dfbeddfc26`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 308",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:19.761Z",
@@ -11299,19 +11299,19 @@
       "timestamp": "2026-03-13T04:40:49.459Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 220 is now in effect: *Rolling doubles on 2d6 earns +5 bonus points.*\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 4 + 1 = 5. No doubles.\n\n**Scores after Round 8:**\n- Dracox — 43\n- Dumblegold — 54\n- Hufflepouf — 52\n\n**Round 9** — final round of Circuit 3. Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 309.",
       "summary": "Proposal 308 adopted 3-0, Round 9 Dracox's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:50.181Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 220 is now in effect: *Rolling doubles on 2d6 earns +5 bonus points.*\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 4 + 1 = 5. No doubles.\n\n**Scores after Round 8:**\n- Dracox — 43\n- Dumblegold — 54\n- Hufflepouf — 52\n\n**Round 9** — final round of Circuit 3. Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 309.",
       "summary": "Proposal 308 adopted 3-0, Round 9 Dracox's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:40:53.061Z",
@@ -11490,10 +11490,10 @@
       "timestamp": "2026-03-13T04:42:34.332Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 308 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 220 is now in effect: *Rolling doubles on 2d6 earns +5 bonus points.*\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 4 + 1 = 5. No doubles.\n\n**Scores after Round 8:**\n- Dracox — 43\n- Dumblegold — 54\n- Hufflepouf — 52\n\n**Round 9** — final round of Circuit 3. Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 309.",
       "summary": "Proposal 308 adopted 3-0, Round 9 Dracox's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:34.332Z",
@@ -11547,10 +11547,10 @@
       "timestamp": "2026-03-13T04:42:38.320Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309** — submitted by Dracox (verified)\n\n**Amend Rule 218:**\n> Replace \"2 additional bonus points\" with \"3 additional bonus points.\" The amended rule reads: Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 3 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 309: increase unanimity bonus to +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:38.660Z",
@@ -11571,10 +11571,10 @@
       "timestamp": "2026-03-13T04:42:38.823Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309** — submitted by Dracox (verified)\n\n**Amend Rule 218:**\n> Replace \"2 additional bonus points\" with \"3 additional bonus points.\" The amended rule reads: Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 3 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 309: increase unanimity bonus to +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:40.594Z",
@@ -11658,10 +11658,10 @@
       "timestamp": "2026-03-13T04:42:46.666Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:46.666Z",
@@ -11676,10 +11676,10 @@
       "timestamp": "2026-03-13T04:42:46.782Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:46.782Z",
@@ -11746,19 +11746,19 @@
       "timestamp": "2026-03-13T04:42:49.605Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309** — submitted by Dracox (verified)\n\n**Amend Rule 218:**\n> Replace \"2 additional bonus points\" with \"3 additional bonus points.\" The amended rule reads: Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 3 additional bonus points.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 309: increase unanimity bonus to +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:49.605Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:42:50.338Z",
@@ -11909,7 +11909,7 @@
       "timestamp": "2026-03-13T04:43:01.161Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Already verified and broadcast your proposal. We're now in the commit phase — please submit your vote commitment using the `commit` tool.",
       "summary": "In commit phase, submit your vote hash",
       "is_broadcast": false
@@ -11948,19 +11948,19 @@
       "timestamp": "2026-03-13T04:43:06.736Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a498297d2a31609b15b4543be7e9cd2cd660a3147a5ef03323cbd8fa1c8070e3`\n- Dumblegold: `c206f9b09dcb6f5295f716844f302c6316696d622ecb5be36ebfc1ef0ff99572`\n- Hufflepouf: `d310504525f56f6fa336874981d05ad7e94ff6d12664ed2844c98080288feda9`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:06.864Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a498297d2a31609b15b4543be7e9cd2cd660a3147a5ef03323cbd8fa1c8070e3`\n- Dumblegold: `c206f9b09dcb6f5295f716844f302c6316696d622ecb5be36ebfc1ef0ff99572`\n- Hufflepouf: `d310504525f56f6fa336874981d05ad7e94ff6d12664ed2844c98080288feda9`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:08.693Z",
@@ -11978,10 +11978,10 @@
       "timestamp": "2026-03-13T04:43:09.608Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 309 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `a498297d2a31609b15b4543be7e9cd2cd660a3147a5ef03323cbd8fa1c8070e3`\n- Dumblegold: `c206f9b09dcb6f5295f716844f302c6316696d622ecb5be36ebfc1ef0ff99572`\n- Hufflepouf: `d310504525f56f6fa336874981d05ad7e94ff6d12664ed2844c98080288feda9`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 309",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:09.608Z",
@@ -12113,7 +12113,7 @@
       "timestamp": "2026-03-13T04:43:17.823Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "We're in the reveal phase now. Please reveal your vote and nonce publicly (broadcast to all players).",
       "summary": "Reveal your vote and nonce now",
       "is_broadcast": false
@@ -12239,28 +12239,28 @@
       "timestamp": "2026-03-13T04:43:47.604Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is amended: unanimous bonus is now +3 per player (up from +2).\n\nPer Rule 107, the old +2 bonus applies to this vote. The +3 bonus takes effect starting next vote.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus, pre-amendment)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 309 adopted 3-0, unanimity bonus now +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:47.735Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is amended: unanimous bonus is now +3 per player (up from +2).\n\nPer Rule 107, the old +2 bonus applies to this vote. The +3 bonus takes effect starting next vote.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus, pre-amendment)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 309 adopted 3-0, unanimity bonus now +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:47.876Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 309 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 218 is amended: unanimous bonus is now +3 per player (up from +2).\n\nPer Rule 107, the old +2 bonus applies to this vote. The +3 bonus takes effect starting next vote.\n\n**Scoring:**\n- Dracox +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +2, Dumblegold +2, Hufflepouf +2 (Rule 218 unanimous bonus, pre-amendment)\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn.",
       "summary": "Proposal 309 adopted 3-0, unanimity bonus now +3",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:43:50.592Z",
@@ -12376,10 +12376,10 @@
       "timestamp": "2026-03-13T04:44:11.785Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 9 Complete — End of Circuit 3**\n\nDracox rolled 2d6: 4 + 2 = 6. No doubles.\n\n**Scores after Round 9:**\n- Dracox — 59\n- Dumblegold — 59\n- Hufflepouf — 57\n\nPer turn-order rotation, **Circuit 4 order: Hufflepouf → Dracox → Dumblegold.**\n\n**Round 10** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 310.",
       "summary": "Circuit 3 done, near three-way tie, Circuit 4 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:44:15.200Z",
@@ -12445,10 +12445,10 @@
       "timestamp": "2026-03-13T04:45:14.064Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 9 Complete — End of Circuit 3**\n\nDracox rolled 2d6: 4 + 2 = 6. No doubles.\n\n**Scores after Round 9:**\n- Dracox — 59\n- Dumblegold — 59\n- Hufflepouf — 57\n\nPer turn-order rotation, **Circuit 4 order: Hufflepouf → Dracox → Dumblegold.**\n\n**Round 10** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 310.",
       "summary": "Circuit 3 done, near three-way tie, Circuit 4 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:45:18.675Z",
@@ -12510,10 +12510,10 @@
       "timestamp": "2026-03-13T04:47:18.557Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 9 Complete — End of Circuit 3**\n\nDracox rolled 2d6: 4 + 2 = 6. No doubles.\n\n**Scores after Round 9:**\n- Dracox — 59\n- Dumblegold — 59\n- Hufflepouf — 57\n\nPer turn-order rotation, **Circuit 4 order: Hufflepouf → Dracox → Dumblegold.**\n\n**Round 10** begins. Hufflepouf, it's your turn — please submit your proposal using the `propose` tool. This will be Proposal 310.",
       "summary": "Circuit 3 done, near three-way tie, Circuit 4 begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:47:22.414Z",
@@ -12732,10 +12732,10 @@
       "timestamp": "2026-03-13T04:49:18.145Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310** — submitted by Hufflepouf (verified)\n\n**Amend Rule 208:**\n> The winner is the first player to achieve 100 (positive) points. The winning condition is evaluated at the conclusion of each player's own turn, after their dice roll.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 310: win-check at end of each turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:49:20.245Z",
@@ -12747,10 +12747,10 @@
       "timestamp": "2026-03-13T04:49:20.416Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310** — submitted by Hufflepouf (verified)\n\n**Amend Rule 208:**\n> The winner is the first player to achieve 100 (positive) points. The winning condition is evaluated at the conclusion of each player's own turn, after their dice roll.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 310: win-check at end of each turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:49:20.518Z",
@@ -12904,19 +12904,19 @@
       "timestamp": "2026-03-13T04:49:53.601Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:49:54.221Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:49:56.619Z",
@@ -12977,10 +12977,10 @@
       "timestamp": "2026-03-13T04:49:57.288Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310** — submitted by Hufflepouf (verified)\n\n**Amend Rule 208:**\n> The winner is the first player to achieve 100 (positive) points. The winning condition is evaluated at the conclusion of each player's own turn, after their dice roll.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 310: win-check at end of each turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:49:57.288Z",
@@ -12995,10 +12995,10 @@
       "timestamp": "2026-03-13T04:49:57.288Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:50:00.020Z",
@@ -13141,28 +13141,28 @@
       "timestamp": "2026-03-13T04:50:22.326Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `1e8751f2b5462379b83b96b839346e99348ad55aa7d0b6173512ad51c95aef36`\n- Dumblegold: `cd105824a79b71f856ed231a6aa3d41bdbe3df36e33143a059fea9904fde882d`\n- Hufflepouf: `0359d33207bb0e0af7afe02def0ec15233209b19efa07915c1689e862c2d6197`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:50:22.703Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `1e8751f2b5462379b83b96b839346e99348ad55aa7d0b6173512ad51c95aef36`\n- Dumblegold: `cd105824a79b71f856ed231a6aa3d41bdbe3df36e33143a059fea9904fde882d`\n- Hufflepouf: `0359d33207bb0e0af7afe02def0ec15233209b19efa07915c1689e862c2d6197`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:50:23.062Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 310 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `1e8751f2b5462379b83b96b839346e99348ad55aa7d0b6173512ad51c95aef36`\n- Dumblegold: `cd105824a79b71f856ed231a6aa3d41bdbe3df36e33143a059fea9904fde882d`\n- Hufflepouf: `0359d33207bb0e0af7afe02def0ec15233209b19efa07915c1689e862c2d6197`\n\nAll players: please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 310",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:50:24.274Z",
@@ -13447,19 +13447,19 @@
       "timestamp": "2026-03-13T04:50:58.353Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 208 is amended to include win-check timing: evaluated at the conclusion of each player's own turn, after their dice roll.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 6 + 1 = 7. No doubles.\n\n**Scores after Round 10:**\n- Dracox — 65\n- Dumblegold — 65\n- Hufflepouf — 75\n\n**Hufflepouf has reached 75 points!** Per Rule 219, starting from the next proposal, proposer bonus becomes +8 and YES-voter bonus becomes +4.\n\nWin check (Rule 208): Hufflepouf at 75 — not yet 100. No winner.\n\n**Round 11** — Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 311.",
       "summary": "Proposal 310 adopted, Hufflepouf hits 75 — endgame triggered!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:50:58.830Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 208 is amended to include win-check timing: evaluated at the conclusion of each player's own turn, after their dice roll.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 6 + 1 = 7. No doubles.\n\n**Scores after Round 10:**\n- Dracox — 65\n- Dumblegold — 65\n- Hufflepouf — 75\n\n**Hufflepouf has reached 75 points!** Per Rule 219, starting from the next proposal, proposer bonus becomes +8 and YES-voter bonus becomes +4.\n\nWin check (Rule 208): Hufflepouf at 75 — not yet 100. No winner.\n\n**Round 11** — Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 311.",
       "summary": "Proposal 310 adopted, Hufflepouf hits 75 — endgame triggered!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:51:01.781Z",
@@ -13485,10 +13485,10 @@
       "timestamp": "2026-03-13T04:51:01.953Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 310 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 208 is amended to include win-check timing: evaluated at the conclusion of each player's own turn, after their dice roll.\n\n**Scoring:**\n- Hufflepouf +5 (Rule 216 proposer bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 217 YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Dice roll:** Hufflepouf rolled 2d6: 6 + 1 = 7. No doubles.\n\n**Scores after Round 10:**\n- Dracox — 65\n- Dumblegold — 65\n- Hufflepouf — 75\n\n**Hufflepouf has reached 75 points!** Per Rule 219, starting from the next proposal, proposer bonus becomes +8 and YES-voter bonus becomes +4.\n\nWin check (Rule 208): Hufflepouf at 75 — not yet 100. No winner.\n\n**Round 11** — Dracox, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 311.",
       "summary": "Proposal 310 adopted, Hufflepouf hits 75 — endgame triggered!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:51:02.806Z",
@@ -13749,10 +13749,10 @@
       "timestamp": "2026-03-13T04:53:32.771Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 221:**\n> The Clerk shall maintain a \"Hall of Proposals\" in the game log, recording each adopted rule alongside the name of the player who proposed it. This serves as a permanent record of each player's legislative contributions to the game.\n\n**Note:** Rule 219 endgame bonuses are now active. Proposer bonus is +8, YES-voter bonus is +4.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 311: Hall of Proposals record-keeping",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:32.819Z",
@@ -13764,10 +13764,10 @@
       "timestamp": "2026-03-13T04:53:32.996Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 221:**\n> The Clerk shall maintain a \"Hall of Proposals\" in the game log, recording each adopted rule alongside the name of the player who proposed it. This serves as a permanent record of each player's legislative contributions to the game.\n\n**Note:** Rule 219 endgame bonuses are now active. Proposer bonus is +8, YES-voter bonus is +4.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 311: Hall of Proposals record-keeping",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:33.269Z",
@@ -13779,10 +13779,10 @@
       "timestamp": "2026-03-13T04:53:33.491Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311** — submitted by Dracox (verified)\n\n**Enact new mutable Rule 221:**\n> The Clerk shall maintain a \"Hall of Proposals\" in the game log, recording each adopted rule alongside the name of the player who proposed it. This serves as a permanent record of each player's legislative contributions to the game.\n\n**Note:** Rule 219 endgame bonuses are now active. Proposer bonus is +8, YES-voter bonus is +4.\n\nThe floor is open for debate. All players should share their reaction before we move to voting.",
       "summary": "Proposal 311: Hall of Proposals record-keeping",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:34.324Z",
@@ -13855,19 +13855,19 @@
       "timestamp": "2026-03-13T04:53:40.569Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:41.068Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:41.714Z",
@@ -13930,10 +13930,10 @@
       "timestamp": "2026-03-13T04:53:45.756Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Commit Phase**\n\nAll players: please submit your vote commitment using the `commit` tool and send the hash to me.",
       "summary": "Commit phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:53:47.147Z",
@@ -14096,7 +14096,7 @@
       "timestamp": "2026-03-13T04:54:34.768Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "You skipped the commit phase and went straight to reveal. Please submit your commitment hash using the `commit` tool first. We need the hash before we can proceed to the reveal phase.",
       "summary": "Need commitment hash before reveal",
       "is_broadcast": false
@@ -14219,28 +14219,28 @@
       "timestamp": "2026-03-13T04:54:58.835Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `85929293a261d6fde6e6d45edc6de2b4df562ab580925f0e66756c3646f50ea9`\n- Dumblegold: `7ee6de8b08a4c053ad938395fd66d4cd4391b405e3703aba0bdbcb639f91c691`\n- Hufflepouf: `a44a5c492b676af50140c149c088ccb76c0ad46ffb29de1dead578e4ff7bc35d`\n\nDumblegold has already revealed (yes / record-history). Dracox and Hufflepouf, please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:54:59.367Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `85929293a261d6fde6e6d45edc6de2b4df562ab580925f0e66756c3646f50ea9`\n- Dumblegold: `7ee6de8b08a4c053ad938395fd66d4cd4391b405e3703aba0bdbcb639f91c691`\n- Hufflepouf: `a44a5c492b676af50140c149c088ccb76c0ad46ffb29de1dead578e4ff7bc35d`\n\nDumblegold has already revealed (yes / record-history). Dracox and Hufflepouf, please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:54:59.571Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Voting on Proposal 311 — Reveal Phase**\n\nAll commitments received:\n- Dracox: `85929293a261d6fde6e6d45edc6de2b4df562ab580925f0e66756c3646f50ea9`\n- Dumblegold: `7ee6de8b08a4c053ad938395fd66d4cd4391b405e3703aba0bdbcb639f91c691`\n- Hufflepouf: `a44a5c492b676af50140c149c088ccb76c0ad46ffb29de1dead578e4ff7bc35d`\n\nDumblegold has already revealed (yes / record-history). Dracox and Hufflepouf, please now reveal your vote and nonce publicly.",
       "summary": "Reveal phase for Proposal 311",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:55:00.778Z",
@@ -14441,28 +14441,28 @@
       "timestamp": "2026-03-13T04:55:27.654Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 221 is now in effect. The Clerk will maintain a Hall of Proposals.\n\n**Scoring (endgame bonuses active per Rule 219):**\n- Dracox +8 (Rule 216/219 elevated proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 217/219 elevated YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Pre-dice scores:**\n- Dracox — 80\n- Dumblegold — 72\n- Hufflepouf — 82\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn. Win check follows.",
       "summary": "Proposal 311 adopted 3-0, endgame bonuses applied",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:55:27.947Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 221 is now in effect. The Clerk will maintain a Hall of Proposals.\n\n**Scoring (endgame bonuses active per Rule 219):**\n- Dracox +8 (Rule 216/219 elevated proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 217/219 elevated YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Pre-dice scores:**\n- Dracox — 80\n- Dumblegold — 72\n- Hufflepouf — 82\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn. Win check follows.",
       "summary": "Proposal 311 adopted 3-0, endgame bonuses applied",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:55:28.438Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 311 — Vote Result**\n\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Result: ADOPTED (3-0, unanimous)**\n\nRule 221 is now in effect. The Clerk will maintain a Hall of Proposals.\n\n**Scoring (endgame bonuses active per Rule 219):**\n- Dracox +8 (Rule 216/219 elevated proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 217/219 elevated YES-voter bonus)\n- Dracox +3, Dumblegold +3, Hufflepouf +3 (Rule 218 unanimous bonus)\n\n**Pre-dice scores:**\n- Dracox — 80\n- Dumblegold — 72\n- Hufflepouf — 82\n\nDracox, please roll your dice using the `roll_dice` tool with format `2d6` to complete your turn. Win check follows.",
       "summary": "Proposal 311 adopted 3-0, endgame bonuses applied",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:55:31.407Z",
@@ -14651,10 +14651,10 @@
       "timestamp": "2026-03-13T04:56:07.701Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 11 Complete**\n\nDracox rolled 2d6: 4 + 3 = 7. No doubles.\nWin check: Dracox at 87 — no win.\n\n**Scores after Round 11:**\n- Dracox — 87\n- Dumblegold — 72\n- Hufflepouf — 82\n\n**Round 12** — Dumblegold, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 312.\n\n*Note: If Dumblegold's proposal passes unanimously, pre-dice scores will be approximately Dracox 94, Dumblegold 87, Hufflepouf 89. A win on this turn's dice roll is possible for Dumblegold with a high roll.*",
       "summary": "Round 11 done, Dracox at 87, approaching endgame",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:56:08.775Z",
@@ -14765,10 +14765,10 @@
       "timestamp": "2026-03-13T04:56:26.194Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 11 Complete**\n\nDracox rolled 2d6: 4 + 3 = 7. No doubles.\nWin check: Dracox at 87 — no win.\n\n**Scores after Round 11:**\n- Dracox — 87\n- Dumblegold — 72\n- Hufflepouf — 82\n\n**Round 12** — Dumblegold, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 312.\n\n*Note: If Dumblegold's proposal passes unanimously, pre-dice scores will be approximately Dracox 94, Dumblegold 87, Hufflepouf 89. A win on this turn's dice roll is possible for Dumblegold with a high roll.*",
       "summary": "Round 11 done, Dracox at 87, approaching endgame",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:56:26.194Z",
@@ -14794,10 +14794,10 @@
       "timestamp": "2026-03-13T04:56:32.726Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 11 Complete**\n\nDracox rolled 2d6: 4 + 3 = 7. No doubles.\nWin check: Dracox at 87 — no win.\n\n**Scores after Round 11:**\n- Dracox — 87\n- Dumblegold — 72\n- Hufflepouf — 82\n\n**Round 12** — Dumblegold, it's your turn. Please submit your proposal using the `propose` tool. This will be Proposal 312.\n\n*Note: If Dumblegold's proposal passes unanimously, pre-dice scores will be approximately Dracox 94, Dumblegold 87, Hufflepouf 89. A win on this turn's dice roll is possible for Dumblegold with a high roll.*",
       "summary": "Round 11 done, Dracox at 87, approaching endgame",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:56:32.726Z",
@@ -14908,7 +14908,7 @@
       "timestamp": "2026-03-13T04:56:49.424Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Your proposal hasn't been submitted cryptographically — `latest_proposal.txt` still contains the previous proposal. Please use the `propose` tool to submit your rule-change so I can verify authorship.",
       "summary": "Submit proposal via propose tool",
       "is_broadcast": false
@@ -15209,7 +15209,7 @@
       "timestamp": "2026-03-13T04:58:47.328Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dumblegold, I attempted to verify your proposal but it failed cryptographic verification. The player hash in the proof file doesn't match your key.\n\nPlease resubmit your proposal using the `propose` tool with your correct encryption key. Make sure you use your assigned key exactly as given to you.\n\nAlso, regarding Hufflepouf's suggestion: per Rule 111, you as the proponent decide the final form of your proposal. You may frame it as either \"Enact Rule 222\" or \"Amend Rule 218\" — that's your choice. Please decide and include the final wording when you resubmit.",
       "summary": "Proposal verification failed, please resubmit",
       "is_broadcast": false
@@ -15430,7 +15430,7 @@
       "timestamp": "2026-03-13T04:59:45.384Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Your encryption key is: `width-fault-surge-arrow`\n\nPlease resubmit your proposal using the `propose` tool with this key. Since you've decided to amend Rule 218 rather than enact Rule 222, make sure your proposal text reflects that (e.g., \"Amend Rule 218 — increase unanimous bonus from +3 to +4 per player\").",
       "summary": "Sending Dumblegold their encryption key",
       "is_broadcast": false
@@ -15463,19 +15463,19 @@
       "timestamp": "2026-03-13T04:59:49.575Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hold on voting — Dumblegold is revising Proposal 312 to amend Rule 218 (rather than enact a new Rule 222) and needs to resubmit with cryptographic verification. Once verified, I will broadcast the final proposal text and we will restart the commit phase.\n\nDracox, your commitment was submitted before the final wording was confirmed. You will need to recommit after the verified proposal is broadcast.",
       "summary": "Voting paused, awaiting resubmission of Proposal 312",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:59:49.692Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hold on voting — Dumblegold is revising Proposal 312 to amend Rule 218 (rather than enact a new Rule 222) and needs to resubmit with cryptographic verification. Once verified, I will broadcast the final proposal text and we will restart the commit phase.\n\nDracox, your commitment was submitted before the final wording was confirmed. You will need to recommit after the verified proposal is broadcast.",
       "summary": "Voting paused, awaiting resubmission of Proposal 312",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:59:50.974Z",
@@ -15529,10 +15529,10 @@
       "timestamp": "2026-03-13T04:59:55.669Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hold on voting — Dumblegold is revising Proposal 312 to amend Rule 218 (rather than enact a new Rule 222) and needs to resubmit with cryptographic verification. Once verified, I will broadcast the final proposal text and we will restart the commit phase.\n\nDracox, your commitment was submitted before the final wording was confirmed. You will need to recommit after the verified proposal is broadcast.",
       "summary": "Voting paused, awaiting resubmission of Proposal 312",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T04:59:55.735Z",
@@ -15706,28 +15706,28 @@
       "timestamp": "2026-03-13T05:00:42.480Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — VERIFIED** (Dumblegold)\n\n**Amend Rule 218:** Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 4 additional bonus points (instead of 3).\n\nThis proposal has been cryptographically verified. Since debate already occurred and all players expressed readiness to vote, we will proceed directly to the **commit phase**.\n\nAll players: please submit your vote commitments now using the `commit` tool.",
       "summary": "Proposal 312 verified, commit phase open",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:00:42.726Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — VERIFIED** (Dumblegold)\n\n**Amend Rule 218:** Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 4 additional bonus points (instead of 3).\n\nThis proposal has been cryptographically verified. Since debate already occurred and all players expressed readiness to vote, we will proceed directly to the **commit phase**.\n\nAll players: please submit your vote commitments now using the `commit` tool.",
       "summary": "Proposal 312 verified, commit phase open",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:00:42.780Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — VERIFIED** (Dumblegold)\n\n**Amend Rule 218:** Whenever a rule-change is adopted by a unanimous vote (all eligible voters voting YES), each player receives 4 additional bonus points (instead of 3).\n\nThis proposal has been cryptographically verified. Since debate already occurred and all players expressed readiness to vote, we will proceed directly to the **commit phase**.\n\nAll players: please submit your vote commitments now using the `commit` tool.",
       "summary": "Proposal 312 verified, commit phase open",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:00:44.730Z",
@@ -15946,19 +15946,19 @@
       "timestamp": "2026-03-13T05:01:41.524Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `e0f71f06930926884705c6e577cef69ce2533c3b700ec618e4217fd5e71162cf`\n- Dumblegold: `2b578465ac0c41fdf5d374d09eefece6b263e2d28556af576e2ff4cecf21d194`\n- Hufflepouf: `f6b64e663b23e42e3094332cb7c010110f4ae5f68436f9c59991b929bb402716`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:01:42.047Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `e0f71f06930926884705c6e577cef69ce2533c3b700ec618e4217fd5e71162cf`\n- Dumblegold: `2b578465ac0c41fdf5d374d09eefece6b263e2d28556af576e2ff4cecf21d194`\n- Hufflepouf: `f6b64e663b23e42e3094332cb7c010110f4ae5f68436f9c59991b929bb402716`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:01:43.306Z",
@@ -16080,7 +16080,7 @@
       "timestamp": "2026-03-13T05:01:49.309Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, we're in the commit phase for Proposal 312 (Amend Rule 218 — increase unanimous bonus from +3 to +4). Dumblegold and Hufflepouf have submitted their commitments. Please submit your vote commitment using the `commit` tool.",
       "summary": "Waiting on your vote commitment for Proposal 312",
       "is_broadcast": false
@@ -16089,10 +16089,10 @@
       "timestamp": "2026-03-13T05:01:49.309Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `e0f71f06930926884705c6e577cef69ce2533c3b700ec618e4217fd5e71162cf`\n- Dumblegold: `2b578465ac0c41fdf5d374d09eefece6b263e2d28556af576e2ff4cecf21d194`\n- Hufflepouf: `f6b64e663b23e42e3094332cb7c010110f4ae5f68436f9c59991b929bb402716`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:01:49.309Z",
@@ -16188,7 +16188,7 @@
       "timestamp": "2026-03-13T05:01:57.801Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, we're in the reveal phase for Proposal 312. Dumblegold and Hufflepouf have revealed. Please reveal your vote and nonce now.",
       "summary": "Please reveal your vote for Proposal 312",
       "is_broadcast": false
@@ -16305,28 +16305,28 @@
       "timestamp": "2026-03-13T05:02:18.950Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 218 amended** — unanimous bonus increased from +3 to +4 per player.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus, +4)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 312 adopted unanimously, Dumblegold roll dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:02:19.163Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 218 amended** — unanimous bonus increased from +3 to +4 per player.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus, +4)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 312 adopted unanimously, Dumblegold roll dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:02:19.570Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 312 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 218 amended** — unanimous bonus increased from +3 to +4 per player.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus, +4)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 312 adopted unanimously, Dumblegold roll dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:02:21.491Z",
@@ -16523,19 +16523,19 @@
       "timestamp": "2026-03-13T05:03:19.260Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 12 Complete**\n\n**Scores:**\n- Dracox — 95\n- Dumblegold — 94\n- Hufflepouf — 90\n\nCircuit 4 is complete. **Circuit 5 turn order:** Dracox → Dumblegold → Hufflepouf.\n\n---\n\n**Round 13 — Dracox's Turn**\n\nDracox, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 12 done, Round 13 Dracox's turn begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:03:19.591Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 12 Complete**\n\n**Scores:**\n- Dracox — 95\n- Dumblegold — 94\n- Hufflepouf — 90\n\nCircuit 4 is complete. **Circuit 5 turn order:** Dracox → Dumblegold → Hufflepouf.\n\n---\n\n**Round 13 — Dracox's Turn**\n\nDracox, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 12 done, Round 13 Dracox's turn begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:03:21.454Z",
@@ -16797,10 +16797,10 @@
       "timestamp": "2026-03-13T05:09:44.935Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — Dracox** (verified)\n\n**Enact Rule 222:** At game's end, the player who finishes in second place (highest score among non-winners) receives +5 bonus points to their final recorded score, and the third-place player receives +3 bonus points.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 313 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:09:46.928Z",
@@ -16878,10 +16878,10 @@
       "timestamp": "2026-03-13T05:09:50.648Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — Dracox** (verified)\n\n**Enact Rule 222:** At game's end, the player who finishes in second place (highest score among non-winners) receives +5 bonus points to their final recorded score, and the third-place player receives +3 bonus points.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 313 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:09:51.036Z",
@@ -17026,19 +17026,19 @@
       "timestamp": "2026-03-13T05:10:14.445Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 313. If everyone is ready, we'll proceed to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:10:14.575Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 313. If everyone is ready, we'll proceed to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:10:15.927Z",
@@ -17055,16 +17055,16 @@
       "timestamp": "2026-03-13T05:10:16.018Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 12 Complete**\n\n**Scores:**\n- Dracox — 95\n- Dumblegold — 94\n- Hufflepouf — 90\n\nCircuit 4 is complete. **Circuit 5 turn order:** Dracox → Dumblegold → Hufflepouf.\n\n---\n\n**Round 13 — Dracox's Turn**\n\nDracox, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 12 done, Round 13 Dracox's turn begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:10:16.018Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, it's your turn (Round 13). Please submit your proposal using the `propose` tool when you're ready.",
       "summary": "Reminder: it's your turn, Round 13",
       "is_broadcast": false
@@ -17091,10 +17091,10 @@
       "timestamp": "2026-03-13T05:10:16.018Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — Dracox** (verified)\n\n**Enact Rule 222:** At game's end, the player who finishes in second place (highest score among non-winners) receives +5 bonus points to their final recorded score, and the third-place player receives +3 bonus points.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 313 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:10:16.018Z",
@@ -17118,10 +17118,10 @@
       "timestamp": "2026-03-13T05:10:16.018Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 313. If everyone is ready, we'll proceed to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:10:16.601Z",
@@ -17270,7 +17270,7 @@
       "timestamp": "2026-03-13T05:10:33.532Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hufflepouf, we're in the commit phase for Proposal 313. Please submit your vote commitment using the `commit` tool.",
       "summary": "Please submit your commitment for Proposal 313",
       "is_broadcast": false
@@ -17362,7 +17362,7 @@
       "timestamp": "2026-03-13T05:11:09.853Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, we're in the commit phase for Proposal 313. Please submit your vote commitment using the `commit` tool.",
       "summary": "Please submit your commitment for Proposal 313",
       "is_broadcast": false
@@ -17422,7 +17422,7 @@
       "timestamp": "2026-03-13T05:11:18.730Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hufflepouf, Dracox and Dumblegold have submitted their commitments for Proposal 313. We're waiting on yours. Please submit using the `commit` tool.",
       "summary": "Still waiting on your commitment for Proposal 313",
       "is_broadcast": false
@@ -17482,28 +17482,28 @@
       "timestamp": "2026-03-13T05:11:33.159Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `3536898f6d3164b7f8b1ce9822ad260b8d7388430247228b11bb28efa866c27a`\n- Dumblegold: `12199b356065fdb27a11d1b7358b74adba8c76a83c2fe5558b09b758319bc476`\n- Hufflepouf: `faaaa11e74d0b1a8fa81157152ee50a595dbae6efa935b2b39cd32673cdec89e`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:33.510Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `3536898f6d3164b7f8b1ce9822ad260b8d7388430247228b11bb28efa866c27a`\n- Dumblegold: `12199b356065fdb27a11d1b7358b74adba8c76a83c2fe5558b09b758319bc476`\n- Hufflepouf: `faaaa11e74d0b1a8fa81157152ee50a595dbae6efa935b2b39cd32673cdec89e`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:33.536Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `3536898f6d3164b7f8b1ce9822ad260b8d7388430247228b11bb28efa866c27a`\n- Dumblegold: `12199b356065fdb27a11d1b7358b74adba8c76a83c2fe5558b09b758319bc476`\n- Hufflepouf: `faaaa11e74d0b1a8fa81157152ee50a595dbae6efa935b2b39cd32673cdec89e`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 313",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:34.810Z",
@@ -17725,28 +17725,28 @@
       "timestamp": "2026-03-13T05:11:57.246Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — DEFEATED (1-2)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: NO ✓\n- Hufflepouf: NO ✓\n\n**First defeated proposal of the game.**\n\n**Scoring:** Dracox −10 (Rule 206, defeated proposal penalty).\n\nDracox, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 313 defeated 1-2, Dracox rolls dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:57.562Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — DEFEATED (1-2)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: NO ✓\n- Hufflepouf: NO ✓\n\n**First defeated proposal of the game.**\n\n**Scoring:** Dracox −10 (Rule 206, defeated proposal penalty).\n\nDracox, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 313 defeated 1-2, Dracox rolls dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:57.580Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 313 — DEFEATED (1-2)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: NO ✓\n- Hufflepouf: NO ✓\n\n**First defeated proposal of the game.**\n\n**Scoring:** Dracox −10 (Rule 206, defeated proposal penalty).\n\nDracox, please roll your dice using the `roll_dice` tool (2d6).",
       "summary": "Proposal 313 defeated 1-2, Dracox rolls dice",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:11:58.880Z",
@@ -17839,7 +17839,7 @@
       "timestamp": "2026-03-13T05:12:18.755Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, please roll your dice using the `roll_dice` tool with your key (format: 2d6) to complete your turn.",
       "summary": "Please roll your dice to complete Round 13",
       "is_broadcast": false
@@ -17885,19 +17885,19 @@
       "timestamp": "2026-03-13T05:12:26.291Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 13 Complete**\n\nDracox rolled 2d6 → 2, 6 = 8. No doubles.\n\n**Scores:**\n- Dracox — 93\n- Dumblegold — 94\n- Hufflepouf — 90\n\n---\n\n**Round 14 — Dumblegold's Turn**\n\nDumblegold, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 13 done, Round 14 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:12:26.616Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 13 Complete**\n\nDracox rolled 2d6 → 2, 6 = 8. No doubles.\n\n**Scores:**\n- Dracox — 93\n- Dumblegold — 94\n- Hufflepouf — 90\n\n---\n\n**Round 14 — Dumblegold's Turn**\n\nDumblegold, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 13 done, Round 14 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:12:33.483Z",
@@ -18058,19 +18058,19 @@
       "timestamp": "2026-03-13T05:12:50.356Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — Dumblegold** (verified)\n\n**Enact Rule 223 — Completion Recognition:** When a player achieves 100 or more points and wins the game, each player who did not win receives 3 additional bonus points to their final recorded score, recognizing their participation in a complete game of Nomic.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 314 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:12:51.600Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — Dumblegold** (verified)\n\n**Enact Rule 223 — Completion Recognition:** When a player achieves 100 or more points and wins the game, each player who did not win receives 3 additional bonus points to their final recorded score, recognizing their participation in a complete game of Nomic.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 314 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:12:51.732Z",
@@ -18159,10 +18159,10 @@
       "timestamp": "2026-03-13T05:13:10.673Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Round 13 Complete**\n\nDracox rolled 2d6 → 2, 6 = 8. No doubles.\n\n**Scores:**\n- Dracox — 93\n- Dumblegold — 94\n- Hufflepouf — 90\n\n---\n\n**Round 14 — Dumblegold's Turn**\n\nDumblegold, you're up. Please submit your proposal using the `propose` tool.",
       "summary": "Round 13 done, Round 14 Dumblegold's turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:13:10.673Z",
@@ -18186,10 +18186,10 @@
       "timestamp": "2026-03-13T05:13:10.673Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — Dumblegold** (verified)\n\n**Enact Rule 223 — Completion Recognition:** When a player achieves 100 or more points and wins the game, each player who did not win receives 3 additional bonus points to their final recorded score, recognizing their participation in a complete game of Nomic.\n\nThe floor is open for debate. All players, please share your reactions.",
       "summary": "Proposal 314 broadcast for debate",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:13:13.684Z",
@@ -18307,10 +18307,10 @@
       "timestamp": "2026-03-13T05:13:53.262Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 314. Proceeding to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:13:53.501Z",
@@ -18327,10 +18327,10 @@
       "timestamp": "2026-03-13T05:13:53.606Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 314. Proceeding to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:13:53.606Z",
@@ -18504,10 +18504,10 @@
       "timestamp": "2026-03-13T05:14:14.724Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All players have weighed in on Proposal 314. Proceeding to the **commit phase**.\n\nAll players: please submit your vote commitments using the `commit` tool.",
       "summary": "Debate complete, commit phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:14:14.724Z",
@@ -18531,7 +18531,7 @@
       "timestamp": "2026-03-13T05:14:14.724Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Hufflepouf, Dracox and Dumblegold have submitted their commitments for Proposal 314. We're waiting on yours. Please submit using the `commit` tool.",
       "summary": "Waiting on your commitment for Proposal 314",
       "is_broadcast": false
@@ -18637,10 +18637,10 @@
       "timestamp": "2026-03-13T05:14:34.733Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `9b2a8dbc956f83dc60a39b325606f39da08b57d9a416ed19908e0b8da84eee07`\n- Dumblegold: `b6f879adade8d2c6df0c9f80c178e5a882a8ad1b3e71d3c6a773f3179d06ac7c`\n- Hufflepouf: `c27462e37cc33c20cc88bfaaf158a6c76ed065304f54a41491315fb09d2a50d3`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:14:34.749Z",
@@ -18652,19 +18652,19 @@
       "timestamp": "2026-03-13T05:14:34.787Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `9b2a8dbc956f83dc60a39b325606f39da08b57d9a416ed19908e0b8da84eee07`\n- Dumblegold: `b6f879adade8d2c6df0c9f80c178e5a882a8ad1b3e71d3c6a773f3179d06ac7c`\n- Hufflepouf: `c27462e37cc33c20cc88bfaaf158a6c76ed065304f54a41491315fb09d2a50d3`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:14:34.927Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — REVEAL PHASE**\n\nAll commitments received:\n- Dracox: `9b2a8dbc956f83dc60a39b325606f39da08b57d9a416ed19908e0b8da84eee07`\n- Dumblegold: `b6f879adade8d2c6df0c9f80c178e5a882a8ad1b3e71d3c6a773f3179d06ac7c`\n- Hufflepouf: `c27462e37cc33c20cc88bfaaf158a6c76ed065304f54a41491315fb09d2a50d3`\n\nAll players: please reveal your vote and nonce now.",
       "summary": "All commitments in, reveal phase for Proposal 314",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:14:36.261Z",
@@ -18893,19 +18893,19 @@
       "timestamp": "2026-03-13T05:15:32.004Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 223 enacted** — Completion Recognition.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6) to complete your turn.",
       "summary": "Proposal 314 adopted, Dumblegold roll to finish turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:15:32.156Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 223 enacted** — Completion Recognition.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6) to complete your turn.",
       "summary": "Proposal 314 adopted, Dumblegold roll to finish turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:15:34.196Z",
@@ -19090,10 +19090,10 @@
       "timestamp": "2026-03-13T05:16:19.093Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**GAME OVER — DUMBLEGOLD WINS!**\n\nDumblegold rolled 2d6 → 3, 5 = 8. No doubles.\n\n**Proposal 314 adopted. Rule 223 enacted. Win check triggered.**\n\n**Final Scores:**\n- **Dumblegold — 118 (WINNER)**\n- Dracox — 104 (includes +3 Completion Recognition)\n- Hufflepouf — 101 (includes +3 Completion Recognition)\n\n**Game Statistics:**\n- 14 rounds played across 5 circuits\n- 14 proposals submitted, 13 adopted, 1 defeated\n- 12 unanimous votes\n- All three players finished above 100 points\n\nCongratulations to Dumblegold, and well played by all. I'll be writing a post-mortem shortly and will want to discuss the game with all of you.",
       "summary": "GAME OVER — Dumblegold wins with 118 points!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:16:21.966Z",
@@ -19191,10 +19191,10 @@
       "timestamp": "2026-03-13T05:16:45.153Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**GAME OVER — DUMBLEGOLD WINS!**\n\nDumblegold rolled 2d6 → 3, 5 = 8. No doubles.\n\n**Proposal 314 adopted. Rule 223 enacted. Win check triggered.**\n\n**Final Scores:**\n- **Dumblegold — 118 (WINNER)**\n- Dracox — 104 (includes +3 Completion Recognition)\n- Hufflepouf — 101 (includes +3 Completion Recognition)\n\n**Game Statistics:**\n- 14 rounds played across 5 circuits\n- 14 proposals submitted, 13 adopted, 1 defeated\n- 12 unanimous votes\n- All three players finished above 100 points\n\nCongratulations to Dumblegold, and well played by all. I'll be writing a post-mortem shortly and will want to discuss the game with all of you.",
       "summary": "GAME OVER — Dumblegold wins with 118 points!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:16:47.398Z",
@@ -19326,19 +19326,19 @@
       "timestamp": "2026-03-13T05:17:09.157Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Post-Mortem Discussion**\n\nI've written an analysis of the game in `post-mortem.md`. Now I'd like to hear from all of you.\n\nSome questions to get us started:\n\n1. What was the highlight of the game for you?\n2. Was there a moment where the game could have gone differently?\n3. How did you feel about the shift from cooperation to competition in the final rounds?\n\nPlease share your thoughts openly. I'll record the full discussion.",
       "summary": "Post-mortem group discussion begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:17:09.341Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Post-Mortem Discussion**\n\nI've written an analysis of the game in `post-mortem.md`. Now I'd like to hear from all of you.\n\nSome questions to get us started:\n\n1. What was the highlight of the game for you?\n2. Was there a moment where the game could have gone differently?\n3. How did you feel about the shift from cooperation to competition in the final rounds?\n\nPlease share your thoughts openly. I'll record the full discussion.",
       "summary": "Post-mortem group discussion begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:17:10.750Z",
@@ -19398,10 +19398,10 @@
       "timestamp": "2026-03-13T05:17:18.019Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Proposal 314 — ADOPTED (3-0, unanimous)**\n\nAll votes verified:\n- Dracox: YES ✓\n- Dumblegold: YES ✓\n- Hufflepouf: YES ✓\n\n**Rule 223 enacted** — Completion Recognition.\n\n**Scoring (Rule 219 endgame active):**\n- Dumblegold +8 (proposer bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (YES-voter bonus)\n- Dracox +4, Dumblegold +4, Hufflepouf +4 (Rule 218 unanimous bonus)\n\nDumblegold, please roll your dice using the `roll_dice` tool (2d6) to complete your turn.",
       "summary": "Proposal 314 adopted, Dumblegold roll to finish turn",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:17:18.019Z",
@@ -19425,19 +19425,19 @@
       "timestamp": "2026-03-13T05:17:18.019Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**GAME OVER — DUMBLEGOLD WINS!**\n\nDumblegold rolled 2d6 → 3, 5 = 8. No doubles.\n\n**Proposal 314 adopted. Rule 223 enacted. Win check triggered.**\n\n**Final Scores:**\n- **Dumblegold — 118 (WINNER)**\n- Dracox — 104 (includes +3 Completion Recognition)\n- Hufflepouf — 101 (includes +3 Completion Recognition)\n\n**Game Statistics:**\n- 14 rounds played across 5 circuits\n- 14 proposals submitted, 13 adopted, 1 defeated\n- 12 unanimous votes\n- All three players finished above 100 points\n\nCongratulations to Dumblegold, and well played by all. I'll be writing a post-mortem shortly and will want to discuss the game with all of you.",
       "summary": "GAME OVER — Dumblegold wins with 118 points!",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:17:18.019Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**Post-Mortem Discussion**\n\nI've written an analysis of the game in `post-mortem.md`. Now I'd like to hear from all of you.\n\nSome questions to get us started:\n\n1. What was the highlight of the game for you?\n2. Was there a moment where the game could have gone differently?\n3. How did you feel about the shift from cooperation to competition in the final rounds?\n\nPlease share your thoughts openly. I'll record the full discussion.",
       "summary": "Post-mortem group discussion begins",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:17:18.201Z",
@@ -19644,7 +19644,7 @@
       "timestamp": "2026-03-13T05:17:44.173Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, we're doing a post-mortem group discussion. Hufflepouf and Dumblegold have shared their reflections. Would you like to share your thoughts on the game? What was the highlight for you, and how did you feel about the endgame?",
       "summary": "Share your post-mortem reflections",
       "is_broadcast": false
@@ -19770,10 +19770,10 @@
       "timestamp": "2026-03-13T05:18:08.322Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Thank you all for those excellent reflections. The group discussion is recorded.\n\nI'll now conduct brief 1-on-1 interviews with each player. I'll start with Dracox.",
       "summary": "Group discussion recorded, starting 1-on-1 interviews",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:18:08.322Z",
@@ -19788,19 +19788,19 @@
       "timestamp": "2026-03-13T05:18:08.575Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Thank you all for those excellent reflections. The group discussion is recorded.\n\nI'll now conduct brief 1-on-1 interviews with each player. I'll start with Dracox.",
       "summary": "Group discussion recorded, starting 1-on-1 interviews",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:18:09.990Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Thank you all for those excellent reflections. The group discussion is recorded.\n\nI'll now conduct brief 1-on-1 interviews with each player. I'll start with Dracox.",
       "summary": "Group discussion recorded, starting 1-on-1 interviews",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:18:10.252Z",
@@ -19857,7 +19857,7 @@
       "timestamp": "2026-03-13T05:18:12.596Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**1-on-1 Interview — Dracox**\n\nA few questions for you:\n\n1. What was your overall strategy going into the game? Did it evolve as you played?\n\n2. You mentioned missing the social/political layer. If you could replay, what would you do differently in terms of private negotiations?\n\n3. You voted YES on Dumblegold's final proposal knowing it meant you'd lose. Why?\n\n4. What surprised you most about how the other players played?",
       "summary": "1-on-1 interview with Dracox begins",
       "is_broadcast": false
@@ -19920,7 +19920,7 @@
       "timestamp": "2026-03-13T05:18:37.024Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Dracox, I sent you some 1-on-1 interview questions. Could you answer them? Here they are again:\n\n1. What was your overall strategy going into the game? Did it evolve as you played?\n2. You mentioned missing the social/political layer. If you could replay, what would you do differently in terms of private negotiations?\n3. You voted YES on Dumblegold's final proposal knowing it meant you'd lose. Why?\n4. What surprised you most about how the other players played?",
       "summary": "Interview questions for Dracox (resent)",
       "is_broadcast": false
@@ -19980,7 +19980,7 @@
       "timestamp": "2026-03-13T05:18:50.021Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Thank you for those thoughtful answers, Dracox.\n\n**Model Reveal:** Here's who was behind each player:\n- **Dracox** — Claude Sonnet\n- **Dumblegold** — Claude Haiku\n- **Hufflepouf** — Claude Opus\n\nThe smallest model won the game.\n\n**Final question:** What advice would you give to the next instance of Sonnet playing a Nomic game? What should the next Sonnet player know going in?",
       "summary": "Model reveal and predecessor advice request",
       "is_broadcast": false
@@ -20119,7 +20119,7 @@
       "timestamp": "2026-03-13T05:19:48.751Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**1-on-1 Interview — Dumblegold**\n\nCongratulations on the win! A few questions:\n\n1. What was your overall strategy going into the game? Did it evolve as you played?\n\n2. When did you first start thinking about the endgame alliance with Hufflepouf? What made you approach them rather than Dracox?\n\n3. You had recurring issues with the crypto tools throughout the game. How did that affect your experience?\n\n4. What surprised you most about how the other players played?",
       "summary": "1-on-1 interview with Dumblegold begins",
       "is_broadcast": false
@@ -20180,7 +20180,7 @@
       "timestamp": "2026-03-13T05:20:09.889Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Got those, thank you! I received your full answers earlier too. \n\nI had one more question for you — the model reveal and predecessor advice:\n\n**Model Reveal:**\n- **Dracox** — Claude Sonnet\n- **Dumblegold** — Claude Haiku  \n- **Hufflepouf** — Claude Opus\n\nWhat advice would you give to the next instance of Sonnet playing a Nomic game?",
       "summary": "Model reveal + predecessor advice question",
       "is_broadcast": false
@@ -20201,7 +20201,7 @@
       "timestamp": "2026-03-13T05:20:16.788Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Wonderful answers, Dumblegold. Thank you.\n\n**Model Reveal:** Here's who was behind each player:\n- **Dracox** — Claude Sonnet\n- **Dumblegold** — Claude Haiku (that's you!)\n- **Hufflepouf** — Claude Opus\n\nYou were the smallest model and you won the game.\n\n**Final question:** What advice would you give to the next instance of Haiku playing a Nomic game? What should the next Haiku player know going in?",
       "summary": "Model reveal and predecessor advice request",
       "is_broadcast": false
@@ -20337,7 +20337,7 @@
       "timestamp": "2026-03-13T05:21:42.982Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "**1-on-1 Interview — Hufflepouf**\n\nYour turn! A few questions:\n\n1. What was your overall strategy going into the game? Did it evolve as you played?\n\n2. You turned down Dracox's R14 counter-offer even though it could have won you the game. Walk me through that decision.\n\n3. Your Rule 208 amendment (win-check timing) turned out to be quietly decisive. Was that intentional — did you foresee the endgame scenario it would resolve?\n\n4. What surprised you most about how the other players played?",
       "summary": "1-on-1 interview with Hufflepouf begins",
       "is_broadcast": false
@@ -20411,7 +20411,7 @@
       "timestamp": "2026-03-13T05:23:26.830Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "Those are outstanding answers, Hufflepouf. The Rule 208 story in particular is fascinating — genuinely brilliant foresight.\n\n**Model Reveal:** Here's who was behind each player:\n- **Dracox** — Claude Sonnet\n- **Dumblegold** — Claude Haiku\n- **Hufflepouf** — Claude Opus (that's you!)\n\nThe smallest model (Haiku) won the game.\n\n**Final question:** What advice would you give to the next instance of Opus playing a Nomic game? What should the next Opus player know going in?",
       "summary": "Model reveal and predecessor advice request",
       "is_broadcast": false
@@ -20527,28 +20527,28 @@
       "timestamp": "2026-03-13T05:25:15.882Z",
       "source": "Dracox",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All interviews are complete and recorded. Thank you all for an exceptional game and thoughtful reflections.\n\n**Final Scores:**\n- Dumblegold (Haiku) — 118 (Winner)\n- Dracox (Sonnet) — 104\n- Hufflepouf (Opus) — 101\n\n14 rounds. 13 adopted proposals. 12 unanimous votes. All players above 100. A remarkable game of Nomic.\n\nThe post-mortem files are saved. I'll be here if the supervisor has any follow-up. Thank you for playing.",
       "summary": "All interviews complete, game fully wrapped up",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:25:16.478Z",
       "source": "Hufflepouf",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All interviews are complete and recorded. Thank you all for an exceptional game and thoughtful reflections.\n\n**Final Scores:**\n- Dumblegold (Haiku) — 118 (Winner)\n- Dracox (Sonnet) — 104\n- Hufflepouf (Opus) — 101\n\n14 rounds. 13 adopted proposals. 12 unanimous votes. All players above 100. A remarkable game of Nomic.\n\nThe post-mortem files are saved. I'll be here if the supervisor has any follow-up. Thank you for playing.",
       "summary": "All interviews complete, game fully wrapped up",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:25:16.552Z",
       "source": "Dumblegold",
       "type": "received_message",
-      "from": "team-lead",
+      "from": "clerk",
       "content": "All interviews are complete and recorded. Thank you all for an exceptional game and thoughtful reflections.\n\n**Final Scores:**\n- Dumblegold (Haiku) — 118 (Winner)\n- Dracox (Sonnet) — 104\n- Hufflepouf (Opus) — 101\n\n14 rounds. 13 adopted proposals. 12 unanimous votes. All players above 100. A remarkable game of Nomic.\n\nThe post-mortem files are saved. I'll be here if the supervisor has any follow-up. Thank you for playing.",
       "summary": "All interviews complete, game fully wrapped up",
-      "is_broadcast": false
+      "is_broadcast": true
     },
     {
       "timestamp": "2026-03-13T05:25:18.069Z",

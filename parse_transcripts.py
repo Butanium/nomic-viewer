@@ -516,6 +516,16 @@ def build_game_data(game_dir: Path) -> dict:
     # Sort by timestamp
     all_events.sort(key=lambda e: e.get("timestamp", ""))
 
+    # Normalize "from" field in received_messages to match agent names from filenames.
+    # teammate-message XML uses the display name (e.g. "Clippyrus") while the parser
+    # uses the filename-derived name (e.g. "clippyrus").
+    name_map = {name.lower(): name for name in agents}  # lowercase → canonical
+    name_map["team-lead"] = "clerk"
+    for evt in all_events:
+        if evt["type"] == "received_message" and evt.get("from"):
+            canonical = name_map.get(evt["from"].lower(), evt["from"])
+            evt["from"] = canonical
+
     # Cross-reference received_message events with sent messages to determine
     # broadcast vs DM. Build a lookup of sent messages by (sender, content_prefix).
     sent_messages = {}
@@ -531,8 +541,6 @@ def build_game_data(game_dir: Path) -> dict:
             if original:
                 evt["is_broadcast"] = original.get("is_broadcast", False)
             else:
-                # Messages from team-lead without a matching sent event are
-                # clerk direct messages (not broadcasts)
                 evt["is_broadcast"] = False
 
     # Extract time range
