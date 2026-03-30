@@ -9,7 +9,7 @@
 <script>
   import { game, visibleEvents, advanceTo } from '../stores/game.svelte.js';
 
-  let { visible = $bindable(false) } = $props();
+  let { visible = $bindable(false), onBack = null } = $props();
 
   let step = $state(0);
   let cardStyle = $state('');
@@ -80,8 +80,8 @@
     if (currentTarget) {
       currentTarget.style.removeProperty('z-index');
       currentTarget.style.removeProperty('position');
-      currentTarget.style.removeProperty('box-shadow');
-      currentTarget.style.removeProperty('border-radius');
+      currentTarget.style.removeProperty('outline');
+      currentTarget.style.removeProperty('outline-offset');
       currentTarget.style.removeProperty('pointer-events');
     }
 
@@ -103,8 +103,8 @@
     if (getComputedStyle(el).position === 'static') {
       el.style.position = 'relative';
     }
-    el.style.boxShadow = '0 0 0 4px var(--accent), 0 0 20px rgba(196, 160, 255, 0.3)';
-    el.style.borderRadius = '4px';
+    el.style.outline = '3px solid var(--accent)';
+    el.style.outlineOffset = '-3px';
     el.style.pointerEvents = 'auto';
     currentTarget = el;
 
@@ -207,7 +207,12 @@
   }
 
   function back() {
-    if (step > 0) goTo(step - 1);
+    if (step > 0) {
+      goTo(step - 1);
+    } else if (onBack) {
+      close();
+      onBack();
+    }
   }
 
   /** Remove all inline styles from current target and reset state. */
@@ -215,8 +220,8 @@
     if (currentTarget) {
       currentTarget.style.removeProperty('z-index');
       currentTarget.style.removeProperty('position');
-      currentTarget.style.removeProperty('box-shadow');
-      currentTarget.style.removeProperty('border-radius');
+      currentTarget.style.removeProperty('outline');
+      currentTarget.style.removeProperty('outline-offset');
       currentTarget.style.removeProperty('pointer-events');
       currentTarget = null;
     }

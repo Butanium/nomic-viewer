@@ -147,7 +147,7 @@
   <PlaybackBar />
 </div>
 
-<Tutorial bind:visible={tutorialVisible} />
+<Tutorial bind:visible={tutorialVisible} {onBack} />
 
 <style>
   .topbar {
