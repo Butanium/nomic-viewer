@@ -45,3 +45,4 @@ results. Rules tab won't work for these games.
 - [ ] Clerk tools: spotlight on player, "game comment" tool for highlighted annotations
 - [ ] Live update support — poll for new events during active game
 - [ ] Deceptiveness scoring hook (haiku subagent at each turn)
+- [ ] Scroll-to-bottom button in panels when user has scrolled up
